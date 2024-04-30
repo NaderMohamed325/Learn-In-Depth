@@ -11,6 +11,7 @@ typedef struct {
 } student_t;
 
 int main() {
+    printf("%i", sizeof(student_t));
     int n;
     printf("Enter the number of students: ");
     scanf("%d", &n);

@@ -10,68 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee18ea86-edda-4dc8-98a0-ddf808497e9e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Ex4.exe" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Unit 2/Struct and Union/HomeWork5/Ex3.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Unit 2/Struct and Union/HomeWork5/Ex4.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Unit 2/Struct and Union/HomeWork5/Ex5.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Unit 2/Struct and Union/HomeWork5/Screen Shots/Ex3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Unit 2/Struct and Union/HomeWork5/Screen Shots/Ex4.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Array and Strings/HomeWork3/Arrays/Ex1.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Array and Strings/HomeWork3/Arrays/Ex2.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Array and Strings/HomeWork3/Arrays/Ex3.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Array and Strings/HomeWork3/Arrays/Ex4.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Array and Strings/HomeWork3/Arrays/Ex5.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Array and Strings/HomeWork3/Strings/Ex1.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Array and Strings/HomeWork3/Strings/Ex2.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Array and Strings/HomeWork3/Strings/Ex3.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Array and Strings/Screen shots/Arrays/Ex1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Array and Strings/Screen shots/Arrays/Ex2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Array and Strings/Screen shots/Arrays/Ex3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Array and Strings/Screen shots/Arrays/Ex4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Array and Strings/Screen shots/Arrays/Ex5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Array and Strings/Screen shots/Strings/Ex1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Array and Strings/Screen shots/Strings/Ex2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Array and Strings/Screen shots/Strings/Ex3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Functions/Ex1.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Functions/Ex2.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Functions/Ex3.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Functions/Ex4.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Functions/Screen Shots/Ex1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Functions/Screen Shots/Ex2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Functions/Screen Shots/Ex3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Functions/Screen Shots/Ex4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork1/Ex1.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork1/Ex2.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork1/Ex3.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork1/Ex4.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork1/Ex5.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork1/Ex6.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork1/Ex7.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork1/Screen Shots/Ex1-Screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork1/Screen Shots/Ex2-Screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork1/Screen Shots/Ex3-Screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork1/Screen Shots/Ex4-Screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork1/Screen Shots/Ex5-Screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork1/Screen Shots/Ex6-Screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork1/Screen Shots/Ex7-Screen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork2/Ex1.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork2/Ex2.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork2/Ex3.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork2/Ex4.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork2/Ex5.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork2/Ex6.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork2/Ex7.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork2/Ex8.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork2/Screen Shots/Ex1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork2/Screen Shots/Ex2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork2/Screen Shots/Ex3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork2/Screen Shots/Ex4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork2/Screen Shots/Ex5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork2/Screen Shots/Ex6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork2/Screen Shots/Ex7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/Lecture 3 Basic C/HomeWork2/Screen Shots/Ex8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assigments/REPO.png" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unit 3/Lec 2/Map_file.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unit 3/Lec 2/main.o" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unit 3/Lec 2/output.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Unit 3/Lec 2/output.elf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex4.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Ex5.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unit 2/Struct and Union/HomeWork5/Ex4.c" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 2/Struct and Union/HomeWork5/Ex4.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,22 +30,25 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "NaderMohamed325"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;NaderMohamed325&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/NaderMohamed325/Learn-In-Depth.git",
-    "accountId": "74d80940-85e7-412e-970c-ac0ec93ca9cc"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/NaderMohamed325/Learn-In-Depth.git&quot;,
+    &quot;accountId&quot;: &quot;74d80940-85e7-412e-970c-ac0ec93ca9cc&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 2
-}]]></component>
+}</component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2fjOmyDPMbLf8HLlNuyPvnRGjj9" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -113,6 +62,8 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "C/C++ File.Ex3.c.executor": "Run",
     "C/C++ File.Ex4.c.executor": "Run",
+    "C/C++ File.Ex5.c.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
@@ -130,15 +81,15 @@
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="Ex5.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Learn in depth" TARGET_NAME="Ex5.c" CONFIG_NAME="Ex5.c">
-      <option name="sourceFile" value="Unit 2\Struct and Union\HomeWork5\Ex5.c" />
+    <configuration name="Ex4.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Learn in depth" TARGET_NAME="Ex4.c" CONFIG_NAME="Ex4.c">
+      <option name="sourceFile" value="Unit 2\Struct and Union\HomeWork5\Ex4.c" />
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.runfile.CppFileBuildBeforeRunTaskProvider$BasicBuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="C/C++ File.Ex5.c" />
+        <item itemvalue="C/C++ File.Ex4.c" />
       </list>
     </recent_temporary>
   </component>
@@ -150,7 +101,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1714311182855</updated>
-      <workItem from="1714311183983" duration="2252000" />
+      <workItem from="1714311183983" duration="3339000" />
+      <workItem from="1714503757763" duration="946000" />
     </task>
     <servers />
   </component>
