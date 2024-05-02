@@ -5,7 +5,7 @@
 
 void Uart_Send(unsigned char*message) {
 
-	while (*message) {
+	while (*message!='\0') {
 		UART_REG = (unsigned int)(*message);
 		message++;
 	}

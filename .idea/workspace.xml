@@ -10,14 +10,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ee18ea86-edda-4dc8-98a0-ddf808497e9e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Unit 3/Lec 2/Map_file.map" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Unit 3/Lec 2/main.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Unit 3/Lec 2/output.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Unit 3/Lec 2/output.elf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ex4.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Ex5.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unit 2/Struct and Union/HomeWork5/Ex4.c" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 2/Struct and Union/HomeWork5/Ex4.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unit 3/Lec 2/Map_file.map" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 3/Lec 2/Map_file.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unit 3/Lec 2/linkerscript.ld" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 3/Lec 2/linkerscript.ld" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unit 3/Lec 2/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 3/Lec 2/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unit 3/Lec 2/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 3/Lec 2/main.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unit 3/Lec 2/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 3/Lec 2/output.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unit 3/Lec 2/output.elf" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 3/Lec 2/output.elf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unit 3/Lec 2/startup.o" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 3/Lec 2/startup.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unit 3/Lec 2/startup.s" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 3/Lec 2/startup.s" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unit 3/Lec 2/uart.c" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 3/Lec 2/uart.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unit 3/Lec 2/uart.o" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 3/Lec 2/uart.o" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,29 +60,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "C/C++ File.Ex3.c.executor": "Run",
-    "C/C++ File.Ex4.c.executor": "Run",
-    "C/C++ File.Ex5.c.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "deletionFromPopupRequiresConfirmation": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/xcite/OneDrive/Desktop/Learn in depth",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;C/C++ File.Ex3.c.executor&quot;: &quot;Run&quot;,
+    &quot;C/C++ File.Ex4.c.executor&quot;: &quot;Run&quot;,
+    &quot;C/C++ File.Ex5.c.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/xcite/OneDrive/Desktop/Learn in depth&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Ex4.c" type="CppFileRunConfiguration" factoryName="CppFileRunConfiguration" temporary="true" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Learn in depth" TARGET_NAME="Ex4.c" CONFIG_NAME="Ex4.c">
       <option name="sourceFile" value="Unit 2\Struct and Union\HomeWork5\Ex4.c" />
@@ -103,6 +106,8 @@
       <updated>1714311182855</updated>
       <workItem from="1714311183983" duration="3339000" />
       <workItem from="1714503757763" duration="946000" />
+      <workItem from="1714693437845" duration="323000" />
+      <workItem from="1714693994725" duration="1000" />
     </task>
     <servers />
   </component>
