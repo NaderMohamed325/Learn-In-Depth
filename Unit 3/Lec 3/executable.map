@@ -1,0 +1,91 @@
+
+There are no discarded input sections
+
+Memory Configuration
+
+Name             Origin             Length             Attributes
+Flash            0x08000000         0x00020000         xr
+Sram             0x20000000         0x00010000         xrw
+*default*        0x00000000         0xffffffff
+
+Linker script and memory map
+
+LOAD main.o
+LOAD startup.o
+
+.text           0x08000000      0x114
+ *(.vectors)
+ *(.text)
+ .text          0x08000000       0x90 main.o
+                0x08000000                delay
+                0x08000032                main
+ .text          0x08000090       0x84 startup.o
+                0x08000090                DebugMon_Handler
+                0x08000090                HardFault_Handler
+                0x08000090                SysTick_Handler
+                0x08000090                PendSV_Handler
+                0x08000090                NMI_Handler
+                0x08000090                UsageFault_Handler
+                0x08000090                SVC_Handler
+                0x08000090                Default_Handler
+                0x08000090                MemManage_Handler
+                0x08000090                BusFault_Handler
+                0x08000096                Reset_Handler
+ *(.rodata)
+                0x08000114                        _E_text = .
+                0x08000114                        . = ALIGN (0x4)
+
+.glue_7         0x08000114        0x0
+ .glue_7        0x08000114        0x0 linker stubs
+
+.glue_7t        0x08000114        0x0
+ .glue_7t       0x08000114        0x0 linker stubs
+
+.vfp11_veneer   0x08000114        0x0
+ .vfp11_veneer  0x08000114        0x0 linker stubs
+
+.v4_bx          0x08000114        0x0
+ .v4_bx         0x08000114        0x0 linker stubs
+
+.iplt           0x08000114        0x0
+ .iplt          0x08000114        0x0 main.o
+
+.rel.dyn        0x08000114        0x0
+ .rel.iplt      0x08000114        0x0 main.o
+
+.data           0x20000000        0x0 load address 0x08000114
+                0x20000000                        _S_data = .
+ *(.data)
+ .data          0x20000000        0x0 main.o
+ .data          0x20000000        0x0 startup.o
+                0x20000000                        _E_data = .
+                0x20000000                        . = ALIGN (0x4)
+
+.igot.plt       0x20000000        0x0 load address 0x08000114
+ .igot.plt      0x20000000        0x0 main.o
+
+.vector         0x20000000       0x40 load address 0x08000114
+ .vector        0x20000000       0x40 startup.o
+                0x20000000                Vectors
+
+.bss            0x20000040        0x0 load address 0x08000154
+                0x20000040                        _S_bss = .
+ *(.bss)
+ .bss           0x20000040        0x0 main.o
+ .bss           0x20000040        0x0 startup.o
+                0x20000040                        _E_bss = .
+                0x20000040                        . = ALIGN (0x4)
+OUTPUT(output.elf elf32-littlearm)
+LOAD linker stubs
+
+.comment        0x00000000       0x44
+ .comment       0x00000000       0x44 main.o
+                                 0x45 (size before relaxing)
+ .comment       0x00000044       0x45 startup.o
+
+.ARM.attributes
+                0x00000000       0x2d
+ .ARM.attributes
+                0x00000000       0x2d main.o
+ .ARM.attributes
+                0x0000002d       0x2d startup.o
