@@ -8,7 +8,7 @@ MEMORY {
 SECTIONS {
     .text :
     {
-        *(.vectors)
+        *(.vector)
         *(.text)
         *(.rodata)
         _E_text = .;
