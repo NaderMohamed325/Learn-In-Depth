@@ -5,7 +5,7 @@
 #define GPIOA_CRH        (*(volatile unsigned int*)(GPIOA_BASE_ADDR + 0x04))
 #define GPIOA_ODR        (*(volatile unsigned int*)(GPIOA_BASE_ADDR + 0x0C))
 #define RCC_EN           (1 << 2)
-#define LED_PIN          13UL
+#define LED_PIN          13
 
 void delay(int milliseconds) {
     int i;
