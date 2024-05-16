@@ -9,7 +9,9 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee18ea86-edda-4dc8-98a0-ddf808497e9e" name="Changes" comment="" />
+    <list default="true" id="ee18ea86-edda-4dc8-98a0-ddf808497e9e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Unit 3/Lec 3/stm32f103.uvguix.xcite" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 3/Lec 3/stm32f103.uvguix.xcite" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -100,6 +102,8 @@
       <workItem from="1714771790013" duration="2746000" />
       <workItem from="1714775362898" duration="1195000" />
       <workItem from="1714776639717" duration="2228000" />
+      <workItem from="1714849639299" duration="20000" />
+      <workItem from="1714854388693" duration="1000" />
     </task>
     <servers />
   </component>
