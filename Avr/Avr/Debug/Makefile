@@ -34,6 +34,7 @@ LINKER_SCRIPT_DEP:=
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
 ../Hal/Led \
+../Hal/Motor \
 ../Mcal \
 ../Hal \
 ../Mcal/GPIO
@@ -42,6 +43,7 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../Hal/Led/led.c \
+../Hal/Motor/motor.c \
 ../main.c \
 ../Mcal/GPIO/gpio.c
 
@@ -54,21 +56,25 @@ ASM_SRCS +=
 
 OBJS +=  \
 Hal/Led/led.o \
+Hal/Motor/motor.o \
 main.o \
 Mcal/GPIO/gpio.o
 
 OBJS_AS_ARGS +=  \
 Hal/Led/led.o \
+Hal/Motor/motor.o \
 main.o \
 Mcal/GPIO/gpio.o
 
 C_DEPS +=  \
 Hal/Led/led.d \
+Hal/Motor/motor.d \
 main.d \
 Mcal/GPIO/gpio.d
 
 C_DEPS_AS_ARGS +=  \
 Hal/Led/led.d \
+Hal/Motor/motor.d \
 main.d \
 Mcal/GPIO/gpio.d
 
@@ -87,6 +93,13 @@ LINKER_SCRIPT_DEP+=
 
 # AVR32/GNU C Compiler
 Hal/Led/led.o: ../Hal/Led/led.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.36
+	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+Hal/Motor/motor.o: ../Hal/Motor/motor.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.36
 	$(QUOTE)C:\Program Files\Microchip\xc8\v2.36\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATmega32  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATmega32__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

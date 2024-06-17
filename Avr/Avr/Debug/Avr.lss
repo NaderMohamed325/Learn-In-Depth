@@ -140,33 +140,20 @@ Disassembly of section .text:
 Disassembly of section .text:
 
 00000448 <__bad_interrupt>:
- 448:	0c 94 00 00 	jmp	0	; 0x0 <__TEXT_REGION_ORIGIN__>
+ 448:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 Disassembly of section .text.led_init:
 
 0000043c <led_init>:
- *  Author: xcite
- */ 
-#include "led.h"
-
-void led_init(led_t *led){
-	led->led_pin.logic=led->status;
  43c:	fc 01       	movw	r30, r24
  43e:	24 81       	ldd	r18, Z+4	; 0x04
  440:	23 83       	std	Z+3, r18	; 0x03
-	Pin_init(&(led->led_pin));
  442:	0e 94 ee 01 	call	0x3dc	; 0x3dc <Pin_init>
  446:	08 95       	ret
 
 Disassembly of section .text.led_toggel:
 
 00000428 <led_toggel>:
-	led->led_pin.logic=LOW;
-	Pin_setLogic(&led->led_pin);
-}
-
-void led_toggel(led_t *led){
-	led->led_pin.logic=!led->led_pin.logic;
  428:	fc 01       	movw	r30, r24
  42a:	33 81       	ldd	r19, Z+3	; 0x03
  42c:	21 e0       	ldi	r18, 0x01	; 1
@@ -174,19 +161,12 @@ void led_toggel(led_t *led){
  430:	20 e0       	ldi	r18, 0x00	; 0
  432:	fc 01       	movw	r30, r24
  434:	23 83       	std	Z+3, r18	; 0x03
-	Pin_setLogic(&led->led_pin);
- 436:	0e 94 58 00 	call	0xb0	; 0xb0 <__data_load_end>
+ 436:	0e 94 58 00 	call	0xb0	; 0xb0 <_etext>
  43a:	08 95       	ret
 
 Disassembly of section .text.main:
 
 0000039e <main>:
-*/
-#include "main.h"
-
-
-int main(void)
-{
  39e:	cf 93       	push	r28
  3a0:	df 93       	push	r29
  3a2:	00 d0       	rcall	.+0      	; 0x3a4 <main+0x6>
@@ -194,7 +174,6 @@ int main(void)
  3a6:	0f 92       	push	r0
  3a8:	cd b7       	in	r28, 0x3d	; 61
  3aa:	de b7       	in	r29, 0x3e	; 62
-	led_t led={
  3ac:	85 e0       	ldi	r24, 0x05	; 5
  3ae:	e0 e6       	ldi	r30, 0x60	; 96
  3b0:	f0 e0       	ldi	r31, 0x00	; 0
@@ -204,15 +183,9 @@ int main(void)
  3b8:	0d 92       	st	X+, r0
  3ba:	8a 95       	dec	r24
  3bc:	e1 f7       	brne	.-8      	; 0x3b6 <main+0x18>
-		{.pin_number = 1, .port = 0, .direction = OUTPUT, .logic = HIGH},.status=led_on
-		
-	};
-	led_init(&led);
  3be:	ce 01       	movw	r24, r28
  3c0:	01 96       	adiw	r24, 0x01	; 1
  3c2:	0e 94 1e 02 	call	0x43c	; 0x43c <led_init>
-	while(1){
-		led_toggel(&led);
  3c6:	ce 01       	movw	r24, r28
  3c8:	01 96       	adiw	r24, 0x01	; 1
  3ca:	0e 94 14 02 	call	0x428	; 0x428 <led_toggel>
@@ -233,18 +206,10 @@ int main(void)
 Disassembly of section .text.Pin_setDirection:
 
 000002a6 <Pin_setDirection>:
-	Pin_setLogic(pin);
-
-	return true;
-}
-
-void Pin_setDirection(Pin *pin) {
  2a6:	fc 01       	movw	r30, r24
-	if (pin->direction == OUTPUT) {
  2a8:	82 81       	ldd	r24, Z+2	; 0x02
  2aa:	81 30       	cpi	r24, 0x01	; 1
  2ac:	c9 f5       	brne	.+114    	; 0x320 <Pin_setDirection+0x7a>
-		switch (pin->port) {
  2ae:	81 81       	ldd	r24, Z+1	; 0x01
  2b0:	81 30       	cpi	r24, 0x01	; 1
  2b2:	91 f0       	breq	.+36     	; 0x2d8 <Pin_setDirection+0x32>
@@ -254,8 +219,6 @@ void Pin_setDirection(Pin *pin) {
  2ba:	83 30       	cpi	r24, 0x03	; 3
  2bc:	29 f1       	breq	.+74     	; 0x308 <Pin_setDirection+0x62>
  2be:	08 95       	ret
-			case 0:
-			DDRA |= (1 << pin->pin_number);
  2c0:	2a b3       	in	r18, 0x1a	; 26
  2c2:	81 e0       	ldi	r24, 0x01	; 1
  2c4:	90 e0       	ldi	r25, 0x00	; 0
@@ -267,10 +230,7 @@ void Pin_setDirection(Pin *pin) {
  2d0:	e2 f7       	brpl	.-8      	; 0x2ca <Pin_setDirection+0x24>
  2d2:	82 2b       	or	r24, r18
  2d4:	8a bb       	out	0x1a, r24	; 26
-			break;
  2d6:	08 95       	ret
-			case 1:
-			DDRB |= (1 << pin->pin_number);
  2d8:	27 b3       	in	r18, 0x17	; 23
  2da:	81 e0       	ldi	r24, 0x01	; 1
  2dc:	90 e0       	ldi	r25, 0x00	; 0
@@ -282,10 +242,7 @@ void Pin_setDirection(Pin *pin) {
  2e8:	e2 f7       	brpl	.-8      	; 0x2e2 <Pin_setDirection+0x3c>
  2ea:	82 2b       	or	r24, r18
  2ec:	87 bb       	out	0x17, r24	; 23
-			break;
  2ee:	08 95       	ret
-			case 2:
-			DDRC |= (1 << pin->pin_number);
  2f0:	24 b3       	in	r18, 0x14	; 20
  2f2:	81 e0       	ldi	r24, 0x01	; 1
  2f4:	90 e0       	ldi	r25, 0x00	; 0
@@ -297,10 +254,7 @@ void Pin_setDirection(Pin *pin) {
  300:	e2 f7       	brpl	.-8      	; 0x2fa <Pin_setDirection+0x54>
  302:	82 2b       	or	r24, r18
  304:	84 bb       	out	0x14, r24	; 20
-			break;
  306:	08 95       	ret
-			case 3:
-			DDRD |= (1 << pin->pin_number);
  308:	21 b3       	in	r18, 0x11	; 17
  30a:	81 e0       	ldi	r24, 0x01	; 1
  30c:	90 e0       	ldi	r25, 0x00	; 0
@@ -312,13 +266,9 @@ void Pin_setDirection(Pin *pin) {
  318:	e2 f7       	brpl	.-8      	; 0x312 <Pin_setDirection+0x6c>
  31a:	82 2b       	or	r24, r18
  31c:	81 bb       	out	0x11, r24	; 17
-			break;
  31e:	08 95       	ret
-		}
-		} else if (pin->direction == INPUT) {
  320:	81 11       	cpse	r24, r1
  322:	3c c0       	rjmp	.+120    	; 0x39c <Pin_setDirection+0xf6>
-		switch (pin->port) {
  324:	81 81       	ldd	r24, Z+1	; 0x01
  326:	81 30       	cpi	r24, 0x01	; 1
  328:	99 f0       	breq	.+38     	; 0x350 <Pin_setDirection+0xaa>
@@ -328,8 +278,6 @@ void Pin_setDirection(Pin *pin) {
  330:	83 30       	cpi	r24, 0x03	; 3
  332:	41 f1       	breq	.+80     	; 0x384 <Pin_setDirection+0xde>
  334:	08 95       	ret
-			case 0:
-			DDRA &= ~(1 << pin->pin_number);
  336:	2a b3       	in	r18, 0x1a	; 26
  338:	81 e0       	ldi	r24, 0x01	; 1
  33a:	90 e0       	ldi	r25, 0x00	; 0
@@ -342,10 +290,7 @@ void Pin_setDirection(Pin *pin) {
  348:	80 95       	com	r24
  34a:	82 23       	and	r24, r18
  34c:	8a bb       	out	0x1a, r24	; 26
-			break;
  34e:	08 95       	ret
-			case 1:
-			DDRB &= ~(1 << pin->pin_number);
  350:	27 b3       	in	r18, 0x17	; 23
  352:	81 e0       	ldi	r24, 0x01	; 1
  354:	90 e0       	ldi	r25, 0x00	; 0
@@ -358,10 +303,7 @@ void Pin_setDirection(Pin *pin) {
  362:	80 95       	com	r24
  364:	82 23       	and	r24, r18
  366:	87 bb       	out	0x17, r24	; 23
-			break;
  368:	08 95       	ret
-			case 2:
-			DDRC &= ~(1 << pin->pin_number);
  36a:	24 b3       	in	r18, 0x14	; 20
  36c:	81 e0       	ldi	r24, 0x01	; 1
  36e:	90 e0       	ldi	r25, 0x00	; 0
@@ -374,10 +316,7 @@ void Pin_setDirection(Pin *pin) {
  37c:	80 95       	com	r24
  37e:	82 23       	and	r24, r18
  380:	84 bb       	out	0x14, r24	; 20
-			break;
  382:	08 95       	ret
-			case 3:
-			DDRD &= ~(1 << pin->pin_number);
  384:	21 b3       	in	r18, 0x11	; 17
  386:	81 e0       	ldi	r24, 0x01	; 1
  388:	90 e0       	ldi	r25, 0x00	; 0
@@ -395,19 +334,11 @@ void Pin_setDirection(Pin *pin) {
 Disassembly of section .text.Pin_setLogic:
 
 000000b0 <Pin_setLogic>:
-			break;
-		}
-	}
-}
-
-void Pin_setLogic(Pin *pin) {
   b0:	fc 01       	movw	r30, r24
-	if (pin->direction == OUTPUT) {
   b2:	82 81       	ldd	r24, Z+2	; 0x02
   b4:	81 30       	cpi	r24, 0x01	; 1
   b6:	09 f0       	breq	.+2      	; 0xba <Pin_setLogic+0xa>
   b8:	7a c0       	rjmp	.+244    	; 0x1ae <Pin_setLogic+0xfe>
-		switch (pin->port) {
   ba:	81 81       	ldd	r24, Z+1	; 0x01
   bc:	81 30       	cpi	r24, 0x01	; 1
   be:	19 f1       	breq	.+70     	; 0x106 <Pin_setLogic+0x56>
@@ -418,12 +349,9 @@ void Pin_setLogic(Pin *pin) {
   c8:	09 f4       	brne	.+2      	; 0xcc <Pin_setLogic+0x1c>
   ca:	55 c0       	rjmp	.+170    	; 0x176 <Pin_setLogic+0xc6>
   cc:	08 95       	ret
-			case 0:
-			if (pin->logic == HIGH) {
   ce:	83 81       	ldd	r24, Z+3	; 0x03
   d0:	81 30       	cpi	r24, 0x01	; 1
   d2:	61 f4       	brne	.+24     	; 0xec <Pin_setLogic+0x3c>
-				PORTA |= (1 << pin->pin_number);
   d4:	2b b3       	in	r18, 0x1b	; 27
   d6:	81 e0       	ldi	r24, 0x01	; 1
   d8:	90 e0       	ldi	r25, 0x00	; 0
@@ -436,8 +364,6 @@ void Pin_setLogic(Pin *pin) {
   e6:	82 2b       	or	r24, r18
   e8:	8b bb       	out	0x1b, r24	; 27
   ea:	08 95       	ret
-				} else {
-				PORTA &= ~(1 << pin->pin_number);
   ec:	2b b3       	in	r18, 0x1b	; 27
   ee:	81 e0       	ldi	r24, 0x01	; 1
   f0:	90 e0       	ldi	r25, 0x00	; 0
@@ -451,14 +377,9 @@ void Pin_setLogic(Pin *pin) {
  100:	82 23       	and	r24, r18
  102:	8b bb       	out	0x1b, r24	; 27
  104:	08 95       	ret
-			}
-			break;
-			case 1:
-			if (pin->logic == HIGH) {
  106:	83 81       	ldd	r24, Z+3	; 0x03
  108:	81 30       	cpi	r24, 0x01	; 1
  10a:	61 f4       	brne	.+24     	; 0x124 <Pin_setLogic+0x74>
-				PORTB |= (1 << pin->pin_number);
  10c:	28 b3       	in	r18, 0x18	; 24
  10e:	81 e0       	ldi	r24, 0x01	; 1
  110:	90 e0       	ldi	r25, 0x00	; 0
@@ -471,8 +392,6 @@ void Pin_setLogic(Pin *pin) {
  11e:	82 2b       	or	r24, r18
  120:	88 bb       	out	0x18, r24	; 24
  122:	08 95       	ret
-				} else {
-				PORTB &= ~(1 << pin->pin_number);
  124:	28 b3       	in	r18, 0x18	; 24
  126:	81 e0       	ldi	r24, 0x01	; 1
  128:	90 e0       	ldi	r25, 0x00	; 0
@@ -486,14 +405,9 @@ void Pin_setLogic(Pin *pin) {
  138:	82 23       	and	r24, r18
  13a:	88 bb       	out	0x18, r24	; 24
  13c:	08 95       	ret
-			}
-			break;
-			case 2:
-			if (pin->logic == HIGH) {
  13e:	83 81       	ldd	r24, Z+3	; 0x03
  140:	81 30       	cpi	r24, 0x01	; 1
  142:	61 f4       	brne	.+24     	; 0x15c <Pin_setLogic+0xac>
-				PORTC |= (1 << pin->pin_number);
  144:	25 b3       	in	r18, 0x15	; 21
  146:	81 e0       	ldi	r24, 0x01	; 1
  148:	90 e0       	ldi	r25, 0x00	; 0
@@ -506,8 +420,6 @@ void Pin_setLogic(Pin *pin) {
  156:	82 2b       	or	r24, r18
  158:	85 bb       	out	0x15, r24	; 21
  15a:	08 95       	ret
-				} else {
-				PORTC &= ~(1 << pin->pin_number);
  15c:	25 b3       	in	r18, 0x15	; 21
  15e:	81 e0       	ldi	r24, 0x01	; 1
  160:	90 e0       	ldi	r25, 0x00	; 0
@@ -521,14 +433,9 @@ void Pin_setLogic(Pin *pin) {
  170:	82 23       	and	r24, r18
  172:	85 bb       	out	0x15, r24	; 21
  174:	08 95       	ret
-			}
-			break;
-			case 3:
-			if (pin->logic == HIGH) {
  176:	83 81       	ldd	r24, Z+3	; 0x03
  178:	81 30       	cpi	r24, 0x01	; 1
  17a:	61 f4       	brne	.+24     	; 0x194 <Pin_setLogic+0xe4>
-				PORTD |= (1 << pin->pin_number);
  17c:	22 b3       	in	r18, 0x12	; 18
  17e:	81 e0       	ldi	r24, 0x01	; 1
  180:	90 e0       	ldi	r25, 0x00	; 0
@@ -541,8 +448,6 @@ void Pin_setLogic(Pin *pin) {
  18e:	82 2b       	or	r24, r18
  190:	82 bb       	out	0x12, r24	; 18
  192:	08 95       	ret
-				} else {
-				PORTD &= ~(1 << pin->pin_number);
  194:	22 b3       	in	r18, 0x12	; 18
  196:	81 e0       	ldi	r24, 0x01	; 1
  198:	90 e0       	ldi	r25, 0x00	; 0
@@ -556,13 +461,8 @@ void Pin_setLogic(Pin *pin) {
  1a8:	82 23       	and	r24, r18
  1aa:	82 bb       	out	0x12, r24	; 18
  1ac:	08 95       	ret
-			}
-			break;
-		}
-		} else if (pin->direction == INPUT) {
  1ae:	81 11       	cpse	r24, r1
  1b0:	79 c0       	rjmp	.+242    	; 0x2a4 <Pin_setLogic+0x1f4>
-		switch (pin->port) {
  1b2:	81 81       	ldd	r24, Z+1	; 0x01
  1b4:	81 30       	cpi	r24, 0x01	; 1
  1b6:	19 f1       	breq	.+70     	; 0x1fe <Pin_setLogic+0x14e>
@@ -573,12 +473,9 @@ void Pin_setLogic(Pin *pin) {
  1c0:	09 f4       	brne	.+2      	; 0x1c4 <Pin_setLogic+0x114>
  1c2:	55 c0       	rjmp	.+170    	; 0x26e <Pin_setLogic+0x1be>
  1c4:	08 95       	ret
-			case 0:
-			if (pin->logic == HIGH) {
  1c6:	83 81       	ldd	r24, Z+3	; 0x03
  1c8:	81 30       	cpi	r24, 0x01	; 1
  1ca:	61 f4       	brne	.+24     	; 0x1e4 <Pin_setLogic+0x134>
-				PORTA |= (1 << pin->pin_number); // Enable pull-up resistor
  1cc:	2b b3       	in	r18, 0x1b	; 27
  1ce:	81 e0       	ldi	r24, 0x01	; 1
  1d0:	90 e0       	ldi	r25, 0x00	; 0
@@ -591,8 +488,6 @@ void Pin_setLogic(Pin *pin) {
  1de:	82 2b       	or	r24, r18
  1e0:	8b bb       	out	0x1b, r24	; 27
  1e2:	08 95       	ret
-				} else {
-				PORTA &= ~(1 << pin->pin_number); // Disable pull-up resistor
  1e4:	2b b3       	in	r18, 0x1b	; 27
  1e6:	81 e0       	ldi	r24, 0x01	; 1
  1e8:	90 e0       	ldi	r25, 0x00	; 0
@@ -606,14 +501,9 @@ void Pin_setLogic(Pin *pin) {
  1f8:	82 23       	and	r24, r18
  1fa:	8b bb       	out	0x1b, r24	; 27
  1fc:	08 95       	ret
-			}
-			break;
-			case 1:
-			if (pin->logic == HIGH) {
  1fe:	83 81       	ldd	r24, Z+3	; 0x03
  200:	81 30       	cpi	r24, 0x01	; 1
  202:	61 f4       	brne	.+24     	; 0x21c <Pin_setLogic+0x16c>
-				PORTB |= (1 << pin->pin_number);
  204:	28 b3       	in	r18, 0x18	; 24
  206:	81 e0       	ldi	r24, 0x01	; 1
  208:	90 e0       	ldi	r25, 0x00	; 0
@@ -626,8 +516,6 @@ void Pin_setLogic(Pin *pin) {
  216:	82 2b       	or	r24, r18
  218:	88 bb       	out	0x18, r24	; 24
  21a:	08 95       	ret
-				} else {
-				PORTB &= ~(1 << pin->pin_number);
  21c:	28 b3       	in	r18, 0x18	; 24
  21e:	81 e0       	ldi	r24, 0x01	; 1
  220:	90 e0       	ldi	r25, 0x00	; 0
@@ -641,14 +529,9 @@ void Pin_setLogic(Pin *pin) {
  230:	82 23       	and	r24, r18
  232:	88 bb       	out	0x18, r24	; 24
  234:	08 95       	ret
-			}
-			break;
-			case 2:
-			if (pin->logic == HIGH) {
  236:	83 81       	ldd	r24, Z+3	; 0x03
  238:	81 30       	cpi	r24, 0x01	; 1
  23a:	61 f4       	brne	.+24     	; 0x254 <Pin_setLogic+0x1a4>
-				PORTC |= (1 << pin->pin_number);
  23c:	25 b3       	in	r18, 0x15	; 21
  23e:	81 e0       	ldi	r24, 0x01	; 1
  240:	90 e0       	ldi	r25, 0x00	; 0
@@ -661,8 +544,6 @@ void Pin_setLogic(Pin *pin) {
  24e:	82 2b       	or	r24, r18
  250:	85 bb       	out	0x15, r24	; 21
  252:	08 95       	ret
-				} else {
-				PORTC &= ~(1 << pin->pin_number);
  254:	25 b3       	in	r18, 0x15	; 21
  256:	81 e0       	ldi	r24, 0x01	; 1
  258:	90 e0       	ldi	r25, 0x00	; 0
@@ -676,14 +557,9 @@ void Pin_setLogic(Pin *pin) {
  268:	82 23       	and	r24, r18
  26a:	85 bb       	out	0x15, r24	; 21
  26c:	08 95       	ret
-			}
-			break;
-			case 3:
-			if (pin->logic == HIGH) {
  26e:	83 81       	ldd	r24, Z+3	; 0x03
  270:	81 30       	cpi	r24, 0x01	; 1
  272:	61 f4       	brne	.+24     	; 0x28c <Pin_setLogic+0x1dc>
-				PORTD |= (1 << pin->pin_number);
  274:	22 b3       	in	r18, 0x12	; 18
  276:	81 e0       	ldi	r24, 0x01	; 1
  278:	90 e0       	ldi	r25, 0x00	; 0
@@ -696,8 +572,6 @@ void Pin_setLogic(Pin *pin) {
  286:	82 2b       	or	r24, r18
  288:	82 bb       	out	0x12, r24	; 18
  28a:	08 95       	ret
-				} else {
-				PORTD &= ~(1 << pin->pin_number);
  28c:	22 b3       	in	r18, 0x12	; 18
  28e:	81 e0       	ldi	r24, 0x01	; 1
  290:	90 e0       	ldi	r25, 0x00	; 0
@@ -715,15 +589,8 @@ void Pin_setLogic(Pin *pin) {
 Disassembly of section .text.Pin_init:
 
 000003dc <Pin_init>:
-* Created: 5/17/2024 5:49:28 PM
-* Author: Nader
-*/
-#include "gpio.h"
-
-bool Pin_init(Pin *pin) {
  3dc:	cf 93       	push	r28
  3de:	df 93       	push	r29
-	if (!pin || (pin->pin_number < 0 || pin->pin_number > 7) || (pin->port < 0 || pin->port > 3)) {
  3e0:	00 97       	sbiw	r24, 0x00	; 0
  3e2:	79 f0       	breq	.+30     	; 0x402 <__EEPROM_REGION_LENGTH__+0x2>
  3e4:	fc 01       	movw	r30, r24
@@ -734,35 +601,16 @@ bool Pin_init(Pin *pin) {
  3ee:	24 30       	cpi	r18, 0x04	; 4
  3f0:	60 f4       	brcc	.+24     	; 0x40a <__EEPROM_REGION_LENGTH__+0xa>
  3f2:	ec 01       	movw	r28, r24
-		return false;
-	}
-
-	Pin_setDirection(pin);
  3f4:	0e 94 53 01 	call	0x2a6	; 0x2a6 <Pin_setDirection>
-	Pin_setLogic(pin);
  3f8:	ce 01       	movw	r24, r28
- 3fa:	0e 94 58 00 	call	0xb0	; 0xb0 <__data_load_end>
-
-	return true;
+ 3fa:	0e 94 58 00 	call	0xb0	; 0xb0 <_etext>
  3fe:	81 e0       	ldi	r24, 0x01	; 1
  400:	05 c0       	rjmp	.+10     	; 0x40c <__EEPROM_REGION_LENGTH__+0xc>
-*/
-#include "gpio.h"
-
-bool Pin_init(Pin *pin) {
-	if (!pin || (pin->pin_number < 0 || pin->pin_number > 7) || (pin->port < 0 || pin->port > 3)) {
-		return false;
  402:	80 e0       	ldi	r24, 0x00	; 0
  404:	03 c0       	rjmp	.+6      	; 0x40c <__EEPROM_REGION_LENGTH__+0xc>
  406:	80 e0       	ldi	r24, 0x00	; 0
  408:	01 c0       	rjmp	.+2      	; 0x40c <__EEPROM_REGION_LENGTH__+0xc>
  40a:	80 e0       	ldi	r24, 0x00	; 0
-
-	Pin_setDirection(pin);
-	Pin_setLogic(pin);
-
-	return true;
-}
  40c:	df 91       	pop	r29
  40e:	cf 91       	pop	r28
  410:	08 95       	ret

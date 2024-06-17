@@ -19,6 +19,25 @@ Discarded input sections
  .text.led_set  0x0000000000000000        0xc Hal/Led/led.o
  .text.led_reset
                 0x0000000000000000        0xa Hal/Led/led.o
+ .text          0x0000000000000000        0x0 Hal/Motor/motor.o
+ .data          0x0000000000000000        0x0 Hal/Motor/motor.o
+ .bss           0x0000000000000000        0x0 Hal/Motor/motor.o
+ .text.motor_on
+                0x0000000000000000       0x48 Hal/Motor/motor.o
+ .text.motor_toggel
+                0x0000000000000000       0x3a Hal/Motor/motor.o
+ .text.motor_off
+                0x0000000000000000       0x26 Hal/Motor/motor.o
+ .debug_info    0x0000000000000000      0x47e Hal/Motor/motor.o
+ .debug_abbrev  0x0000000000000000       0xed Hal/Motor/motor.o
+ .debug_loc     0x0000000000000000      0x17f Hal/Motor/motor.o
+ .debug_aranges
+                0x0000000000000000       0x30 Hal/Motor/motor.o
+ .debug_ranges  0x0000000000000000       0x20 Hal/Motor/motor.o
+ .debug_line    0x0000000000000000      0x194 Hal/Motor/motor.o
+ .debug_str     0x0000000000000000       0x20 Hal/Motor/motor.o
+ .comment       0x0000000000000000       0x30 Hal/Motor/motor.o
+ .debug_frame   0x0000000000000000       0x68 Hal/Motor/motor.o
  .text          0x0000000000000000        0x0 main.o
  .data          0x0000000000000000        0x0 main.o
  .bss           0x0000000000000000        0x0 main.o
@@ -84,6 +103,7 @@ Linker script and memory map
 
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/xc8/avr/lib/avr5/memx-const/crtatmega32.o
 LOAD Hal/Led/led.o
+LOAD Hal/Motor/motor.o
 LOAD main.o
 LOAD Mcal/GPIO/gpio.o
 START GROUP

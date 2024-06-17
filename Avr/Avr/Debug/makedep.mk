@@ -4,6 +4,8 @@
 
 Hal\Led\led.c
 
+Hal\Motor\motor.c
+
 main.c
 
 Mcal\GPIO\gpio.c
