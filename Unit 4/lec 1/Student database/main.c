@@ -1,59 +1,55 @@
+#include "student.h"
 #include <stdio.h>
 #include <stdlib.h>
-#include "student.h"
 
 int main() {
-    Student *head = NULL;
-    int choice, id, age;
-    char name[50];
-
+    Student* head = NULL;
+    int choice;
     while (1) {
-        printf("Student Database Menu\n");
-        printf("1. Add Student\n");
-        printf("2. Delete Student\n");
-        printf("3. Display Students\n");
-        printf("4. Search Student\n");
-        printf("5. Exit\n");
+        printf("\nStudent Management System\n");
+        printf("1. Add Student Details From File\n");
+        printf("2. Add Student Details Manually\n");
+        printf("3. Find the student by the given roll number\n");
+        printf("4. Find the student by the given first name\n");
+        printf("5. Find the students registered in a course\n");
+        printf("6. Count of students\n");
+        printf("7. Delete a student\n");
+        printf("8. Update Student\n");
+        printf("9. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
+        getchar(); // to consume newline character
 
         switch (choice) {
             case 1:
-                printf("Enter ID: ");
-                scanf("%d", &id);
-                printf("Enter Name: ");
-                scanf("%s", name);
-                printf("Enter Age: ");
-                scanf("%d", &age);
-                addStudent(&head, id, name, age);
+                add_student_from_file(&head);
                 break;
             case 2:
-                printf("Enter ID to delete: ");
-                scanf("%d", &id);
-                deleteStudent(&head, id);
+                add_student_manually(&head);
                 break;
             case 3:
-                displayStudents(head);
+                find_student_by_roll_number(head);
                 break;
             case 4:
-                printf("Enter ID to search: ");
-                scanf("%d", &id);
-                Student *found = searchStudent(head, id);
-                if (found) {
-                    printf("Student found!\n");
-                    printf("ID: %d\n", found->id);
-                    printf("Name: %s\n", found->name);
-                    printf("Age: %d\n\n", found->age);
-                } else {
-                    printf("Student not found!\n");
-                }
+                find_student_by_first_name(head);
                 break;
             case 5:
+                find_students_by_course(head);
+                break;
+            case 6:
+                count_students(head);
+                break;
+            case 7:
+                delete_student(&head);
+                break;
+            case 8:
+                update_student(head);
+                break;
+            case 9:
                 exit(0);
             default:
-                printf("Invalid choice! Please try again.\n");
+                printf("Invalid choice. Please try again.\n");
         }
     }
     return 0;
 }
-

@@ -1,17 +1,25 @@
 #ifndef STUDENT_H
 #define STUDENT_H
 
+#define MAX_NAME_LEN 50
+#define MAX_COURSE_LEN 50
+
 typedef struct Student {
-    int id;
-    char name[50];
-    int age;
-    struct Student *next;
+    int roll_number;
+    char first_name[MAX_NAME_LEN];
+    char last_name[MAX_NAME_LEN];
+    char course[MAX_COURSE_LEN];
+    struct Student* next;
 } Student;
 
-void addStudent(Student **head, int id, char name[], int age);
-void deleteStudent(Student **head, int id);
-void displayStudents(Student *head);
-Student* searchStudent(Student *head, int id);
+void add_student_from_file(Student** head);
+void add_student_manually(Student** head);
+void find_student_by_roll_number(Student* head);
+void find_student_by_first_name(Student* head);
+void find_students_by_course(Student* head);
+void count_students(Student* head);
+void delete_student(Student** head);
+void update_student(Student* head);
+void display_student(Student* student);
 
-#endif
-
+#endif // STUDENT_H
