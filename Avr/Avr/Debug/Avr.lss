@@ -3,29 +3,29 @@ Avr.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000000da  00000000  00000000  00000054  2**1
+  0 .text         000000b2  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00800060  0000012e  2**0
+  1 .data         00000000  00800060  00800060  00000106  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .comment      00000030  00000000  00000000  0000012e  2**0
+  2 .comment      00000030  00000000  00000000  00000106  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000160  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000138  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000020  00000000  00000000  0000019c  2**0
+  4 .debug_aranges 00000020  00000000  00000000  00000174  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   0000064e  00000000  00000000  000001bc  2**0
+  5 .debug_info   000005fe  00000000  00000000  00000194  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000588  00000000  00000000  0000080a  2**0
+  6 .debug_abbrev 00000577  00000000  00000000  00000792  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000282  00000000  00000000  00000d92  2**0
+  7 .debug_line   00000244  00000000  00000000  00000d09  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000024  00000000  00000000  00001014  2**2
+  8 .debug_frame  00000024  00000000  00000000  00000f50  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000317  00000000  00000000  00001038  2**0
+  9 .debug_str    0000031e  00000000  00000000  00000f74  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    000000b4  00000000  00000000  0000134f  2**0
+ 10 .debug_loc    00000041  00000000  00000000  00001292  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000010  00000000  00000000  00001403  2**0
+ 11 .debug_ranges 00000010  00000000  00000000  000012d3  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -61,7 +61,7 @@ Disassembly of section .text:
   5c:	de bf       	out	0x3e, r29	; 62
   5e:	cd bf       	out	0x3d, r28	; 61
   60:	0e 94 36 00 	call	0x6c	; 0x6c <main>
-  64:	0c 94 6b 00 	jmp	0xd6	; 0xd6 <_exit>
+  64:	0c 94 57 00 	jmp	0xae	; 0xae <_exit>
 
 00000068 <__bad_interrupt>:
   68:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -75,90 +75,55 @@ int main(void)
 	DDRA=0B11111111;
   6c:	8f ef       	ldi	r24, 0xFF	; 255
   6e:	8a bb       	out	0x1a, r24	; 26
+	CLEAR_BIT(DDRC,0);
+  70:	84 b3       	in	r24, 0x14	; 20
+  72:	8e 7f       	andi	r24, 0xFE	; 254
+  74:	84 bb       	out	0x14, r24	; 20
+	int status=READ_BIT(PINC,0);
+  76:	83 b3       	in	r24, 0x13	; 19
 
+	int i=0;
+  78:	20 e0       	ldi	r18, 0x00	; 0
+  7a:	30 e0       	ldi	r19, 0x00	; 0
 	while (1)
 	{
-		for (int i=0;i<8;i++)
-  70:	20 e0       	ldi	r18, 0x00	; 0
-  72:	30 e0       	ldi	r19, 0x00	; 0
-  74:	13 c0       	rjmp	.+38     	; 0x9c <main+0x30>
-		{
-			PORTA|=(1<<i);
-  76:	4b b3       	in	r20, 0x1b	; 27
-  78:	81 e0       	ldi	r24, 0x01	; 1
-  7a:	90 e0       	ldi	r25, 0x00	; 0
-  7c:	02 2e       	mov	r0, r18
-  7e:	02 c0       	rjmp	.+4      	; 0x84 <main+0x18>
-  80:	88 0f       	add	r24, r24
-  82:	99 1f       	adc	r25, r25
-  84:	0a 94       	dec	r0
-  86:	e2 f7       	brpl	.-8      	; 0x80 <main+0x14>
-  88:	84 2b       	or	r24, r20
-  8a:	8b bb       	out	0x1b, r24	; 27
+		status=READ_BIT(PINC,0);
+		if(status){
+  7c:	98 9b       	sbis	0x13, 0	; 19
+  7e:	0d c0       	rjmp	.+26     	; 0x9a <main+0x2e>
+			SET_BIT(PORTA,i++);
+  80:	81 e0       	ldi	r24, 0x01	; 1
+  82:	90 e0       	ldi	r25, 0x00	; 0
+  84:	02 2e       	mov	r0, r18
+  86:	02 c0       	rjmp	.+4      	; 0x8c <main+0x20>
+  88:	88 0f       	add	r24, r24
+  8a:	99 1f       	adc	r25, r25
+  8c:	0a 94       	dec	r0
+  8e:	e2 f7       	brpl	.-8      	; 0x88 <main+0x1c>
+  90:	9b b3       	in	r25, 0x1b	; 27
+  92:	89 2b       	or	r24, r25
+  94:	8b bb       	out	0x1b, r24	; 27
+  96:	2f 5f       	subi	r18, 0xFF	; 255
+  98:	3f 4f       	sbci	r19, 0xFF	; 255
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-  8c:	8f e3       	ldi	r24, 0x3F	; 63
-  8e:	9c e9       	ldi	r25, 0x9C	; 156
-  90:	01 97       	sbiw	r24, 0x01	; 1
-  92:	f1 f7       	brne	.-4      	; 0x90 <main+0x24>
-  94:	00 c0       	rjmp	.+0      	; 0x96 <main+0x2a>
-  96:	00 00       	nop
-	
-	DDRA=0B11111111;
+  9a:	4f ef       	ldi	r20, 0xFF	; 255
+  9c:	80 e7       	ldi	r24, 0x70	; 112
+  9e:	92 e0       	ldi	r25, 0x02	; 2
+  a0:	41 50       	subi	r20, 0x01	; 1
+  a2:	80 40       	sbci	r24, 0x00	; 0
+  a4:	90 40       	sbci	r25, 0x00	; 0
+  a6:	e1 f7       	brne	.-8      	; 0xa0 <main+0x34>
+  a8:	00 c0       	rjmp	.+0      	; 0xaa <main+0x3e>
+  aa:	00 00       	nop
+  ac:	e7 cf       	rjmp	.-50     	; 0x7c <main+0x10>
 
-	while (1)
-	{
-		for (int i=0;i<8;i++)
-  98:	2f 5f       	subi	r18, 0xFF	; 255
-  9a:	3f 4f       	sbci	r19, 0xFF	; 255
-  9c:	28 30       	cpi	r18, 0x08	; 8
-  9e:	31 05       	cpc	r19, r1
-  a0:	54 f3       	brlt	.-44     	; 0x76 <main+0xa>
-  a2:	27 e0       	ldi	r18, 0x07	; 7
-  a4:	30 e0       	ldi	r19, 0x00	; 0
-  a6:	14 c0       	rjmp	.+40     	; 0xd0 <main+0x64>
-			PORTA|=(1<<i);
-			_delay_ms(20);
-		}
-		for (int i=7;i>=0;i--)
-		{
-			PORTA&=~(1<<i);
-  a8:	4b b3       	in	r20, 0x1b	; 27
-  aa:	81 e0       	ldi	r24, 0x01	; 1
-  ac:	90 e0       	ldi	r25, 0x00	; 0
-  ae:	02 2e       	mov	r0, r18
-  b0:	02 c0       	rjmp	.+4      	; 0xb6 <main+0x4a>
-  b2:	88 0f       	add	r24, r24
-  b4:	99 1f       	adc	r25, r25
-  b6:	0a 94       	dec	r0
-  b8:	e2 f7       	brpl	.-8      	; 0xb2 <main+0x46>
-  ba:	80 95       	com	r24
-  bc:	84 23       	and	r24, r20
-  be:	8b bb       	out	0x1b, r24	; 27
-  c0:	8f e3       	ldi	r24, 0x3F	; 63
-  c2:	9c e9       	ldi	r25, 0x9C	; 156
-  c4:	01 97       	sbiw	r24, 0x01	; 1
-  c6:	f1 f7       	brne	.-4      	; 0xc4 <main+0x58>
-  c8:	00 c0       	rjmp	.+0      	; 0xca <main+0x5e>
-  ca:	00 00       	nop
-		for (int i=0;i<8;i++)
-		{
-			PORTA|=(1<<i);
-			_delay_ms(20);
-		}
-		for (int i=7;i>=0;i--)
-  cc:	21 50       	subi	r18, 0x01	; 1
-  ce:	31 09       	sbc	r19, r1
-  d0:	33 23       	and	r19, r19
-  d2:	54 f7       	brge	.-44     	; 0xa8 <main+0x3c>
-  d4:	cd cf       	rjmp	.-102    	; 0x70 <main+0x4>
+000000ae <_exit>:
+  ae:	f8 94       	cli
 
-000000d6 <_exit>:
-  d6:	f8 94       	cli
-
-000000d8 <__stop_program>:
-  d8:	ff cf       	rjmp	.-2      	; 0xd8 <__stop_program>
+000000b0 <__stop_program>:
+  b0:	ff cf       	rjmp	.-2      	; 0xb0 <__stop_program>
