@@ -101,4 +101,7 @@ Std_return Pin_Direction(Pin_config_t *Pin);
  */
 Std_return Pin_logic_init(Pin_config_t *Pin);
 
+
+Std_return Pin_write(Pin_config_t *pin,Logic_t volt);
+
 #endif /* GPIO_H_ */
