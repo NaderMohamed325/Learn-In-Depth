@@ -13,6 +13,8 @@
 
 //---------------------------------------
 
+void delay(uint32_t delay);
+
 // Config
 typedef struct
 {

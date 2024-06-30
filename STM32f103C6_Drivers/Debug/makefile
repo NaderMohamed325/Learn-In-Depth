@@ -11,6 +11,8 @@ RM := rm -rf
 -include sources.mk
 -include Startup/subdir.mk
 -include Src/subdir.mk
+-include Lcd_Driver/subdir.mk
+-include Keypad_Driver/subdir.mk
 -include GPIO/subdir.mk
 -include objects.mk
 

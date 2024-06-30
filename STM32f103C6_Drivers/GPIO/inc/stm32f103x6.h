@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
+#define F_CPU 8000000UL
 //Base addresses for Memories
 #define FLASH_MEMORY_BASE  0X08000000UL
 #define System_MEMORY_BASE 0X1FFFF000UL
