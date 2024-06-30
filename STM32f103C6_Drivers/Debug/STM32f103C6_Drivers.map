@@ -889,15 +889,15 @@ LOAD C:/ST/STM32CubeIDE_1.13.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
 LOAD C:/ST/STM32CubeIDE_1.13.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7-m/nofp\libm.a
 LOAD C:/ST/STM32CubeIDE_1.13.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/thumb/v7-m/nofp\libgcc.a
 
-.debug_info     0x00000000      0x7ef
- .debug_info    0x00000000      0x489 ./GPIO/stm32f103c6.o
- .debug_info    0x00000489      0x336 ./Src/main.o
- .debug_info    0x000007bf       0x30 ./Startup/startup_stm32f103c6tx.o
+.debug_info     0x00000000      0x7f3
+ .debug_info    0x00000000      0x48d ./GPIO/stm32f103c6.o
+ .debug_info    0x0000048d      0x336 ./Src/main.o
+ .debug_info    0x000007c3       0x30 ./Startup/startup_stm32f103c6tx.o
 
-.debug_abbrev   0x00000000      0x2aa
- .debug_abbrev  0x00000000      0x140 ./GPIO/stm32f103c6.o
- .debug_abbrev  0x00000140      0x14d ./Src/main.o
- .debug_abbrev  0x0000028d       0x1d ./Startup/startup_stm32f103c6tx.o
+.debug_abbrev   0x00000000      0x2d9
+ .debug_abbrev  0x00000000      0x16f ./GPIO/stm32f103c6.o
+ .debug_abbrev  0x0000016f      0x14d ./Src/main.o
+ .debug_abbrev  0x000002bc       0x1d ./Startup/startup_stm32f103c6tx.o
 
 .debug_loc      0x00000000      0x44c
  .debug_loc     0x00000000      0x330 ./GPIO/stm32f103c6.o
@@ -953,10 +953,10 @@ LOAD C:/ST/STM32CubeIDE_1.13.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.ext
  .debug_macro   0x00001c85       0xd0 ./GPIO/stm32f103c6.o
  .debug_macro   0x00001d55      0x18c ./Src/main.o
 
-.debug_line     0x00000000      0xee7
- .debug_line    0x00000000      0x7e6 ./GPIO/stm32f103c6.o
- .debug_line    0x000007e6      0x67d ./Src/main.o
- .debug_line    0x00000e63       0x84 ./Startup/startup_stm32f103c6tx.o
+.debug_line     0x00000000      0xef2
+ .debug_line    0x00000000      0x7f1 ./GPIO/stm32f103c6.o
+ .debug_line    0x000007f1      0x67d ./Src/main.o
+ .debug_line    0x00000e6e       0x84 ./Startup/startup_stm32f103c6tx.o
 
 .debug_str      0x00000000     0x7f67
  .debug_str     0x00000000     0x7eec ./GPIO/stm32f103c6.o

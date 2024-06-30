@@ -17,54 +17,67 @@ uint8_t Get_CRLH_Position(uint16_t PinNumber)
     case GPIO_PIN_1:
 	return 4;
 	break;
+
     case GPIO_PIN_2:
 	return 8;
 	break;
+
     case GPIO_PIN_3:
 	return 12;
 	break;
+
     case GPIO_PIN_4:
 	return 16;
 	break;
+
     case GPIO_PIN_5:
 	return 20;
 	break;
+
     case GPIO_PIN_6:
 	return 24;
 	break;
+
     case GPIO_PIN_7:
 	return 28;
 	break;
+
     case GPIO_PIN_8:
-	return 32;
-	break;
-    case GPIO_PIN_9:
-	return 36;
-	break;
-    case GPIO_PIN_10:
-	return 40;
-	break;
-    case GPIO_PIN_11:
-	return 44;
-	break;
-    case GPIO_PIN_12:
-	return 48;
-	break;
-    case GPIO_PIN_13:
-	return 52;
-	break;
-    case GPIO_PIN_14:
-	return 56;
-	break;
-    case GPIO_PIN_15:
-	return 60;
-	break;
-    default:
-	// Handle error or return default position
 	return 0;
 	break;
+    case GPIO_PIN_9:
+	return 4;
+	break;
+
+    case GPIO_PIN_10:
+	return 8;
+	break;
+
+    case GPIO_PIN_11:
+	return 12;
+	break;
+
+    case GPIO_PIN_12:
+	return 16;
+	break;
+
+    case GPIO_PIN_13:
+	return 20;
+	break;
+
+    case GPIO_PIN_14:
+	return 24;
+	break;
+
+    case GPIO_PIN_15:
+	return 28;
+	break;
+    default:
+	break;
 	}
+    return -1;
     }
+
 /**
  * @brief  Initializes the GPIO pin(s) according to the specified parameters in GPIO_PinConfig_t.
  * @param  GPIOx: where x can be (A..G) to select the GPIO peripheral.
@@ -249,19 +262,20 @@ uint8_t MCAL_GPIO_LockPin(GPIO_TypeDef *GPIOx, uint16_t PinNumber)
     {
     volatile uint32_t temp = (1 << 16);
 
-    temp|= PinNumber; //2 in 1
+    temp |= PinNumber; //2 in 1
 
     GPIOx->LCKR = temp;
     GPIOx->LCKR = PinNumber;
     GPIOx->LCKR = temp;
-    temp=GPIOx->LCKR ;
-   if((uint32_t)(GPIOx->LCKR & 1<<16)){
-       return GPIO_RETURN_LOCK_Enabled;
-   }else
-       {
-       return GPIO_RETURN_LOCK_Error;
-       }
-
+    temp = GPIOx->LCKR;
+    if ((uint32_t) (GPIOx->LCKR & 1 << 16))
+	{
+	return GPIO_RETURN_LOCK_Enabled;
+	}
+    else
+	{
+	return GPIO_RETURN_LOCK_Error;
+	}
 
     }
 /**

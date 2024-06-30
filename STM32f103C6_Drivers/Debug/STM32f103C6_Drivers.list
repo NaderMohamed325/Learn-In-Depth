@@ -27,25 +27,25 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   ALLOC
  11 .ARM.attributes 00000029  00000000  00000000  00001618  2**0
                   CONTENTS, READONLY
- 12 .debug_info   000007ef  00000000  00000000  00001641  2**0
+ 12 .debug_info   000007f3  00000000  00000000  00001641  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 13 .debug_abbrev 000002aa  00000000  00000000  00001e30  2**0
+ 13 .debug_abbrev 000002d9  00000000  00000000  00001e34  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 14 .debug_loc    0000044c  00000000  00000000  000020da  2**0
+ 14 .debug_loc    0000044c  00000000  00000000  0000210d  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 15 .debug_aranges 000000c0  00000000  00000000  00002528  2**3
+ 15 .debug_aranges 000000c0  00000000  00000000  00002560  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_ranges 00000098  00000000  00000000  000025e8  2**3
+ 16 .debug_ranges 00000098  00000000  00000000  00002620  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_macro  00001ee1  00000000  00000000  00002680  2**0
+ 17 .debug_macro  00001ee1  00000000  00000000  000026b8  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_line   00000ee7  00000000  00000000  00004561  2**0
+ 18 .debug_line   00000ef2  00000000  00000000  00004599  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .debug_str    00007f67  00000000  00000000  00005448  2**0
+ 19 .debug_str    00007f67  00000000  00000000  0000548b  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 20 .comment      00000043  00000000  00000000  0000d3af  2**0
+ 20 .comment      00000043  00000000  00000000  0000d3f2  2**0
                   CONTENTS, READONLY
- 21 .debug_frame  0000023c  00000000  00000000  0000d3f4  2**2
+ 21 .debug_frame  0000023c  00000000  00000000  0000d438  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -172,101 +172,72 @@ uint8_t Get_CRLH_Position(uint16_t PinNumber)
  8000288:	080002a7 	.word	0x080002a7
  800028c:	2b40      	cmp	r3, #64	@ 0x40
  800028e:	d00c      	beq.n	80002aa <Get_CRLH_Position+0x13a>
- 8000290:	e01f      	b.n	80002d2 <Get_CRLH_Position+0x162>
-	{
-    case GPIO_PIN_0:
-	return 0;
- 8000292:	2300      	movs	r3, #0
- 8000294:	e01e      	b.n	80002d4 <Get_CRLH_Position+0x164>
-	break;
-    case GPIO_PIN_1:
-	return 4;
- 8000296:	2304      	movs	r3, #4
- 8000298:	e01c      	b.n	80002d4 <Get_CRLH_Position+0x164>
-	break;
-    case GPIO_PIN_2:
-	return 8;
- 800029a:	2308      	movs	r3, #8
- 800029c:	e01a      	b.n	80002d4 <Get_CRLH_Position+0x164>
-	break;
-    case GPIO_PIN_3:
-	return 12;
- 800029e:	230c      	movs	r3, #12
- 80002a0:	e018      	b.n	80002d4 <Get_CRLH_Position+0x164>
-	break;
-    case GPIO_PIN_4:
-	return 16;
- 80002a2:	2310      	movs	r3, #16
- 80002a4:	e016      	b.n	80002d4 <Get_CRLH_Position+0x164>
-	break;
-    case GPIO_PIN_5:
-	return 20;
- 80002a6:	2314      	movs	r3, #20
- 80002a8:	e014      	b.n	80002d4 <Get_CRLH_Position+0x164>
-	break;
-    case GPIO_PIN_6:
-	return 24;
- 80002aa:	2318      	movs	r3, #24
- 80002ac:	e012      	b.n	80002d4 <Get_CRLH_Position+0x164>
-	break;
-    case GPIO_PIN_7:
-	return 28;
- 80002ae:	231c      	movs	r3, #28
- 80002b0:	e010      	b.n	80002d4 <Get_CRLH_Position+0x164>
-	break;
-    case GPIO_PIN_8:
-	return 32;
- 80002b2:	2320      	movs	r3, #32
- 80002b4:	e00e      	b.n	80002d4 <Get_CRLH_Position+0x164>
-	break;
-    case GPIO_PIN_9:
-	return 36;
- 80002b6:	2324      	movs	r3, #36	@ 0x24
- 80002b8:	e00c      	b.n	80002d4 <Get_CRLH_Position+0x164>
-	break;
-    case GPIO_PIN_10:
-	return 40;
- 80002ba:	2328      	movs	r3, #40	@ 0x28
- 80002bc:	e00a      	b.n	80002d4 <Get_CRLH_Position+0x164>
-	break;
-    case GPIO_PIN_11:
-	return 44;
- 80002be:	232c      	movs	r3, #44	@ 0x2c
- 80002c0:	e008      	b.n	80002d4 <Get_CRLH_Position+0x164>
-	break;
-    case GPIO_PIN_12:
-	return 48;
- 80002c2:	2330      	movs	r3, #48	@ 0x30
- 80002c4:	e006      	b.n	80002d4 <Get_CRLH_Position+0x164>
-	break;
-    case GPIO_PIN_13:
-	return 52;
- 80002c6:	2334      	movs	r3, #52	@ 0x34
- 80002c8:	e004      	b.n	80002d4 <Get_CRLH_Position+0x164>
-	break;
-    case GPIO_PIN_14:
-	return 56;
- 80002ca:	2338      	movs	r3, #56	@ 0x38
- 80002cc:	e002      	b.n	80002d4 <Get_CRLH_Position+0x164>
-	break;
+
     case GPIO_PIN_15:
-	return 60;
- 80002ce:	233c      	movs	r3, #60	@ 0x3c
- 80002d0:	e000      	b.n	80002d4 <Get_CRLH_Position+0x164>
+	return 28;
 	break;
     default:
-	// Handle error or return default position
-	return 0;
- 80002d2:	2300      	movs	r3, #0
 	break;
+ 8000290:	e01f      	b.n	80002d2 <Get_CRLH_Position+0x162>
+	return 0;
+ 8000292:	2300      	movs	r3, #0
+ 8000294:	e01f      	b.n	80002d6 <Get_CRLH_Position+0x166>
+	return 4;
+ 8000296:	2304      	movs	r3, #4
+ 8000298:	e01d      	b.n	80002d6 <Get_CRLH_Position+0x166>
+	return 8;
+ 800029a:	2308      	movs	r3, #8
+ 800029c:	e01b      	b.n	80002d6 <Get_CRLH_Position+0x166>
+	return 12;
+ 800029e:	230c      	movs	r3, #12
+ 80002a0:	e019      	b.n	80002d6 <Get_CRLH_Position+0x166>
+	return 16;
+ 80002a2:	2310      	movs	r3, #16
+ 80002a4:	e017      	b.n	80002d6 <Get_CRLH_Position+0x166>
+	return 20;
+ 80002a6:	2314      	movs	r3, #20
+ 80002a8:	e015      	b.n	80002d6 <Get_CRLH_Position+0x166>
+	return 24;
+ 80002aa:	2318      	movs	r3, #24
+ 80002ac:	e013      	b.n	80002d6 <Get_CRLH_Position+0x166>
+	return 28;
+ 80002ae:	231c      	movs	r3, #28
+ 80002b0:	e011      	b.n	80002d6 <Get_CRLH_Position+0x166>
+	return 0;
+ 80002b2:	2300      	movs	r3, #0
+ 80002b4:	e00f      	b.n	80002d6 <Get_CRLH_Position+0x166>
+	return 4;
+ 80002b6:	2304      	movs	r3, #4
+ 80002b8:	e00d      	b.n	80002d6 <Get_CRLH_Position+0x166>
+	return 8;
+ 80002ba:	2308      	movs	r3, #8
+ 80002bc:	e00b      	b.n	80002d6 <Get_CRLH_Position+0x166>
+	return 12;
+ 80002be:	230c      	movs	r3, #12
+ 80002c0:	e009      	b.n	80002d6 <Get_CRLH_Position+0x166>
+	return 16;
+ 80002c2:	2310      	movs	r3, #16
+ 80002c4:	e007      	b.n	80002d6 <Get_CRLH_Position+0x166>
+	return 20;
+ 80002c6:	2314      	movs	r3, #20
+ 80002c8:	e005      	b.n	80002d6 <Get_CRLH_Position+0x166>
+	return 24;
+ 80002ca:	2318      	movs	r3, #24
+ 80002cc:	e003      	b.n	80002d6 <Get_CRLH_Position+0x166>
+	return 28;
+ 80002ce:	231c      	movs	r3, #28
+ 80002d0:	e001      	b.n	80002d6 <Get_CRLH_Position+0x166>
+	break;
+ 80002d2:	bf00      	nop
 	}
+    return -1;
+ 80002d4:	23ff      	movs	r3, #255	@ 0xff
     }
- 80002d4:	4618      	mov	r0, r3
- 80002d6:	370c      	adds	r7, #12
- 80002d8:	46bd      	mov	sp, r7
- 80002da:	bc80      	pop	{r7}
- 80002dc:	4770      	bx	lr
- 80002de:	bf00      	nop
+ 80002d6:	4618      	mov	r0, r3
+ 80002d8:	370c      	adds	r7, #12
+ 80002da:	46bd      	mov	sp, r7
+ 80002dc:	bc80      	pop	{r7}
+ 80002de:	4770      	bx	lr
 
 080002e0 <MCAL_GPIO_Init>:
  *
