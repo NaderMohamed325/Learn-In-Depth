@@ -75,7 +75,7 @@ typedef struct {
  * @param Lcd: Pointer to the lcd_4bit_mode structure.
  * @return Returns E_OK if initialization is successful, otherwise E_NOT_OK.
  */
-void lcd_4bit_initailize(lcd_4bit_mode  *Lcd);
+void lcd_4bit_initialize(lcd_4bit_mode  *Lcd);
 
 /**
  * @brief Sends a command to the LCD in 4-bit mode.
