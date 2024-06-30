@@ -1,0 +1,4 @@
+../Src/main.c:22:6:delay	3
+../Src/main.c:32:6:clock_init	1
+../Src/main.c:39:6:GPIO_init	1
+../Src/main.c:67:5:main	4

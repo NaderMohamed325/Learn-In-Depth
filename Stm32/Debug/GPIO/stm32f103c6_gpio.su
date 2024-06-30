@@ -1,9 +1,0 @@
-../GPIO/stm32f103c6_gpio.c:10:9:Get_CRLH_Position	16	static
-../GPIO/stm32f103c6_gpio.c:78:6:MCAL_GPIO_Init	32	static
-../GPIO/stm32f103c6_gpio.c:141:6:MCAL_GPIO_Deinit	16	static
-../GPIO/stm32f103c6_gpio.c:180:9:MCAL_GPIO_ReadPin	24	static
-../GPIO/stm32f103c6_gpio.c:201:10:MCAL_GPIO_ReadPort	16	static
-../GPIO/stm32f103c6_gpio.c:216:6:MCAL_GPIO_TogglePin	16	static
-../GPIO/stm32f103c6_gpio.c:248:9:MCAL_GPIO_LockPin	24	static
-../GPIO/stm32f103c6_gpio.c:284:6:MCAL_GPIO_WritePin	16	static
-../GPIO/stm32f103c6_gpio.c:311:6:MCAL_GPIO_WritePort	16	static
