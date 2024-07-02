@@ -21,9 +21,17 @@
 #define Peripherals_BASE            				        0x40000000UL
 
 #define Cortex_M3_Internal_Peripherals_BASE                  	        0xE0000000UL
+
+#define NVIC_BASE                  					0XE0000000UL
+#define NVIC_ISER0                                                      *(volatile uint32_t *)(NVIC_BASE +0X0)
+#define NVIC_ISER1                                                      *(volatile uint32_t *)(NVIC_BASE +0X4)
+#define NVIC_ISER2                                                      *(volatile uint32_t *)(NVIC_BASE +0X8)
+#define NVIC_ICER0                                                      *(volatile uint32_t *)(NVIC_BASE +0X80)
+#define NVIC_ICER1                                                      *(volatile uint32_t *)(NVIC_BASE +0X84)
+#define NVIC_ICER2                                                      *(volatile uint32_t *)(NVIC_BASE +0X88)
 //Base addresses for AHB Peripherals
 //-----------------------------
-#define RCC_BASE              (Peripherals_BASE + 0x00021000UL)
+#define RCC_BASE             (Peripherals_BASE + 0x00021000UL)
 
 //-----------------------------
 //Base addresses for APB2 Peripherals
@@ -41,7 +49,7 @@
 //-------
 
 #define AFIO_BASE             (Peripherals_BASE + 0x00010000UL)
-
+#define EXTI_BASE             (Peripherals_BASE + 0x00010400UL)
 //Base addresses for APB1 Peripheral
 
 //
@@ -112,16 +120,16 @@ typedef struct
 	volatile uint32_t MAPR2;
     } AFIO_TypeDef;
 
-#define GPIOA               ((GPIO_TypeDef *)GPIOA_BASE)
-#define GPIOB               ((GPIO_TypeDef *)GPIOB_BASE)
-#define GPIOC               ((GPIO_TypeDef *)GPIOC_BASE)
-#define GPIOD               ((GPIO_TypeDef *)GPIOD_BASE)
-#define GPIOE               ((GPIO_TypeDef *)GPIOE_BASE)
+#define GPIOA               	((GPIO_TypeDef *)GPIOA_BASE)
+#define GPIOB              	((GPIO_TypeDef *)GPIOB_BASE)
+#define GPIOC               	((GPIO_TypeDef *)GPIOC_BASE)
+#define GPIOD               	((GPIO_TypeDef *)GPIOD_BASE)
+#define GPIOE               	((GPIO_TypeDef *)GPIOE_BASE)
 
-#define RCC                 ((RCC_TypeDef *)RCC_BASE)
+#define RCC                	 ((RCC_TypeDef *)RCC_BASE)
 
-#define AFIO                ((AFIO_TypeDef *)AFIO_BASE)
-#define EXTI                ((EXTI_TypeDef *)EXTI_BASE)
+#define AFIO                	((AFIO_TypeDef *)AFIO_BASE)
+#define EXTI                	((EXTI_TypeDef *)EXTI_BASE)
 
 //Enable clock GPIOA
 #define RCC_GPIOA_CLK_EN()	( RCC->APB2ENR |= (1<<2) )
@@ -132,5 +140,46 @@ typedef struct
 #define RCC_GPIOE_CLK_EN()	( RCC->APB2ENR |= (1<<6) )
 
 //Generic Macros:
+//EXTI
+
+#define EXTI0_IRQ     6
+#define EXTI1_IRQ     7
+#define EXTI2_IRQ     8
+#define EXTI3_IRQ     9
+#define EXTI4_IRQ     10
+#define EXTI5_IRQ     23
+#define EXTI6_IRQ     23
+#define EXTI7_IRQ     23
+#define EXTI8_IRQ     23
+#define EXTI9_IRQ     23
+#define EXTI10_IRQ    40
+#define EXTI11_IRQ    40
+#define EXTI12_IRQ    40
+#define EXTI13_IRQ    40
+#define EXTI14_IRQ    40
+#define EXTI15_IRQ    40
+
+//NVIC Macros
+#define NVIC_IRQ6_EXTI0_Enable()                        (NVIC_ISER0|=(1<<6))
+#define NVIC_IRQ7_EXTI1_Enable()                        (NVIC_ISER0|=(1<<7))
+#define NVIC_IRQ8_EXTI2_Enable()                        (NVIC_ISER0|=(1<<8))
+#define NVIC_IRQ9_EXTI3_Enable()                        (NVIC_ISER0|=(1<<9))
+#define NVIC_IRQ10_EXTI4_Enable()                       (NVIC_ISER0|=(1<<10))
+#define NVIC_IRQ23_EXTI5_9_Enable()                     (NVIC_ISER0|=(1<<23))
+#define NVIC_IRQ40_EXTI10_15_Enable()                   (NVIC_ISER1|=(1<<8))
+
+#define NVIC_IRQ6_EXTI0_Disable()                        (NVIC_ICER0|=(1<<6))
+#define NVIC_IRQ7_EXTI1_Disable()                        (NVIC_ICER0|=(1<<7))
+#define NVIC_IRQ8_EXTI2_Disable()                        (NVIC_ICER0|=(1<<8))
+#define NVIC_IRQ9_EXTI3_Disable()                        (NVIC_ICER0|=(1<<9))
+#define NVIC_IRQ10_EXTI4_Disable()                       (NVIC_ICER0|=(1<<10))
+#define NVIC_IRQ23_EXTI5_9_Disable()                     (NVIC_ICER0|=(1<<23))
+#define NVIC_IRQ40_EXTI10_15_Disable()                   (NVIC_ICER1|=(1<<8))
+
+
+
+
+
+
 
 #endif /* INC_STM32F103X6_H_ */
