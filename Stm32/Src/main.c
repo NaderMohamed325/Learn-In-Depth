@@ -16,23 +16,30 @@
  ******************************************************************************
  */
 
-
 #include "../HAL/inc/keypad.h"
 #include "../HAL/inc/lcd.h"
-#include "../STM32F103C6_Drivers/inc/stm32f103c6_EXTI_Driver.h"
-
+#include "stm32f103c6_EXTI_Driver.h"
+void ISR(void)
+    {
+    LCD_clear_screen();
+    LCD_WRITE_STRING((char*) "ISR Enabled");
+    delay_ms(3000);
+    LCD_clear_screen();
+    }
 int main(void)
-{
+    {
+    LCD_INIT();
+    EXTI_PinConfig_t  Exti_Pin;
+    Exti_Pin.EXI_Pin = EXTI0PA0
+    ;
+    Exti_Pin.IRQ_EN = EXTI_IRQ_Enable;
+    Exti_Pin.Trigger_Case = EXTI_Trigger_RISING;
+    Exti_Pin.P_IRQ_CallBack = ISR;
+    MCAL_EXTI_GPIO_Init(&Exti_Pin);
+    LCD_WRITE_STRING((char*) "ISR Waiting")
+	;
+    while(1){
 
 
-
-
-
-
-
-
-
-
-
-	for(;;);
-}
+    }
+    }

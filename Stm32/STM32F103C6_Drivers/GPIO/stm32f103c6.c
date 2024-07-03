@@ -18,6 +18,13 @@
  * 							Generic Functions
  * =======================================================================================
  */
+void delay_ms(uint32_t time)
+{
+    uint32_t i, j;
+    for (i = 0; i < time; i++)
+        for (j = 0; j < 255; j++)
+            ;
+}
 uint8_t Get_CRLH_Position(uint16_t PinNumber)
     {
     switch (PinNumber)

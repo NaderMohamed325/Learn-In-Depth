@@ -12,6 +12,7 @@
 #include "stm32f103x6.h"
 
 //---------------------------------------
+void delay_ms(uint32_t time);
 
 typedef struct
     {

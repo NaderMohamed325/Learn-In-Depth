@@ -133,34 +133,29 @@ typedef struct
 #define EXTI_IRQ_Enable  1
 #define EXTI_IRQ_Disable 0
 
+// APIs
 
-
-
-
-//APIs
-
+/**
+ * @brief Initialize the specified EXTI pin
+ * @param EXTI_Cfg Pointer to the EXTI pin configuration structure
+ */
 void MCAL_EXTI_GPIO_Init(EXTI_PinConfig_t *EXTI_Cfg);
+
+/**
+ * @brief Deinitialize all EXTI configurations
+ */
 void MCAL_EXTI_GPIO_Deinit();
+
+/**
+ * @brief Update the configuration of the specified EXTI pin
+ * @param EXTI_Cfg Pointer to the EXTI pin configuration structure
+ */
 void MCAL_EXTI_GPIO_Update(EXTI_PinConfig_t *EXTI_Cfg);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * @brief Update EXTI configuration internally
+ * @param EXTI_Cfg Pointer to the EXTI pin configuration structure
+ */
+void Update_EXTI(EXTI_PinConfig_t *EXTI_Cfg);
 
 #endif /* INC_STM32F103C6_EXTI_DRIVER_H_ */

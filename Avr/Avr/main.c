@@ -10,32 +10,41 @@
 #include "ECU/Lcd/lcd.h"
 
 int main(void) {
-	 Pin_config_t lcd_en = {A, 0, Output, Low};
-	 Pin_config_t lcd_rs = {A, 1, Output, Low};
-	 Pin_config_t lcd_data[4] = {
-		 {A, 2, Output, Low},  // D4
-		 {A, 3, Output, Low},  // D5
-		 {A, 4, Output, Low},  // D6
-		 {A, 5, Output, Low}   // D7
-	 };
-
-	 // Initialize LCD structure for 4-bit mode
-	 lcd_4bit_mode lcd = {lcd_en, lcd_rs, {lcd_data[0], lcd_data[1], lcd_data[2], lcd_data[3]}};
- Pin_logic_init(&lcd_en);
- Pin_logic_init(&lcd_rs);
- for (int i = 0; i < 4; i++) {
-	 Pin_logic_init(&lcd_data[i]);
- }
-
-	 // Initialize LCD in 4-bit mode
-	 lcd_4bit_initialize(&lcd);
-
-	 // Example usage: Display a string on LCD
-	 char display_str[] = "Hello, LCD!";
-	 lcd_4bit_send_string(&lcd, (unsigned char *) display_str);
-
-	 while (1) {
-		 // Your main program loop
-	 }
+	lcd_4bit_mode lcd;
+	lcd.lcd_data[0].direction=Output;
+	lcd.lcd_data[0].pin=Low;
+	lcd.lcd_data[0].port=A;
+	lcd.lcd_data[0].pin=0;
+	
+	lcd.lcd_data[1].direction=Output;
+	lcd.lcd_data[1].pin=Low;
+	lcd.lcd_data[1].port=A;
+	lcd.lcd_data[1].pin=1;
+	
+	lcd.lcd_data[2].direction=Output;
+	lcd.lcd_data[2].pin=Low;
+	lcd.lcd_data[2].port=A;
+	lcd.lcd_data[2].pin=2;
+	
+	lcd.lcd_data[3].direction=Output;
+	lcd.lcd_data[3].pin=Low;
+	lcd.lcd_data[3].port=A;
+	lcd.lcd_data[3].pin=3;
+	
+	lcd.lcd_en.direction=Output;
+	lcd.lcd_en.pin=Low;
+	lcd.lcd_en.port=A;
+	lcd.lcd_en.pin=4;
+	
+	lcd.lcd_rs.direction=Output;
+	lcd.lcd_rs.pin=Low;
+	lcd.lcd_rs.port=A;
+	lcd.lcd_rs.pin=5;
+	
+	lcd_4bit_initialize(&lcd);
+	lcd_4bit_send_string(&lcd,(unsigned char *)"Learn in depth");
+	while (1) {
+		// Your main program loop
+	}
 	
 }

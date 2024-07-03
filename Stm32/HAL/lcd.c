@@ -8,13 +8,7 @@
 #include "inc/lcd.h"
 GPIO_PinConfig_t PinCfg;
 
-void delay_ms(uint32_t time)
-{
-    uint32_t i, j;
-    for (i = 0; i < time; i++)
-        for (j = 0; j < 255; j++)
-            ;
-}
+
 
 void LCD_GPIO_init()
 {

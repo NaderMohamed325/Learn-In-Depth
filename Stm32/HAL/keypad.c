@@ -15,13 +15,7 @@ int Key_padCol[] =
     C0, C1, C2, C3
     }; //columns
 
-void delay_mss(uint32_t time)
-    {
-    uint32_t i, j;
-    for (i = 0; i < time; i++)
-	for (j = 0; j < 255; j++)
-	    ;
-    }
+
 
 void Keypad_init()
     {
