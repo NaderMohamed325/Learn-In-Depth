@@ -1,0 +1,8 @@
+"./HAL/keypad.o"
+"./HAL/lcd.o"
+"./STM32F103C6_Drivers/GPIO/stm32f103c6.o"
+"./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.o"
+"./Src/main.o"
+"./Src/syscalls.o"
+"./Src/sysmem.o"
+"./Startup/startup_stm32f103c6tx.o"
