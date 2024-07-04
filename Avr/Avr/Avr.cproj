@@ -121,6 +121,12 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="ECU\Keypad\keypad.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="ECU\Keypad\keypad.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="ECU\Lcd\lcd.c">
       <SubType>compile</SubType>
     </Compile>
@@ -146,6 +152,7 @@
   <ItemGroup>
     <Folder Include="ECU" />
     <Folder Include="ECU\Lcd" />
+    <Folder Include="ECU\Keypad" />
     <Folder Include="MCAL" />
     <Folder Include="MCAL\gpio" />
   </ItemGroup>

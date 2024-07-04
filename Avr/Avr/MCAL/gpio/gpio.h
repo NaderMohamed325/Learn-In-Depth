@@ -17,6 +17,7 @@
 #define D 3
 
 #define F_CPU 8000000UL
+#include <util/delay.h>
 void delay_ms(unsigned int ms);
 /**
  * @brief Standard return type for functions.

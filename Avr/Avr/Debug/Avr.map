@@ -3,7 +3,7 @@ Archive member included to satisfy reference by file (symbol)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
                               C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32/avr5/crtatmega32.o (exit)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_copy_data.o)
-                              ECU/Lcd/lcd.o (__do_copy_data)
+                              ECU/Keypad/keypad.o (__do_copy_data)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(sprintf.o)
                               ECU/Lcd/lcd.o (sprintf)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/../../../../avr/lib/avr5\libc.a(vfprintf_std.o)
@@ -25,6 +25,25 @@ Discarded input sections
 
  .data          0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32/avr5/crtatmega32.o
  .bss           0x00000000        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32/avr5/crtatmega32.o
+ .text          0x00000000        0x0 ECU/Keypad/keypad.o
+ .data          0x00000000        0x0 ECU/Keypad/keypad.o
+ .bss           0x00000000        0x0 ECU/Keypad/keypad.o
+ .text.keypad_initialize
+                0x00000000       0x56 ECU/Keypad/keypad.o
+ .text.keypad_get_value
+                0x00000000       0xde ECU/Keypad/keypad.o
+ .rodata.btn_values
+                0x00000000       0x10 ECU/Keypad/keypad.o
+ .debug_info    0x00000000      0x3b8 ECU/Keypad/keypad.o
+ .debug_abbrev  0x00000000      0x18a ECU/Keypad/keypad.o
+ .debug_loc     0x00000000      0x28b ECU/Keypad/keypad.o
+ .debug_aranges
+                0x00000000       0x28 ECU/Keypad/keypad.o
+ .debug_ranges  0x00000000       0x18 ECU/Keypad/keypad.o
+ .debug_line    0x00000000      0x230 ECU/Keypad/keypad.o
+ .debug_str     0x00000000      0x2a1 ECU/Keypad/keypad.o
+ .comment       0x00000000       0x31 ECU/Keypad/keypad.o
+ .debug_frame   0x00000000       0x80 ECU/Keypad/keypad.o
  .text          0x00000000        0x0 ECU/Lcd/lcd.o
  .data          0x00000000        0x0 ECU/Lcd/lcd.o
  .bss           0x00000000        0x0 ECU/Lcd/lcd.o
@@ -185,6 +204,7 @@ user_signatures  0x00850000         0x00000400         rw !x
 Linker script and memory map
 
 LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32/avr5/crtatmega32.o
+LOAD ECU/Keypad/keypad.o
 LOAD ECU/Lcd/lcd.o
 LOAD main.o
 LOAD MCAL/gpio/gpio.o
@@ -543,19 +563,19 @@ END GROUP
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x1dde
+.debug_info     0x00000000     0x1e0f
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_info    0x000004e6     0x145d ECU/Lcd/lcd.o
  .debug_info    0x00001943      0x1d6 main.o
- .debug_info    0x00001b19      0x2c5 MCAL/gpio/gpio.o
+ .debug_info    0x00001b19      0x2f6 MCAL/gpio/gpio.o
 
-.debug_abbrev   0x00000000      0x92a
+.debug_abbrev   0x00000000      0x935
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/dev/atmega32/avr5/crtatmega32.o
  .debug_abbrev  0x000004a3      0x25b ECU/Lcd/lcd.o
  .debug_abbrev  0x000006fe       0xfb main.o
- .debug_abbrev  0x000007f9      0x131 MCAL/gpio/gpio.o
+ .debug_abbrev  0x000007f9      0x13c MCAL/gpio/gpio.o
 
 .debug_line     0x00000000      0xd4a
  *(.debug_line .debug_line.* .debug_line_end)
@@ -578,7 +598,7 @@ END GROUP
  .debug_str     0x000005f1       0x11 main.o
                                 0x20e (size before relaxing)
  .debug_str     0x00000602       0x53 MCAL/gpio/gpio.o
-                                0x1c4 (size before relaxing)
+                                0x21d (size before relaxing)
 
 .debug_loc      0x00000000     0x20f3
  *(.debug_loc)
