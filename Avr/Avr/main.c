@@ -41,7 +41,7 @@ int main(void) {
 	lcd.lcd_rs.pin=5;
 	UART_Init();
 	lcd_4bit_initialize(&lcd);
-    lcd_4bit_send_string(&lcd,"Uart : ");
+    lcd_4bit_send_string(&lcd,(unsigned char *)"Uart : ");
 
 UART_Send('H');
 UART_Send('i');

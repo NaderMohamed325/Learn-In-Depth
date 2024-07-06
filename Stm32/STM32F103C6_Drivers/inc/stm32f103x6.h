@@ -13,13 +13,13 @@
 #include <stdlib.h>
 #include <stdint.h>
 
-#define F_CPU 10000000UL
+#define F_CPU 8000000UL
 
 // Base addresses for Memories
-#define FLASH_Memory_BASE              0x08000000UL
-#define System_Memory_BASE             0x1FFFF000UL
-#define SRAM_BASE                      0x20000000UL
-#define Peripherals_BASE               0x40000000UL
+#define FLASH_Memory_BASE                    0x08000000UL
+#define System_Memory_BASE                   0x1FFFF000UL
+#define SRAM_BASE                            0x20000000UL
+#define Peripherals_BASE              	     0x40000000UL
 #define Cortex_M3_Internal_Peripherals_BASE  0xE0000000UL
 
 #define NVIC_BASE                      0xE000E100UL
@@ -32,6 +32,8 @@
 
 // Base addresses for AHB Peripherals
 #define RCC_BASE                       (Peripherals_BASE + 0x00021000UL)
+#define USART2_BASE                    (Peripherals_BASE + 0X00014400UL)
+#define USART3_BASE                    (Peripherals_BASE + 0X00014800UL)
 
 // Base addresses for APB2 Peripherals
 #define GPIOA_BASE                     (Peripherals_BASE + 0x00010800UL)
@@ -41,6 +43,7 @@
 #define GPIOE_BASE                     (Peripherals_BASE + 0x00011800UL)
 #define AFIO_BASE                      (Peripherals_BASE + 0x00010000UL)
 #define EXTI_BASE                      (Peripherals_BASE + 0x00010400UL)
+#define USART1_BASE                    (Peripherals_BASE + 0X00013800UL)
 
 // Peripheral register: GPIO
 typedef struct {
@@ -88,15 +91,31 @@ typedef struct {
     volatile uint32_t MAPR2;
 } AFIO_TypeDef;
 
+typedef struct {
+    volatile uint32_t SR;
+    volatile uint32_t DR;
+    volatile uint32_t BRR;
+    volatile uint32_t CR1;
+    volatile uint32_t CR2;
+    volatile uint32_t CR3;
+    volatile uint32_t GTPR;
+}USART_Typedef;
 // Peripheral instances
 #define GPIOA                         ((GPIO_TypeDef *)GPIOA_BASE)
 #define GPIOB                         ((GPIO_TypeDef *)GPIOB_BASE)
 #define GPIOC                         ((GPIO_TypeDef *)GPIOC_BASE)
 #define GPIOD                         ((GPIO_TypeDef *)GPIOD_BASE)
 #define GPIOE                         ((GPIO_TypeDef *)GPIOE_BASE)
+
 #define RCC                           ((RCC_TypeDef *)RCC_BASE)
+
 #define AFIO                          ((AFIO_TypeDef *)AFIO_BASE)
+
 #define EXTI                          ((EXTI_TypeDef *)EXTI_BASE)
+
+#define USART1                        (USART_Typedef *)USART1_BASE)
+#define USART2                        (USART_Typedef *)USART2_BASE)
+#define USART3                        (USART_Typedef *)USART3_BASE)
 
 // Enable clock GPIO
 #define RCC_GPIOA_CLK_EN()            (RCC->APB2ENR |= (1 << 2))
@@ -104,6 +123,16 @@ typedef struct {
 #define RCC_GPIOC_CLK_EN()            (RCC->APB2ENR |= (1 << 4))
 #define RCC_GPIOD_CLK_EN()            (RCC->APB2ENR |= (1 << 5))
 #define RCC_GPIOE_CLK_EN()            (RCC->APB2ENR |= (1 << 6))
+
+// Enable USART Clock
+#define RCC_USART1_CLK_EN()	      (RCC->APB2ENR |= (1 << 14))
+#define RCC_USART2_CLK_EN()           (RCC->APB1ENR |= (1 << 17))
+#define RCC_USART3_CLK_EN()           (RCC->APB1ENR |= (1 << 18))
+//Reset
+#define RCC_USART1_Reset()            (RCC->APB2RSTR|=(1 <<14 ))
+#define RCC_USART2_Reset()            (RCC->APB1RSTR|=(1 <<17))
+#define RCC_USART3_Reset()            (RCC->APB1RSTR|=(1 <<18))
+
 
 // EXTI IRQ numbers
 #define EXTI0_IRQ                     6
@@ -123,6 +152,9 @@ typedef struct {
 #define EXTI14_IRQ                    40
 #define EXTI15_IRQ                    40
 
+#define USART1_IRQ                    37
+#define USART2_IRQ                    38
+#define USART3_IRQ                    39
 // NVIC Macros
 #define NVIC_IRQ6_EXTI0_Enable()      (NVIC_ISER0 |= (1 << 6))
 #define NVIC_IRQ7_EXTI1_Enable()      (NVIC_ISER0 |= (1 << 7))
@@ -132,6 +164,7 @@ typedef struct {
 #define NVIC_IRQ23_EXTI5_9_Enable()   (NVIC_ISER0 |= (1 << 23))
 #define NVIC_IRQ40_EXTI10_15_Enable() (NVIC_ISER1 |= (1 << 8))
 
+
 #define NVIC_IRQ6_EXTI0_Disable()     (NVIC_ICER0 |= (1 << 6))
 #define NVIC_IRQ7_EXTI1_Disable()     (NVIC_ICER0 |= (1 << 7))
 #define NVIC_IRQ8_EXTI2_Disable()     (NVIC_ICER0 |= (1 << 8))
@@ -139,5 +172,25 @@ typedef struct {
 #define NVIC_IRQ10_EXTI4_Disable()    (NVIC_ICER0 |= (1 << 10))
 #define NVIC_IRQ23_EXTI5_9_Disable()  (NVIC_ICER0 |= (1 << 23))
 #define NVIC_IRQ40_EXTI10_15_Disable() (NVIC_ICER1 |= (1 << 8))
+
+
+#define NVIC_IRQ37_USART1_Enable()    (NVIC_ISER1 |= (1 << 5))
+#define NVIC_IRQ38_USART2_Enable()    (NVIC_ISER1 |= (1 << 6))
+#define NVIC_IRQ39_USART3_Enable()    (NVIC_ISER1 |= (1 << 7))
+
+
+#define NVIC_IRQ37_USART1_Disable()    (NVIC_ICER1 |= (1 << 5))
+#define NVIC_IRQ38_USART2_Disable()    (NVIC_ICER1 |= (1 << 6))
+#define NVIC_IRQ39_USART3_Disable()    (NVIC_ICER1 |= (1 << 7))
+
+
+
+
+
+
+
+
+
+
 
 #endif /* INC_STM32F103X6_H_ */

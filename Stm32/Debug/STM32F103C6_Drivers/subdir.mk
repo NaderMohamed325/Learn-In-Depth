@@ -5,13 +5,19 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.c 
+../STM32F103C6_Drivers/stm32f013c6_RCC_Driver.c \
+../STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.c \
+../STM32F103C6_Drivers/stm32f103c6_USART_Driver.c 
 
 OBJS += \
-./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.o 
+./STM32F103C6_Drivers/stm32f013c6_RCC_Driver.o \
+./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.o \
+./STM32F103C6_Drivers/stm32f103c6_USART_Driver.o 
 
 C_DEPS += \
-./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.d 
+./STM32F103C6_Drivers/stm32f013c6_RCC_Driver.d \
+./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.d \
+./STM32F103C6_Drivers/stm32f103c6_USART_Driver.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +27,7 @@ STM32F103C6_Drivers/%.o STM32F103C6_Drivers/%.su STM32F103C6_Drivers/%.cyclo: ..
 clean: clean-STM32F103C6_Drivers
 
 clean-STM32F103C6_Drivers:
-	-$(RM) ./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.cyclo ./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.d ./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.o ./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.su
+	-$(RM) ./STM32F103C6_Drivers/stm32f013c6_RCC_Driver.cyclo ./STM32F103C6_Drivers/stm32f013c6_RCC_Driver.d ./STM32F103C6_Drivers/stm32f013c6_RCC_Driver.o ./STM32F103C6_Drivers/stm32f013c6_RCC_Driver.su ./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.cyclo ./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.d ./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.o ./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.su ./STM32F103C6_Drivers/stm32f103c6_USART_Driver.cyclo ./STM32F103C6_Drivers/stm32f103c6_USART_Driver.d ./STM32F103C6_Drivers/stm32f103c6_USART_Driver.o ./STM32F103C6_Drivers/stm32f103c6_USART_Driver.su
 
 .PHONY: clean-STM32F103C6_Drivers
 

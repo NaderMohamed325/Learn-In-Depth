@@ -13,6 +13,6 @@
 void UART_Init(void);
 void UART_Send(unsigned char data);
 unsigned char UART_Receive(void);
-
-
+void UART_Send_Number(unsigned int num);
+unsigned int UART_Receive_Number(void);
 #endif /* UART_H_ */

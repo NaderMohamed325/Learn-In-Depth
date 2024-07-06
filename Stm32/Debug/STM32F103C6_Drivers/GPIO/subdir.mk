@@ -5,13 +5,13 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../STM32F103C6_Drivers/GPIO/stm32f103c6.c 
+../STM32F103C6_Drivers/GPIO/stm32f103c6_gpio.c 
 
 OBJS += \
-./STM32F103C6_Drivers/GPIO/stm32f103c6.o 
+./STM32F103C6_Drivers/GPIO/stm32f103c6_gpio.o 
 
 C_DEPS += \
-./STM32F103C6_Drivers/GPIO/stm32f103c6.d 
+./STM32F103C6_Drivers/GPIO/stm32f103c6_gpio.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
@@ -21,7 +21,7 @@ STM32F103C6_Drivers/GPIO/%.o STM32F103C6_Drivers/GPIO/%.su STM32F103C6_Drivers/G
 clean: clean-STM32F103C6_Drivers-2f-GPIO
 
 clean-STM32F103C6_Drivers-2f-GPIO:
-	-$(RM) ./STM32F103C6_Drivers/GPIO/stm32f103c6.cyclo ./STM32F103C6_Drivers/GPIO/stm32f103c6.d ./STM32F103C6_Drivers/GPIO/stm32f103c6.o ./STM32F103C6_Drivers/GPIO/stm32f103c6.su
+	-$(RM) ./STM32F103C6_Drivers/GPIO/stm32f103c6_gpio.cyclo ./STM32F103C6_Drivers/GPIO/stm32f103c6_gpio.d ./STM32F103C6_Drivers/GPIO/stm32f103c6_gpio.o ./STM32F103C6_Drivers/GPIO/stm32f103c6_gpio.su
 
 .PHONY: clean-STM32F103C6_Drivers-2f-GPIO
 

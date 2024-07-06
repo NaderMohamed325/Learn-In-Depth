@@ -58,3 +58,20 @@ unsigned char UART_Receive(void){
 	// Get and return received data from buffer
 	return UDR;
 }
+void UART_Send_Number(unsigned int num){
+	unsigned char *p=&num;
+	UART_Send(p[0]);
+	UART_Send(p[1]);
+	UART_Send(p[2]);
+	UART_Send(p[3]);
+}
+
+unsigned int UART_Receive_Number(void){
+	unsigned int num = 0;
+	unsigned int *p = (unsigned int*)&num;
+	p[0]=UART_Receive();
+	p[1]=UART_Receive();
+	p[2]=UART_Receive();
+	p[3]=UART_Receive();
+	return *p;
+}
