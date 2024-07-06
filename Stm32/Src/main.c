@@ -16,30 +16,28 @@
  ******************************************************************************
  */
 
-#include "../HAL/inc/keypad.h"
-#include "../HAL/inc/lcd.h"
 #include "stm32f103c6_EXTI_Driver.h"
-void ISR(void)
-    {
-    LCD_clear_screen();
-    LCD_WRITE_STRING((char*) "ISR Enabled");
-    delay_ms(3000);
-    LCD_clear_screen();
-    }
+#include "../STM32F103C6_Drivers/inc/stm32f103c6_USART_Driver.h"
+unsigned char c;
 int main(void)
     {
-    LCD_INIT();
-    EXTI_PinConfig_t  Exti_Pin;
-    Exti_Pin.EXI_Pin = EXTI0PA0
-    ;
-    Exti_Pin.IRQ_EN = EXTI_IRQ_Enable;
-    Exti_Pin.Trigger_Case = EXTI_Trigger_RISING;
-    Exti_Pin.P_IRQ_CallBack = ISR;
-    MCAL_EXTI_GPIO_Init(&Exti_Pin);
-    LCD_WRITE_STRING((char*) "ISR Waiting")
-	;
-    while(1){
-
-
-    }
+    RCC_GPIOA_CLK_EN();
+    RCC_GPIOB_CLK_EN();
+    RCC_USART1_CLK_EN();
+    UART_Config uart;
+    uart.BaudRate = UART_BaudRate_115200;
+    uart.HwFlowCtl = UART_HwFlowCtl_NONE;
+    uart.IRQ_Enable = UART_IRQ_Enable_NONE;
+    uart.P_IRQ_CallBack = NULL;
+    uart.Parity = UART_Parity_OFF;
+    uart.PayLoad_Length = UART_PayLoad_Length8B;
+    uart.StopBits = UART_StopBits__1;
+    uart.USART_Mode = UART_Mode_TX_RX;
+    MCAL_UART_Init(USART1, &uart);
+    MCAL_UART_GPIO_Set_Pins(USART1);
+    while (1)
+	{
+	MCAL_UART_ReceiveData(USART1, &c, enable);
+	MCAL_UART_SendData(USART1, &c, enable);
+	}
     }
