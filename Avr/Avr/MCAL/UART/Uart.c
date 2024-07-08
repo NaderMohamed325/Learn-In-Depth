@@ -1,11 +1,12 @@
 /*
-* Uart.c
-*
-* Created: 7/4/2024 11:08:35 PM
-*  Author: xcite
-*/
+ * uart.c
+ *
+ * Created: 9/9/2023 7:36:08 PM
+ *  Author: Mohamed
+ */ 
 
-#include "Uart.h"
+
+#include "uart.h"
 
 // Define CPU frequency and baud rate
 

@@ -15,10 +15,15 @@
  *
  ******************************************************************************
  */
+#if !defined(__SOFT_FP__) && defined(__ARM_FP)
+  #warning "FPU is not initialized, but the project is compiling for an FPU. Please initialize the FPU before use."
+#endif
+
+
 
 #include "stm32f103c6_EXTI_Driver.h"
 #include "../STM32F103C6_Drivers/inc/stm32f103c6_USART_Driver.h"
-unsigned char c;
+ unsigned char c;
 int main(void)
     {
     RCC_GPIOA_CLK_EN();

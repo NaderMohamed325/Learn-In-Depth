@@ -7,48 +7,27 @@
 
 
 #include "ECU/Lcd/lcd.h"
-#include  "MCAL/UART/Uart.h"
-int main(void) {
-	lcd_4bit_mode lcd;
-	lcd.lcd_data[0].direction=Output;
-	lcd.lcd_data[0].pin=Low;
-	lcd.lcd_data[0].port=A;
-	lcd.lcd_data[0].pin=0;
+#include "MCAL/UART/Uart.h"
 
-	lcd.lcd_data[1].direction=Output;
-	lcd.lcd_data[1].pin=Low;
-	lcd.lcd_data[1].port=A;
-	lcd.lcd_data[1].pin=1;
 
-	lcd.lcd_data[2].direction=Output;
-	lcd.lcd_data[2].pin=Low;
-	lcd.lcd_data[2].port=A;
-	lcd.lcd_data[2].pin=2;
 
-	lcd.lcd_data[3].direction=Output;
-	lcd.lcd_data[3].pin=Low;
-	lcd.lcd_data[3].port=A;
-	lcd.lcd_data[3].pin=3;
 
-	lcd.lcd_en.direction=Output;
-	lcd.lcd_en.pin=Low;
-	lcd.lcd_en.port=A;
-	lcd.lcd_en.pin=4;
+int main(void)
+{
+    // Initialize UART
+    UART_Init();
+    _delay_ms(1001);
+    // Send a string over UART
+    const char *str = "Hello, UART!\n";
+    while (*str) {
+        UART_Send(*str++);
+    }
+    
+    // Receive data and echo it back
+    while (1) {
+        unsigned char received_data = UART_Receive();
+        UART_Send(received_data);
+    }
 
-	lcd.lcd_rs.direction=Output;
-	lcd.lcd_rs.pin=Low;
-	lcd.lcd_rs.port=A;
-	lcd.lcd_rs.pin=5;
-	UART_Init();
-	lcd_4bit_initialize(&lcd);
-    lcd_4bit_send_string(&lcd,(unsigned char *)"Uart : ");
-
-UART_Send('H');
-UART_Send('i');
-
-	while (1) {
-		
-		lcd_4bit_send_char_data(&lcd,UART_Receive());
-	}
-	
+    return 0;
 }

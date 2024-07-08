@@ -1455,7 +1455,7 @@ void USART3_IRQHandler(void)
 
 #include "stm32f103c6_EXTI_Driver.h"
 #include "../STM32F103C6_Drivers/inc/stm32f103c6_USART_Driver.h"
-unsigned char c;
+ unsigned char c;
 int main(void)
     {
  80009f4:	b580      	push	{r7, lr}
