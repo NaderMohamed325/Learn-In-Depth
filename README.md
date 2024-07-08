@@ -24,7 +24,7 @@
 - Progress: ![Progress](https://progress-bar.dev/100)
 
 ### Unit 8: MCU Interfacing
-- Progress: ![Progress](https://progress-bar.dev/50)
+- Progress: ![Progress](https://progress-bar.dev/60)
 
 ### Unit 9: MCU Timers/ADC
 - Progress: ![Progress](https://progress-bar.dev/0)
