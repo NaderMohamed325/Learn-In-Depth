@@ -10,5 +10,7 @@ main.c
 
 MCAL\gpio\gpio.c
 
+MCAL\SPI\SPI.c
+
 MCAL\UART\Uart.c
 

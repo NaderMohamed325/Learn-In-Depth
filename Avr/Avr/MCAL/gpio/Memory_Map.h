@@ -3,28 +3,66 @@
  *
  * Created: 6/26/2024 10:14:08 PM
  *  Author: Nader
- */ 
-
+ */
 
 #ifndef MEMORY_MAP_H_
 #define MEMORY_MAP_H_
 
+// GPIO Registers for PORTA
 #define PORTA *((volatile unsigned char *)0x3B)
 #define DDRA  *((volatile unsigned char *)0x3A)
 #define PINA  *((volatile unsigned char *)0x39)
 
+#define PA0   0
+#define PA1   1
+#define PA2   2
+#define PA3   3
+#define PA4   4
+#define PA5   5
+#define PA6   6
+#define PA7   7
+
+// GPIO Registers for PORTB
 #define PORTB *((volatile unsigned char *)0x38)
 #define DDRB  *((volatile unsigned char *)0x37)
 #define PINB  *((volatile unsigned char *)0x36)
 
+#define PB0   0
+#define PB1   1
+#define PB2   2
+#define PB3   3
+#define PB4   4
+#define PB5   5
+#define PB6   6
+#define PB7   7
+
+// GPIO Registers for PORTC
 #define PORTC *((volatile unsigned char *)0x35)
 #define DDRC  *((volatile unsigned char *)0x34)
 #define PINC  *((volatile unsigned char *)0x33)
 
+#define PC0   0
+#define PC1   1
+#define PC2   2
+#define PC3   3
+#define PC4   4
+#define PC5   5
+#define PC6   6
+#define PC7   7
+
+// GPIO Registers for PORTD
 #define PORTD *((volatile unsigned char *)0x32)
 #define DDRD  *((volatile unsigned char *)0x31)
 #define PIND  *((volatile unsigned char *)0x30)
 
+#define PD0   0
+#define PD1   1
+#define PD2   2
+#define PD3   3
+#define PD4   4
+#define PD5   5
+#define PD6   6
+#define PD7   7
 
 // UART Registers
 #define UDR   *((volatile unsigned char *)0x2C)  // USART I/O Data Register
@@ -33,7 +71,6 @@
 #define UCSRC *((volatile unsigned char *)0x40)  // USART Control and Status Register C
 #define UBRRL *((volatile unsigned char *)0x29)  // USART Baud Rate Register Low
 #define UBRRH *((volatile unsigned char *)0x40)  // USART Baud Rate Register High
-
 
 // Bit definitions for UCSRA
 #define RXC   7  // USART Receive Complete
@@ -65,6 +102,24 @@
 #define UCSZ0  1  // Character Size
 #define UCPOL  0  // Clock Polarity
 
+// SPI Registers
+#define SPCR  *((volatile unsigned char *)0x2D)  // SPI Control Register
+#define SPSR  *((volatile unsigned char *)0x2E)  // SPI Status Register
+#define SPDR  *((volatile unsigned char *)0x2F)  // SPI Data Register
 
+// Bit definitions for SPCR
+#define SPIE  7  // SPI Interrupt Enable
+#define SPE   6  // SPI Enable
+#define DORD  5  // Data Order
+#define MSTR  4  // Master/Slave Select
+#define CPOL  3  // Clock Polarity
+#define CPHA  2  // Clock Phase
+#define SPR1  1  // SPI Clock Rate Select 1
+#define SPR0  0  // SPI Clock Rate Select 0
+
+// Bit definitions for SPSR
+#define SPIF  7  // SPI Interrupt Flag
+#define WCOL  6  // Write COLlision Flag
+#define SPI2X 0  // Double SPI Speed Bit
 
 #endif /* MEMORY_MAP_H_ */

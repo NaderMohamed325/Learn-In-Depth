@@ -13,7 +13,8 @@ main.d main.o: .././main.c .././ECU/Lcd/lcd.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  .././ECU/Lcd/../../MCAL/gpio/Memory_Map.h .././MCAL/UART/Uart.h \
- .././MCAL/UART/../gpio/gpio.h
+ .././MCAL/UART/../gpio/gpio.h .././MCAL/SPI/SPI.h \
+ .././MCAL/SPI/../gpio/gpio.h
 
 .././ECU/Lcd/lcd.h:
 
@@ -48,3 +49,7 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././MCAL/UART/Uart.h:
 
 .././MCAL/UART/../gpio/gpio.h:
+
+.././MCAL/SPI/SPI.h:
+
+.././MCAL/SPI/../gpio/gpio.h:

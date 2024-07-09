@@ -44,15 +44,18 @@
     <avrtoolserialnumber />
     <avrdeviceexpectedsignature>0x1E9502</avrdeviceexpectedsignature>
     <com_atmel_avrdbg_tool_simulator>
-      <ToolOptions xmlns="">
+      <ToolOptions>
         <InterfaceProperties>
         </InterfaceProperties>
+        <InterfaceName>
+        </InterfaceName>
       </ToolOptions>
-      <ToolType xmlns="">com.atmel.avrdbg.tool.simulator</ToolType>
-      <ToolNumber xmlns="">
+      <ToolType>com.atmel.avrdbg.tool.simulator</ToolType>
+      <ToolNumber>
       </ToolNumber>
-      <ToolName xmlns="">Simulator</ToolName>
+      <ToolName>Simulator</ToolName>
     </com_atmel_avrdbg_tool_simulator>
+    <avrtoolinterface />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
     <ToolchainSettings>
@@ -91,6 +94,10 @@
         </avrgcc.assembler.general.IncludePaths>
       </AvrGcc>
     </ToolchainSettings>
+    <UsesExternalMakeFile>False</UsesExternalMakeFile>
+    <OutputDirectory>$(MSBuildProjectDirectory)\$(Configuration)</OutputDirectory>
+    <BuildTarget>all</BuildTarget>
+    <CleanTarget>clean</CleanTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <ToolchainSettings>
@@ -161,6 +168,12 @@
     <Compile Include="MCAL\gpio\Utils.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\SPI\SPI.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\SPI\SPI.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\UART\Uart.c">
       <SubType>compile</SubType>
     </Compile>
@@ -174,6 +187,7 @@
     <Folder Include="ECU\Keypad" />
     <Folder Include="MCAL" />
     <Folder Include="MCAL\gpio" />
+    <Folder Include="MCAL\SPI" />
     <Folder Include="MCAL\UART" />
   </ItemGroup>
   <Import Project="$(AVRSTUDIO_EXE_PATH)\\Vs\\Compiler.targets" />
