@@ -49,7 +49,7 @@ int main(void) {
 
     // UART configuration
     UART_Config uart;
-    uart.BaudRate = UART_BaudRate_9600;
+    uart.BaudRate = UART_BaudRate_115200;
     uart.HwFlowCtl = UART_HwFlowCtl_NONE;
     uart.IRQ_Enable = UART_IRQ_Enable_RXNEIE;
     uart.P_IRQ_CallBack = ISR_Uart; // Set UART interrupt callback

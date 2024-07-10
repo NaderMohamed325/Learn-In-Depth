@@ -36,6 +36,7 @@
 #define USART2_BASE                          (Peripherals_BASE + 0x00014400UL)
 #define USART3_BASE                          (Peripherals_BASE + 0x00014800UL)
 #define SPI2_BASE 		             (Peripherals_BASE + 0x00003800UL)
+
 // Base addresses for APB2 Peripherals
 #define GPIOA_BASE                           (Peripherals_BASE + 0x00010800UL)
 #define GPIOB_BASE                           (Peripherals_BASE + 0x00010C00UL)
@@ -46,82 +47,76 @@
 #define EXTI_BASE                            (Peripherals_BASE + 0x00010400UL)
 #define USART1_BASE                          (Peripherals_BASE + 0x00013800UL)
 #define SPI1_BASE 			     (Peripherals_BASE + 0x00013000UL)
+
 // Peripheral register: GPIO
-typedef struct
-    {
-	volatile uint32_t CRL;
-	volatile uint32_t CRH;
-	volatile uint32_t IDR;
-	volatile uint32_t ODR;
-	volatile uint32_t BSRR;
-	volatile uint32_t BRR;
-	volatile uint32_t LCKR;
-    } GPIO_TypeDef;
+typedef struct {
+    volatile uint32_t CRL;
+    volatile uint32_t CRH;
+    volatile uint32_t IDR;
+    volatile uint32_t ODR;
+    volatile uint32_t BSRR;
+    volatile uint32_t BRR;
+    volatile uint32_t LCKR;
+} GPIO_TypeDef;
 
 // Peripheral register: RCC
-typedef struct
-    {
-	volatile uint32_t CR;
-	volatile uint32_t CFGR;
-	volatile uint32_t CIR;
-	volatile uint32_t APB2RSTR;
-	volatile uint32_t APB1RSTR;
-	volatile uint32_t AHBENR;
-	volatile uint32_t APB2ENR;
-	volatile uint32_t APB1ENR;
-	volatile uint32_t BDCR;
-	volatile uint32_t CSR;
-	volatile uint32_t AHBSTR;
-	volatile uint32_t CFGR2;
-    } RCC_TypeDef;
+typedef struct {
+    volatile uint32_t CR;
+    volatile uint32_t CFGR;
+    volatile uint32_t CIR;
+    volatile uint32_t APB2RSTR;
+    volatile uint32_t APB1RSTR;
+    volatile uint32_t AHBENR;
+    volatile uint32_t APB2ENR;
+    volatile uint32_t APB1ENR;
+    volatile uint32_t BDCR;
+    volatile uint32_t CSR;
+    volatile uint32_t AHBSTR;
+    volatile uint32_t CFGR2;
+} RCC_TypeDef;
 
 // Peripheral register: EXTI
-typedef struct
-    {
-	volatile uint32_t IMR;
-	volatile uint32_t EMR;
-	volatile uint32_t RTSR;
-	volatile uint32_t FTSR;
-	volatile uint32_t SWIER;
-	volatile uint32_t PR;
-    } EXTI_TypeDef;
+typedef struct {
+    volatile uint32_t IMR;
+    volatile uint32_t EMR;
+    volatile uint32_t RTSR;
+    volatile uint32_t FTSR;
+    volatile uint32_t SWIER;
+    volatile uint32_t PR;
+} EXTI_TypeDef;
 
 // Peripheral register: AFIO
-typedef struct
-    {
-	volatile uint32_t EVCR;
-	volatile uint32_t MAPR;
-	volatile uint32_t EXTICR[4];
-	uint32_t RESERVED0;
-	volatile uint32_t MAPR2;
-    } AFIO_TypeDef;
+typedef struct {
+    volatile uint32_t EVCR;
+    volatile uint32_t MAPR;
+    volatile uint32_t EXTICR[4];
+    uint32_t RESERVED0;
+    volatile uint32_t MAPR2;
+} AFIO_TypeDef;
 
 // Peripheral register: USART
-typedef struct
-    {
-	volatile uint32_t SR;
-	volatile uint32_t DR;
-	volatile uint32_t BRR;
-	volatile uint32_t CR1;
-	volatile uint32_t CR2;
-	volatile uint32_t CR3;
-	volatile uint32_t GTPR;
-    } USART_TypeDef;
+typedef struct {
+    volatile uint32_t SR;
+    volatile uint32_t DR;
+    volatile uint32_t BRR;
+    volatile uint32_t CR1;
+    volatile uint32_t CR2;
+    volatile uint32_t CR3;
+    volatile uint32_t GTPR;
+} USART_TypeDef;
+
 // Peripheral register: SPI
-
-typedef struct
-    {
-	volatile uint32_t SPI_CR1;
-	volatile uint32_t SPI_CR2;
-	volatile uint32_t SPI_SR;
-	volatile uint32_t SPI_DR;
-	volatile uint32_t SPI_CRCPR;
-	volatile uint32_t SPI_RXCRCR;
-	volatile uint32_t SPI_TXCRCR;
-	volatile uint32_t SPI_I2SCFGR;
-	volatile uint32_t SPI_I2SPR;
-
-    } SPI_TypeDef;
+typedef struct {
+    volatile uint32_t SPI_CR1;
+    volatile uint32_t SPI_CR2;
+    volatile uint32_t SPI_SR;
+    volatile uint32_t SPI_DR;
+    volatile uint32_t SPI_CRCPR;
+    volatile uint32_t SPI_RXCRCR;
+    volatile uint32_t SPI_TXCRCR;
+    volatile uint32_t SPI_I2SCFGR;
+    volatile uint32_t SPI_I2SPR;
+} SPI_TypeDef;
 
 // Peripheral instances
 #define GPIOA                         ((GPIO_TypeDef *)GPIOA_BASE)
@@ -138,8 +133,8 @@ typedef struct
 #define USART2                        ((USART_TypeDef *)USART2_BASE)
 #define USART3                        ((USART_TypeDef *)USART3_BASE)
 
-#define SPI1                           ((SPI_TypeDef *)SPI1_BASE)
-#define SPI2                           ((SPI_TypeDef *)SPI2_BASE)
+#define SPI1                          ((SPI_TypeDef *)SPI1_BASE)
+#define SPI2                          ((SPI_TypeDef *)SPI2_BASE)
 
 // Enable clock GPIO
 #define RCC_GPIOA_CLK_EN()            (RCC->APB2ENR |= (1 << 2))
@@ -219,6 +214,7 @@ typedef struct
 #define NVIC_IRQ35_SPI1_Enable()      (NVIC_ISER1 |= (1 << 3))
 #define NVIC_IRQ36_SPI2_Enable()      (NVIC_ISER1 |= (1 << 4))
 
-#define NVIC_IRQ35_SPI1_Disable()      (NVIC_ICER1 |= (1 << 3))
-#define NVIC_IRQ36_SPI2_Disable()      (NVIC_ICER1 |= (1 << 4))
+#define NVIC_IRQ35_SPI1_Disable()     (NVIC_ICER1 |= (1 << 3))
+#define NVIC_IRQ36_SPI2_Disable()     (NVIC_ICER1 |= (1 << 4))
+
 #endif /* INC_STM32F103X6_H_ */

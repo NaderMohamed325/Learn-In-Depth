@@ -136,7 +136,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x103 ./HAL/keypad.o
  .debug_macro   0x00000000       0x6a ./HAL/keypad.o
  .debug_macro   0x00000000      0x1df ./HAL/keypad.o
- .debug_macro   0x00000000      0x29e ./HAL/keypad.o
+ .debug_macro   0x00000000      0x29a ./HAL/keypad.o
  .debug_macro   0x00000000       0xd0 ./HAL/keypad.o
  .debug_macro   0x00000000       0x3a ./HAL/keypad.o
  .debug_line    0x00000000      0x7df ./HAL/keypad.o
@@ -239,7 +239,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x103 ./HAL/lcd.o
  .debug_macro   0x00000000       0x6a ./HAL/lcd.o
  .debug_macro   0x00000000      0x1df ./HAL/lcd.o
- .debug_macro   0x00000000      0x29e ./HAL/lcd.o
+ .debug_macro   0x00000000      0x29a ./HAL/lcd.o
  .debug_macro   0x00000000       0xd0 ./HAL/lcd.o
  .debug_macro   0x00000000       0x94 ./HAL/lcd.o
  .debug_line    0x00000000      0x8cc ./HAL/lcd.o
@@ -329,7 +329,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x103 ./STM32F103C6_Drivers/GPIO/stm32f103c6_gpio.o
  .debug_macro   0x00000000       0x6a ./STM32F103C6_Drivers/GPIO/stm32f103c6_gpio.o
  .debug_macro   0x00000000      0x1df ./STM32F103C6_Drivers/GPIO/stm32f103c6_gpio.o
- .debug_macro   0x00000000      0x29e ./STM32F103C6_Drivers/GPIO/stm32f103c6_gpio.o
+ .debug_macro   0x00000000      0x29a ./STM32F103C6_Drivers/GPIO/stm32f103c6_gpio.o
  .debug_macro   0x00000000       0xd0 ./STM32F103C6_Drivers/GPIO/stm32f103c6_gpio.o
  .group         0x00000000        0xc ./STM32F103C6_Drivers/stm32f013c6_RCC_Driver.o
  .group         0x00000000        0xc ./STM32F103C6_Drivers/stm32f013c6_RCC_Driver.o
@@ -399,7 +399,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x103 ./STM32F103C6_Drivers/stm32f013c6_RCC_Driver.o
  .debug_macro   0x00000000       0x6a ./STM32F103C6_Drivers/stm32f013c6_RCC_Driver.o
  .debug_macro   0x00000000      0x1df ./STM32F103C6_Drivers/stm32f013c6_RCC_Driver.o
- .debug_macro   0x00000000      0x29e ./STM32F103C6_Drivers/stm32f013c6_RCC_Driver.o
+ .debug_macro   0x00000000      0x29a ./STM32F103C6_Drivers/stm32f013c6_RCC_Driver.o
  .debug_macro   0x00000000       0xd0 ./STM32F103C6_Drivers/stm32f013c6_RCC_Driver.o
  .group         0x00000000        0xc ./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.o
  .group         0x00000000        0xc ./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.o
@@ -483,7 +483,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x103 ./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.o
  .debug_macro   0x00000000       0x6a ./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.o
  .debug_macro   0x00000000      0x1df ./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.o
- .debug_macro   0x00000000      0x29e ./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.o
+ .debug_macro   0x00000000      0x29a ./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.o
  .debug_macro   0x00000000       0xd0 ./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.o
  .group         0x00000000        0xc ./STM32F103C6_Drivers/stm32f103c6_SPI_Driver.o
  .group         0x00000000        0xc ./STM32F103C6_Drivers/stm32f103c6_SPI_Driver.o
@@ -559,7 +559,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x103 ./STM32F103C6_Drivers/stm32f103c6_SPI_Driver.o
  .debug_macro   0x00000000       0x6a ./STM32F103C6_Drivers/stm32f103c6_SPI_Driver.o
  .debug_macro   0x00000000      0x1df ./STM32F103C6_Drivers/stm32f103c6_SPI_Driver.o
- .debug_macro   0x00000000      0x29e ./STM32F103C6_Drivers/stm32f103c6_SPI_Driver.o
+ .debug_macro   0x00000000      0x29a ./STM32F103C6_Drivers/stm32f103c6_SPI_Driver.o
  .debug_macro   0x00000000       0xd0 ./STM32F103C6_Drivers/stm32f103c6_SPI_Driver.o
  .group         0x00000000        0xc ./STM32F103C6_Drivers/stm32f103c6_USART_Driver.o
  .group         0x00000000        0xc ./STM32F103C6_Drivers/stm32f103c6_USART_Driver.o
@@ -634,7 +634,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x103 ./STM32F103C6_Drivers/stm32f103c6_USART_Driver.o
  .debug_macro   0x00000000       0x6a ./STM32F103C6_Drivers/stm32f103c6_USART_Driver.o
  .debug_macro   0x00000000      0x1df ./STM32F103C6_Drivers/stm32f103c6_USART_Driver.o
- .debug_macro   0x00000000      0x29e ./STM32F103C6_Drivers/stm32f103c6_USART_Driver.o
+ .debug_macro   0x00000000      0x29a ./STM32F103C6_Drivers/stm32f103c6_USART_Driver.o
  .debug_macro   0x00000000       0xd0 ./STM32F103C6_Drivers/stm32f103c6_USART_Driver.o
  .debug_macro   0x00000000       0x10 ./STM32F103C6_Drivers/stm32f103c6_USART_Driver.o
  .group         0x00000000        0xc ./Src/main.o
@@ -707,7 +707,7 @@ Discarded input sections
  .debug_macro   0x00000000      0x103 ./Src/main.o
  .debug_macro   0x00000000       0x6a ./Src/main.o
  .debug_macro   0x00000000      0x1df ./Src/main.o
- .debug_macro   0x00000000      0x29e ./Src/main.o
+ .debug_macro   0x00000000      0x29a ./Src/main.o
  .debug_macro   0x00000000       0xd0 ./Src/main.o
  .debug_macro   0x00000000       0x10 ./Src/main.o
  .debug_macro   0x00000000       0xe2 ./Src/main.o

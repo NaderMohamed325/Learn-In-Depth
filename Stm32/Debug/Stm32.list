@@ -1676,8 +1676,8 @@ int main(void) {
 
     // UART configuration
     UART_Config uart;
-    uart.BaudRate = UART_BaudRate_9600;
- 8000a5a:	f44f 5316 	mov.w	r3, #9600	@ 0x2580
+    uart.BaudRate = UART_BaudRate_115200;
+ 8000a5a:	f44f 33e1 	mov.w	r3, #115200	@ 0x1c200
  8000a5e:	9308      	str	r3, [sp, #32]
     uart.HwFlowCtl = UART_HwFlowCtl_NONE;
  8000a60:	2400      	movs	r4, #0
