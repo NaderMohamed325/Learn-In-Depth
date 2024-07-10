@@ -10,13 +10,15 @@
 
 #include "stm32f103c6_gpio.h"
 
-#define HSI_RC_Clk 16000000UL
-#define HSE_Clock 16000000UL
 
-uint32_t MCAL_RCC_Get_SYS_CLK_Freq(void);
-uint32_t MCAL_RCC_Get_HCLK_Freq(void);
-uint32_t MCAL_RCC_Get_PCLK1_Freq(void);
-uint32_t MCAL_RCC_Get_PCLK2_Freq(void);
+#define  HSE_Clock			(uint32_t)16000000
+#define  HSI_RC_Clk			(uint32_t)8000000
+
+
+uint32_t MCAL_RCC_GetSYS_CLCKFreq(void);
+uint32_t MCAL_RCC_GetHCLKFreq(void);
+uint32_t MCAL_RCC_GetPCLK1Freq(void);
+uint32_t MCAL_RCC_GetPCLK2Freq(void);
 
 
 

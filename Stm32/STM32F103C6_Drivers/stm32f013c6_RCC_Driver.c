@@ -6,64 +6,101 @@
  */
 #include "inc/stm32f013c6_RCC_Driver.h"
 
-
-// AHB prescaler table values
-const uint8_t HCLK[] =
-{
-    0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
-};
-
-// APB prescaler table values
-const uint8_t APBP_resc_Table[8] =
-{
-    0, 0, 0, 0, 1, 2, 3, 4
-};
-
-/**
- * @brief Get the SYSCLK frequency.
- * @return The system clock frequency in Hz.
- */
-uint32_t MCAL_RCC_Get_SYS_CLK_Freq(void)
-{
-    switch ((RCC->CFGR >> 2) & 0x03)
+//PPRE1[2:0]: APB Low-speed prescaler (APB1)
+//0xx: HCLK not divided
+//100: HCLK divided by 2
+//101: HCLK divided by 4
+//110: HCLK divided by 8
+//111: HCLK divided by 16
+const uint8_t APBPrescTable[8U] =
     {
-        case 0:
-            return HSI_RC_Clk;
+    0, 0, 0, 0, 1, 2, 3, 4
+    }; //Shift 1 right == mutliply by 2
 
-        case 1:
-            return HSE_Clock;
+//Bits 7:4 HPRE[3:0]: AHB prescaler
+//Set and cleared by software to control AHB clock division factor.
+//0xxx: SYSCLK not divided
+//1000: SYSCLK divided by 2
+//1001: SYSCLK divided by 4
+//1010: SYSCLK divided by 8
+//1011: SYSCLK divided by 16
+//1100: SYSCLK divided by 64
+//1101: SYSCLK divided by 128
+//1110: SYSCLK divided by 256
+//1111: SYSCLK divided by 512
+const uint8_t AHBPrescTable[16U] =
+    {
+    0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 6, 7, 8, 9
+    };
 
-        case 2:
-            return 16000000UL;
+/*
+ * =======================================================================================
+ * 							Generic Variables
+ * =======================================================================================
+ */
 
-        default:
-            return -1; // Not allowed value
+/*
+ * =======================================================================================
+ * 							Generic Macros
+ * =======================================================================================
+ */
+
+/*
+ * =======================================================================================
+ * 							Generic Functions
+ * =======================================================================================
+ */
+
+uint32_t MCAL_RCC_GetSYS_CLCKFreq(void)
+    {
+
+//	Bits 3:2 SWS[1:0]: System clock switch status
+//	Set and cleared by hardware to indicate which clock source is used as system clock.
+//	00: HSI oscillator used as system clock
+//	01: HSE oscillator used as system clock
+//	10: PLL used as system clock
+//	11: Not applicable
+    switch ((RCC->CFGR >> 2) & 0b11)
+	{
+    case 0:
+
+	return HSI_RC_Clk;
+	break;
+
+    case 1:
+
+	//todo need to calculate  it //HSE User Should Specify it
+	return HSE_Clock;
+	break;
+
+    case 2:
+
+	//todo need to calculate  it PLLCLK and PLLMUL & PLL Source MUX
+	return 16000000;
+	break;
+
+	}
+
     }
-}
 
-/**
- * @brief Get the HCLK frequency.
- * @return The AHB clock frequency in Hz.
- */
-uint32_t MCAL_RCC_Get_HCLK_Freq(void)
-{
-    return (MCAL_RCC_Get_SYS_CLK_Freq() >> HCLK[(RCC->CFGR >> 4) & 0x0F]);
-}
+uint32_t MCAL_RCC_GetHCLKFreq(void)
+    {
+    /* Get HCLK source and Compute PCLK1 frequency ---------------------------*/
+    return (MCAL_RCC_GetSYS_CLCKFreq()
+	    >> AHBPrescTable[((RCC->CFGR >> 4) & 0xF)]); //the first shift is multiplication}
+    }
 
-/**
- * @brief Get the PCLK1 frequency.
- * @return The APB1 clock frequency in Hz.
- */
-uint32_t MCAL_RCC_Get_PCLK1_Freq(void)
-{
-    return (MCAL_RCC_Get_HCLK_Freq() >> APBP_resc_Table[(RCC->CFGR >> 8) & 0x07]);
-}
+//APB Low speed clock (PCLK1).
+//Bits 10:8 PPRE1[2:0]: APB Low-speed prescaler (APB1)
+uint32_t MCAL_RCC_GetPCLK1Freq(void)
+    {
+    /* Get HCLK source and Compute PCLK1 frequency ---------------------------*/
+    return (MCAL_RCC_GetHCLKFreq() >> APBPrescTable[((RCC->CFGR >> 8) & 0b111)]); //the first shift is multiplication
+    }
 
-/**
- * @brief Get the PCLK2 frequency.
- * @return The APB2 clock frequency in Hz.
- */
-uint32_t MCAL_RCC_Get_PCLK2_Freq(void)
-{
-    return (MCAL_RCC_Get_HCLK_Freq() >> APBP_resc_Table[(RCC->CFGR >> 11) & 0x07]);
-}
+uint32_t MCAL_RCC_GetPCLK2Freq(void)
+    {
+    /* Get HCLK source and Compute PCLK2 frequency ---------------------------*/
+    return (MCAL_RCC_GetHCLKFreq() >> APBPrescTable[((RCC->CFGR >> 11) & 0b111)]); //the first shift is multiplication
+    }
+
