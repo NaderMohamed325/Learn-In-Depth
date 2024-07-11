@@ -1,0 +1,9 @@
+../HAL/lcd.c:13:6:LCD_GPIO_init	32	static
+../HAL/lcd.c:61:6:LCD_lcd_kick	8	static
+../HAL/lcd.c:100:6:LCD_check_lcd_isbusy	32	static
+../HAL/lcd.c:144:6:LCD_WRITE_COMMAND	16	static
+../HAL/lcd.c:56:6:LCD_clear_screen	0	static
+../HAL/lcd.c:68:6:LCD_GOTO_XY	0	static
+../HAL/lcd.c:86:6:LCD_INIT	8	static
+../HAL/lcd.c:159:6:LCD_WRITE_CHAR	16	static
+../HAL/lcd.c:174:6:LCD_WRITE_STRING	16	static
