@@ -3,29 +3,29 @@ Avr.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000000d2  00000000  00000000  00000054  2**1
+  0 .text         000000c6  00000000  00000000  00000054  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00800060  00000126  2**0
+  1 .data         00000000  00800060  00800060  0000011a  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .comment      00000030  00000000  00000000  00000126  2**0
+  2 .comment      00000030  00000000  00000000  0000011a  2**0
                   CONTENTS, READONLY
-  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000158  2**2
+  3 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  0000014c  2**2
                   CONTENTS, READONLY
-  4 .debug_aranges 00000058  00000000  00000000  00000194  2**0
+  4 .debug_aranges 00000058  00000000  00000000  00000188  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_info   00000717  00000000  00000000  000001ec  2**0
+  5 .debug_info   00000722  00000000  00000000  000001e0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_abbrev 00000628  00000000  00000000  00000903  2**0
+  6 .debug_abbrev 00000621  00000000  00000000  00000902  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00000321  00000000  00000000  00000f2b  2**0
+  7 .debug_line   00000329  00000000  00000000  00000f23  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_frame  00000088  00000000  00000000  0000124c  2**2
+  8 .debug_frame  00000078  00000000  00000000  0000124c  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000379  00000000  00000000  000012d4  2**0
+  9 .debug_str    00000379  00000000  00000000  000012c4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00000067  00000000  00000000  0000164d  2**0
+ 10 .debug_loc    00000068  00000000  00000000  0000163d  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000038  00000000  00000000  000016b4  2**0
+ 11 .debug_ranges 00000038  00000000  00000000  000016a5  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -65,7 +65,7 @@ Disassembly of section .text:
   60:	10 e0       	ldi	r17, 0x00	; 0
   62:	a0 e6       	ldi	r26, 0x60	; 96
   64:	b0 e0       	ldi	r27, 0x00	; 0
-  66:	e2 ed       	ldi	r30, 0xD2	; 210
+  66:	e6 ec       	ldi	r30, 0xC6	; 198
   68:	f0 e0       	ldi	r31, 0x00	; 0
   6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
   6c:	05 90       	lpm	r0, Z+
@@ -74,93 +74,83 @@ Disassembly of section .text:
   72:	b1 07       	cpc	r27, r17
   74:	d9 f7       	brne	.-10     	; 0x6c <__do_copy_data+0xc>
   76:	0e 94 41 00 	call	0x82	; 0x82 <main>
-  7a:	0c 94 67 00 	jmp	0xce	; 0xce <_exit>
+  7a:	0c 94 61 00 	jmp	0xc2	; 0xc2 <_exit>
 
 0000007e <__bad_interrupt>:
   7e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
 00000082 <main>:
-#include "MCAL/SPI/SPI.h"
-
 
 
 int main(void)
 {
-  82:	cf 93       	push	r28
-  84:	df 93       	push	r29
-  86:	1f 92       	push	r1
-  88:	cd b7       	in	r28, 0x3d	; 61
-  8a:	de b7       	in	r29, 0x3e	; 62
-	 SPI_MasterInit();
-  8c:	0e 94 59 00 	call	0xb2	; 0xb2 <SPI_MasterInit>
-	//SPI_SlaveInit();
-	unsigned char volatile RE=0;
-  90:	19 82       	std	Y+1, r1	; 0x01
-	while(1){
-		SPI_MasterTransmit(RE);
-  92:	89 81       	ldd	r24, Y+1	; 0x01
-  94:	0e 94 62 00 	call	0xc4	; 0xc4 <SPI_MasterTransmit>
-		RE++;_delay_ms(500);
-  98:	89 81       	ldd	r24, Y+1	; 0x01
-  9a:	8f 5f       	subi	r24, 0xFF	; 255
-  9c:	89 83       	std	Y+1, r24	; 0x01
+
+	SPI_MasterInit();
+  82:	0e 94 53 00 	call	0xa6	; 0xa6 <SPI_MasterInit>
+		unsigned char p=0;
+  86:	80 e0       	ldi	r24, 0x00	; 0
+		while(1){
+			SPI_MasterTransmit(p++);
+  88:	c1 e0       	ldi	r28, 0x01	; 1
+  8a:	c8 0f       	add	r28, r24
+  8c:	0e 94 5c 00 	call	0xb8	; 0xb8 <SPI_MasterTransmit>
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
-  9e:	2f ef       	ldi	r18, 0xFF	; 255
-  a0:	84 e3       	ldi	r24, 0x34	; 52
-  a2:	9c e0       	ldi	r25, 0x0C	; 12
-  a4:	21 50       	subi	r18, 0x01	; 1
-  a6:	80 40       	sbci	r24, 0x00	; 0
-  a8:	90 40       	sbci	r25, 0x00	; 0
-  aa:	e1 f7       	brne	.-8      	; 0xa4 <main+0x22>
-  ac:	00 c0       	rjmp	.+0      	; 0xae <main+0x2c>
-  ae:	00 00       	nop
-  b0:	f0 cf       	rjmp	.-32     	; 0x92 <main+0x10>
+  90:	2f ef       	ldi	r18, 0xFF	; 255
+  92:	84 e3       	ldi	r24, 0x34	; 52
+  94:	9c e0       	ldi	r25, 0x0C	; 12
+  96:	21 50       	subi	r18, 0x01	; 1
+  98:	80 40       	sbci	r24, 0x00	; 0
+  9a:	90 40       	sbci	r25, 0x00	; 0
+  9c:	e1 f7       	brne	.-8      	; 0x96 <main+0x14>
+  9e:	00 c0       	rjmp	.+0      	; 0xa0 <main+0x1e>
+  a0:	00 00       	nop
+  a2:	8c 2f       	mov	r24, r28
+  a4:	f1 cf       	rjmp	.-30     	; 0x88 <main+0x6>
 
-000000b2 <SPI_MasterInit>:
- * sets MISO as input, and enables SPI in Master mode with a clock rate of fck/16.
- */
+000000a6 <SPI_MasterInit>:
+#define Master_SPI 1
+#define Slave_SPI 1
 void SPI_MasterInit(void)
 {
-    /* Set MOSI, SCK and SS output, all others input */
-    DDRB |= (1 << MOSI) | (1 << SCK) | (1 << SS);
-  b2:	87 b3       	in	r24, 0x17	; 23
-  b4:	80 6b       	ori	r24, 0xB0	; 176
-  b6:	87 bb       	out	0x17, r24	; 23
-    /* Set MISO input */
-    DDRB &= ~(1 << MISO);
-  b8:	87 b3       	in	r24, 0x17	; 23
-  ba:	8f 7b       	andi	r24, 0xBF	; 191
-  bc:	87 bb       	out	0x17, r24	; 23
-    /* Enable SPI, Master, set clock rate fck/16 */
-    SPCR = (1 << SPE) | (1 << MSTR) | (1 << SPR0);
-  be:	81 e5       	ldi	r24, 0x51	; 81
-  c0:	8d b9       	out	0x0d, r24	; 13
-  c2:	08 95       	ret
+	/* Set MOSI, SCK and SS output, all others input */
+	DDRB |= (1<<MOSI)|(1<<SCK)|(1<<SS);
+  a6:	87 b3       	in	r24, 0x17	; 23
+  a8:	80 6b       	ori	r24, 0xB0	; 176
+  aa:	87 bb       	out	0x17, r24	; 23
+	/* Set MISO input */
+	DDRB &= ~(1<<MISO);
+  ac:	87 b3       	in	r24, 0x17	; 23
+  ae:	8f 7b       	andi	r24, 0xBF	; 191
+  b0:	87 bb       	out	0x17, r24	; 23
+	/* Enable SPI, Master, set clock rate fck/16 */
+	SPCR = (1<<SPE)|(1<<MSTR)|(1<<SPR0);
+  b2:	81 e5       	ldi	r24, 0x51	; 81
+  b4:	8d b9       	out	0x0d, r24	; 13
+  b6:	08 95       	ret
 
-000000c4 <SPI_MasterTransmit>:
- * @return The received data byte.
- */
+000000b8 <SPI_MasterTransmit>:
+}
 unsigned char SPI_MasterTransmit(unsigned char cData)
 {
-    /* Start transmission */
-    SPDR = cData;
-  c4:	8f b9       	out	0x0f, r24	; 15
-    /* Wait for transmission complete */
-    while (!(SPSR & (1 << SPIF)));
-  c6:	77 9b       	sbis	0x0e, 7	; 14
-  c8:	fe cf       	rjmp	.-4      	; 0xc6 <SPI_MasterTransmit+0x2>
-    return SPDR;
-  ca:	8f b1       	in	r24, 0x0f	; 15
+	/* Start transmission */
+	SPDR = cData;
+  b8:	8f b9       	out	0x0f, r24	; 15
+	/* Wait for transmission complete */
+	while(!(SPSR & (1<<SPIF)));
+  ba:	77 9b       	sbis	0x0e, 7	; 14
+  bc:	fe cf       	rjmp	.-4      	; 0xba <SPI_MasterTransmit+0x2>
+	return SPDR; 
+  be:	8f b1       	in	r24, 0x0f	; 15
 }
-  cc:	08 95       	ret
+  c0:	08 95       	ret
 
-000000ce <_exit>:
-  ce:	f8 94       	cli
+000000c2 <_exit>:
+  c2:	f8 94       	cli
 
-000000d0 <__stop_program>:
-  d0:	ff cf       	rjmp	.-2      	; 0xd0 <__stop_program>
+000000c4 <__stop_program>:
+  c4:	ff cf       	rjmp	.-2      	; 0xc4 <__stop_program>

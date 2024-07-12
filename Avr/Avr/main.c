@@ -15,7 +15,12 @@
 int main(void)
 {
 
-		
+	SPI_MasterInit();
+		unsigned char p=0;
+		while(1){
+			SPI_MasterTransmit(p++);
+			_delay_ms(500);
+		}
 	
 	
 

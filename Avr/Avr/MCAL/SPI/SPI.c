@@ -11,7 +11,8 @@
 #define MISO 6
 #define SCK  7
 #define SS   4
-
+#define Master_SPI 1
+#define Slave_SPI 1
 void SPI_MasterInit(void)
 {
 	/* Set MOSI, SCK and SS output, all others input */
@@ -27,7 +28,7 @@ unsigned char SPI_MasterTransmit(unsigned char cData)
 	SPDR = cData;
 	/* Wait for transmission complete */
 	while(!(SPSR & (1<<SPIF)));
-	return SPDR;
+	return SPDR; 
 }
 
 void SPI_SlaveInit(void)
