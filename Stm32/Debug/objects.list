@@ -3,6 +3,7 @@
 "./STM32F103C6_Drivers/GPIO/stm32f103c6_gpio.o"
 "./STM32F103C6_Drivers/stm32f013c6_RCC_Driver.o"
 "./STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.o"
+"./STM32F103C6_Drivers/stm32f103c6_I2C_Driver.o"
 "./STM32F103C6_Drivers/stm32f103c6_SPI_Driver.o"
 "./STM32F103C6_Drivers/stm32f103c6_USART_Driver.o"
 "./Src/main.o"

@@ -168,6 +168,12 @@
     <Compile Include="MCAL\gpio\Utils.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\I2C\I2C.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\I2C\I2C.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\SPI\SPI.c">
       <SubType>compile</SubType>
     </Compile>
@@ -187,6 +193,7 @@
     <Folder Include="ECU\Keypad" />
     <Folder Include="MCAL" />
     <Folder Include="MCAL\gpio" />
+    <Folder Include="MCAL\I2C" />
     <Folder Include="MCAL\SPI" />
     <Folder Include="MCAL\UART" />
   </ItemGroup>

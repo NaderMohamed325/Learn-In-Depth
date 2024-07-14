@@ -1,3 +1,1 @@
-../Src/main.c:30:6:ISR_Uart	1
-../Src/main.c:40:6:ISR_SPI	2
-../Src/main.c:57:5:main	2
+../Src/main.c:30:5:main	1

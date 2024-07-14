@@ -12,8 +12,9 @@
  *                          Generic Variables
  * =======================================================================================
  */
-SPI_Config *Global_SPI_Config[2] = {NULL, NULL};
-
+SPI_Config *Global_SPI_Config[]={NULL,NULL};
+SPI_Config Global_SPI_Config1;
+SPI_Config Global_SPI_Config2;
 /*
  * =======================================================================================
  *                          Generic Macros
@@ -45,12 +46,12 @@ void MCAL_SPI_Init(SPI_TypeDef *SPIx, SPI_Config *SPI_Config)
 
     if (SPIx == SPI1)
     {
-        Global_SPI_Config[SPI1_INDEX] = SPI_Config;
+        Global_SPI_Config1 = *SPI_Config;
         RCC_SPI1_CLK_EN();
     }
     else if (SPIx == SPI2)
     {
-        Global_SPI_Config[SPI2_INDEX] = SPI_Config;
+        Global_SPI_Config2 = *SPI_Config;
         RCC_SPI2_CLK_EN();
     }
 
@@ -218,7 +219,7 @@ void MCAL_SPI_GPIO_Set_Pins(SPI_TypeDef *SPIx)
             // PA4 : SPI1_NSS
             switch (Global_SPI_Config[SPI1_INDEX]->NSS)
             {
-                case SPI_NSS_Hard_Master_SS_output_disable:
+                case (uint16_t)SPI_NSS_Hard_Master_SS_output_disable:
                     // Hardware master /slave Input floating
                     PinCfg.GPIO_PinNumber = GPIO_PIN_4;
                     PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;
@@ -297,7 +298,7 @@ void MCAL_SPI_GPIO_Set_Pins(SPI_TypeDef *SPIx)
             // PB12 : SPI2_NSS
             switch (Global_SPI_Config[SPI2_INDEX]->NSS)
             {
-                case SPI_NSS_Hard_Master_SS_output_disable:
+                case (uint16_t)SPI_NSS_Hard_Master_SS_output_disable:
                     // Hardware master /slave Input floating
                     PinCfg.GPIO_PinNumber = GPIO_PIN_12;
                     PinCfg.GPIO_MODE = GPIO_MODE_INPUT_FLO;

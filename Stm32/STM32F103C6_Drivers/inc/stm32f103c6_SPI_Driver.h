@@ -100,13 +100,13 @@ typedef struct
 //@ref SPI_NSS  SPI Slave Select Management
 //======================NSS=================================
 ///Hardware or Software
-#define SPI_NSS_Hard_Slave                    					((uint16_t)0x0000)
-#define SPI_NSS_Hard_Master_SS_output_enable                    (0x1U<<2)           //SPI_CR2  Bit 2 SSOE: SS output enable
-#define SPI_NSS_Hard_Master_SS_output_disable                     ~(0x1U<<2)           //SPI_CR2  Bit 2 SSOE: SS output enable &=
+#define SPI_NSS_Hard_Slave                    			((uint16_t)0x0000)
+#define SPI_NSS_Hard_Master_SS_output_enable                    (uint16_t)(0x1U<<2)            //SPI_CR2  Bit 2 SSOE: SS output enable
+#define SPI_NSS_Hard_Master_SS_output_disable                   ~(uint16_t)(0x1U<<2)           //SPI_CR2  Bit 2 SSOE: SS output enable &=
 
 
-#define SPI_NSS_Soft_NSSInternalSoft_Reset                    (0x1U<<9)				//for Master & Slave
-#define SPI_NSS_Soft_NSSInternalSoft_Set                      ((0x1U<<9) | (0x1U<<8)) 			//for Master & Slave
+#define SPI_NSS_Soft_NSSInternalSoft_Reset                    (uint16_t)(0x1U<<9)		//for Master & Slave
+#define SPI_NSS_Soft_NSSInternalSoft_Set                      (uint16_t)((0x1U<<9) | (0x1U<<8)) //for Master & Slave
 
 
 
