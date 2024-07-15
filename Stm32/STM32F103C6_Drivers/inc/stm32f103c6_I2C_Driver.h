@@ -26,13 +26,41 @@
  */
 typedef enum
     {
+    DISABLE = 0,
+    ENABLE = 1
+    } FunctionalState;
+typedef enum
+    {
+    RESET = 0,
+    SET = 1
+    } FlagStatus;
+
+typedef enum
+    {
+    I2C_Direction_Transmitter = 0,
+    I2C_Direction_Recieve = 1
+    } I2C_Direction;
+
+#define I2C_EVENT_MASTER_BYTE_TRANSMITTING                 ((uint32_t)0x00070080) /* TRA, BUSY, MSL, TXE flags */
+typedef enum
+    {
     I2C_EV_STOP,
     I2C_ERROR_AF,
     I2C_EV_ADDR_Matched,
     I2C_EV_DATA_REQ, //the APP layer should send the data (I2C_SlaveSendData ) in this state
     I2C_EV_DATA_RCV //the APP layer should read the data (I2C_SlaveReceiveData ) in this state
     } Slave_State;
+typedef enum
+    {
+    I2C_FLAG_BUSY = 0,
+    EV5, //EV5: SB=1, cleared by reading SR1 register followed by writing DR register with Address.
+    EV6, //EV6: ADDR=1, cleared by reading SR1 register followed by reading SR2.
+    EV8, //EV8: TxE=1, shift register not empty, d . ata register empty, cleared by writing DR register
+    EV8_1,
+    EV7,
+    MASTER_BYTE_TRANSMITTING = ((uint32_t) 0x00070080) /* TRA, BUSY, MSL, TXE flags */
 
+    } Status;
 typedef struct
     {
 	uint16_t Enable_Dual_Add;              //1- enable 0-disable
@@ -106,40 +134,44 @@ typedef struct
 #define I2C_Genaral_Address_Enable       I2C_CR1_ENGC
 #define I2C_Genaral_Address_Disable       0
 
+typedef enum
+    {
+    With_Stop,
+    without_Stop
+    } Stop_Condition;
 
-
-
-
-
-
-
-
-
-
-
-
-
+typedef enum
+    {
+    Start,
+    repeated_start
+    } Repeated_Start;
 
 void MCAL_I2C_Init(I2C_TypeDef *I2Cx, I2C_InitTypeDef *I2C_InitStruct);
 void MCAL_I2C_DInit(I2C_TypeDef *I2Cx);
-void MCAL_I2C_GPIO_Set_Pins (I2C_TypeDef* I2Cx);
+void MCAL_I2C_GPIO_Set_Pins(I2C_TypeDef *I2Cx);
+//Master Polling Mechanism
 
+void MCAL_I2C_Master_TX(I2C_TypeDef *I2Cx, uint16_t devAddr, uint8_t *dataOut,
+	uint32_t dataLen, Stop_Condition Stop, Repeated_Start start);
+void MCAL_I2C_Master_RX(I2C_TypeDef *I2Cx, uint16_t devAddr, uint8_t *dataOut,
+	uint32_t dataLen, Stop_Condition Stop, Repeated_Start start);
 
+//Slave interrupt mechanism
+void MCAL_I2C_SlaveSendData(I2C_TypeDef *I2Cx, uint8_t data);
+uint8_t MCAL_I2C_SlaveReceiveData(I2C_TypeDef *I2Cx);
 
+//Generic APIs
 
+void I2C_GenerateSTART(I2C_TypeDef *I2Cx, FunctionalState NewState,
+	Repeated_Start start);
 
+FlagStatus I2C_GetFlagStatus(I2C_TypeDef *I2Cx, Status flag);
 
+void I2C_SendAddress(I2C_TypeDef *I2Cx, uint16_t Address,
+	I2C_Direction Direction);
 
+void I2C_GenerateSTOP(I2C_TypeDef *I2Cx, FunctionalState NewState);
 
-
-
-
-
-
-
-
-
-
-
-
+void I2C_AcknowledgeConfig(I2C_TypeDef *I2Cx, FunctionalState NewState);
+void Slave_States(I2C_TypeDef *I2Cx, Slave_State state);
 #endif /* INC_STM32F103C6_I2C_DRIVER_H_ */
