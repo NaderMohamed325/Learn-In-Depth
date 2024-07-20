@@ -153,4 +153,61 @@
 #define TWEN   2  // TWI Enable Bit
 #define TWIE   0  // TWI Interrupt Enable
 
+// Timer/Counter0 Registers
+#define TCCR0  *((volatile unsigned char *)0x53)  // Timer/Counter0 Control Register
+#define TCNT0  *((volatile unsigned char *)0x52)  // Timer/Counter0 Register
+#define OCR0   *((volatile unsigned char *)0x5C)  // Output Compare Register 0
+
+// Bit definitions for TCCR0
+#define FOC0   7  // Force Output Compare
+#define WGM00  6  // Waveform Generation Mode
+#define COM01  5  // Compare Match Output Mode
+#define COM00  4  // Compare Match Output Mode
+#define WGM01  3  // Waveform Generation Mode
+#define CS02   2  // Clock Select
+#define CS01   1  // Clock Select
+#define CS00   0  // Clock Select
+
+// Timer/Counter1 Registers
+#define TCCR1A *((volatile unsigned char *)0x4F)  // Timer/Counter1 Control Register A
+#define TCCR1B *((volatile unsigned char *)0x4E)  // Timer/Counter1 Control Register B
+#define TCNT1  *((volatile unsigned short *)0x4C) // Timer/Counter1 Register
+#define OCR1A  *((volatile unsigned short *)0x4A) // Output Compare Register 1A
+#define OCR1B  *((volatile unsigned short *)0x48) // Output Compare Register 1B
+#define ICR1   *((volatile unsigned short *)0x46) // Input Capture Register 1
+
+// Bit definitions for TCCR1A
+#define COM1A1 7  // Compare Output Mode for Channel A
+#define COM1A0 6  // Compare Output Mode for Channel A
+#define COM1B1 5  // Compare Output Mode for Channel B
+#define COM1B0 4  // Compare Output Mode for Channel B
+#define FOC1A  3  // Force Output Compare for Channel A
+#define FOC1B  2  // Force Output Compare for Channel B
+#define WGM11  1  // Waveform Generation Mode
+#define WGM10  0  // Waveform Generation Mode
+
+// Bit definitions for TCCR1B
+#define ICNC1  7  // Input Capture Noise Canceler
+#define ICES1  6  // Input Capture Edge Select
+#define WGM13  4  // Waveform Generation Mode
+#define WGM12  3  // Waveform Generation Mode
+#define CS12   2  // Clock Select
+#define CS11   1  // Clock Select
+#define CS10   0  // Clock Select
+
+// Timer/Counter2 Registers
+#define TCCR2  *((volatile unsigned char *)0x45)  // Timer/Counter2 Control Register
+#define TCNT2  *((volatile unsigned char *)0x44)  // Timer/Counter2 Register
+#define OCR2   *((volatile unsigned char *)0x43)  // Output Compare Register 2
+
+// Bit definitions for TCCR2
+#define FOC2   7  // Force Output Compare
+#define WGM20  6  // Waveform Generation Mode
+#define COM21  5  // Compare Match Output Mode
+#define COM20  4  // Compare Match Output Mode
+#define WGM21  3  // Waveform Generation Mode
+#define CS22   2  // Clock Select
+#define CS21   1  // Clock Select
+#define CS20   0  // Clock Select
+
 #endif /* MEMORY_MAP_H_ */

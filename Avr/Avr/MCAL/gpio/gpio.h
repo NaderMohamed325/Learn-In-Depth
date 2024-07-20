@@ -10,7 +10,9 @@
 
 #include "Memory_Map.h"
 #include "Utils.h"
-
+#include <avr/interrupt.h>
+#include <stdlib.h>
+#include <stdio.h>
 #define A 0
 #define B 1
 #define C 2

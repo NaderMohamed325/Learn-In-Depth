@@ -180,6 +180,12 @@
     <Compile Include="MCAL\SPI\SPI.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\Timer\Timer.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\Timer\Timer.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\UART\Uart.c">
       <SubType>compile</SubType>
     </Compile>
@@ -194,6 +200,7 @@
     <Folder Include="MCAL" />
     <Folder Include="MCAL\gpio" />
     <Folder Include="MCAL\I2C" />
+    <Folder Include="MCAL\Timer" />
     <Folder Include="MCAL\SPI" />
     <Folder Include="MCAL\UART" />
   </ItemGroup>

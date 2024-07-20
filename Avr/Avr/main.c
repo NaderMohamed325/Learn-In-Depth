@@ -5,21 +5,39 @@
 * Author : Nader
 */
 
+#include "MCAL/Timer/Timer.h"
 
-#include "ECU/Lcd/lcd.h"
-#include "MCAL/UART/Uart.h"
-#include "MCAL/I2C/I2C.h"
+// Global pin configuration for use in ISR
+Pin_config_t Pin;
+
+// Interrupt Service Routine (ISR) for Timer0 Overflow
+void my_isr(void) {
+	Pin_Toggle(&Pin);
+}
 
 int main(void) {
-	uint8_t receivedData;
+	// Configure the pin
+	Pin.port = B;
+	Pin.pin = 4;
+	Pin.direction = Output;
+	Pin.logic = Low;
+	Pin_logic_init(&Pin);
 
-	I2C_SlaveInit(0x10); // Initialize I2C as slave with address 0x10
+	// Configure the timer
+	Timer0_t timer = {
+		.Compare_Value = 255,
+		.Output_Pin_Functionality = OC0_Toggle,
+		.Precaller = Prescaller_1024,
+		.Timer_Mode = Normal,
+		.Force_Output_Pin = Enable,
+		.interrupt_status = OverFlow_Interrupt,
+		.Call_Back_Overflow = my_isr
+	};
+
+	// Initialize the timer
+	Timer0_Init(&timer);
 
 	while (1) {
-		I2C_SlaveListen(); // Listen for I2C requests
-
-		receivedData = I2C_SlaveReceive(); // Receive data from master
-
-		I2C_SlaveTransmit(receivedData + 1); // Transmit processed data back to master
+		// Main loop
 	}
 }
