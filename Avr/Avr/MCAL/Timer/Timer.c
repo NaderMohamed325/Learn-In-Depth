@@ -1,10 +1,3 @@
-/*
-* Timer.c
-*
-* Created: 7/20/2024 4:47:36 PM
-* Author: xcite
-*/
-
 #include "Timer.h"
 
 // Global pointer to Timer0_t for ISR use
@@ -61,18 +54,8 @@ bool Timer0_Init(Timer0_t *timer) {
 		// Clear bits 4 and 5 for OC0 Off
 		TCCR0 &= ~(3 << 4);
 		} else {
-		// Initialize clock pin configuration
-		Pin_config_t Clk_Pin;
-		Clk_Pin.port = B;
-		Clk_Pin.pin = 3;
-		Clk_Pin.direction = Output;
-		Clk_Pin.logic = Low;
-
 		// Set Output Pin Functionality
 		TCCR0 |= timer->Output_Pin_Functionality;
-
-		// Initialize the clock pin logic
-		Pin_logic_init(&Clk_Pin);
 	}
 
 	// Set Compare Value
@@ -100,6 +83,31 @@ bool Timer0_Init(Timer0_t *timer) {
 	sei();
 
 	return true;
+}
+
+/**
+* @brief Initialize Timer0 for PWM generation.
+*
+* This function initializes Timer0 to generate a PWM signal with the specified
+* duty cycle, output mode, and prescaler.
+*
+* @param duty_cycle The duty cycle of the PWM signal (0-255).
+* @param output_mode The output mode for the PWM signal (OC0_Clear or OC0_Set).
+* @param prescaler The prescaler value for the timer.
+*/
+void Timer0_PWM_Init(uint8_t duty_cycle, T_OC0Pin_t output_mode, T_clk_t prescaler) {
+	Timer0_t timer = {
+		.Timer_Mode = F_PWM, // Fast PWM mode
+		.Output_Pin_Functionality = output_mode,
+		.Precaller = prescaler,
+		.Compare_Value = duty_cycle,
+		.Force_Output_Pin = Disable,
+		.interrupt_status = interrupt_Disable,
+		.Call_Back_Overflow = NULL,
+		.Call_Back_Compare = NULL
+	};
+
+	Timer0_Init(&timer);
 }
 
 // ISR for Timer0 Overflow

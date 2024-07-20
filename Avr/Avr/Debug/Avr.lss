@@ -3,31 +3,31 @@ Avr.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000005ae  00000000  00000000  00000074  2**1
+  0 .text         000004ca  00000000  00000000  00000074  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000000  00800060  00800060  00000622  2**0
+  1 .data         00000000  00800060  00800060  0000053e  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000006  00800060  00800060  00000622  2**0
+  2 .bss          00000002  00800060  00800060  0000053e  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000622  2**0
+  3 .comment      00000030  00000000  00000000  0000053e  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000654  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000570  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 000000b8  00000000  00000000  00000690  2**0
+  5 .debug_aranges 000000b8  00000000  00000000  000005ac  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   00000d88  00000000  00000000  00000748  2**0
+  6 .debug_info   00000cbe  00000000  00000000  00000664  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 0000087d  00000000  00000000  000014d0  2**0
+  7 .debug_abbrev 00000830  00000000  00000000  00001322  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   00000854  00000000  00000000  00001d4d  2**0
+  8 .debug_line   000007bb  00000000  00000000  00001b52  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  000001e4  00000000  00000000  000025a4  2**2
+  9 .debug_frame  000001e4  00000000  00000000  00002310  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000537  00000000  00000000  00002788  2**0
+ 10 .debug_str    000005bc  00000000  00000000  000024f4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000005cd  00000000  00000000  00002cbf  2**0
+ 11 .debug_loc    00000661  00000000  00000000  00002ab0  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000088  00000000  00000000  0000328c  2**0
+ 12 .debug_ranges 00000088  00000000  00000000  00003111  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -43,8 +43,8 @@ Disassembly of section .text:
   1c:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   20:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   24:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
-  28:	0c 94 a9 02 	jmp	0x552	; 0x552 <__vector_10>
-  2c:	0c 94 7d 02 	jmp	0x4fa	; 0x4fa <__vector_11>
+  28:	0c 94 37 02 	jmp	0x46e	; 0x46e <__vector_10>
+  2c:	0c 94 0b 02 	jmp	0x416	; 0x416 <__vector_11>
   30:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   34:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
   38:	0c 94 47 00 	jmp	0x8e	; 0x8e <__bad_interrupt>
@@ -67,8 +67,8 @@ Disassembly of section .text:
   60:	10 e0       	ldi	r17, 0x00	; 0
   62:	a0 e6       	ldi	r26, 0x60	; 96
   64:	b0 e0       	ldi	r27, 0x00	; 0
-  66:	ee ea       	ldi	r30, 0xAE	; 174
-  68:	f5 e0       	ldi	r31, 0x05	; 5
+  66:	ea ec       	ldi	r30, 0xCA	; 202
+  68:	f4 e0       	ldi	r31, 0x04	; 4
   6a:	02 c0       	rjmp	.+4      	; 0x70 <__do_copy_data+0x10>
   6c:	05 90       	lpm	r0, Z+
   6e:	0d 92       	st	X+, r0
@@ -86,584 +86,603 @@ Disassembly of section .text:
   7e:	1d 92       	st	X+, r1
 
 00000080 <.do_clear_bss_start>:
-  80:	a6 36       	cpi	r26, 0x66	; 102
+  80:	a2 36       	cpi	r26, 0x62	; 98
   82:	b2 07       	cpc	r27, r18
   84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
-  86:	0e 94 4e 00 	call	0x9c	; 0x9c <main>
-  8a:	0c 94 d5 02 	jmp	0x5aa	; 0x5aa <_exit>
+  86:	0e 94 49 00 	call	0x92	; 0x92 <main>
+  8a:	0c 94 63 02 	jmp	0x4c6	; 0x4c6 <_exit>
 
 0000008e <__bad_interrupt>:
   8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
 
-00000092 <my_isr>:
-// Global pin configuration for use in ISR
-Pin_config_t Pin;
+00000092 <main>:
+* Author : Nader
+*/
 
-// Interrupt Service Routine (ISR) for Timer0 Overflow
-void my_isr(void) {
-	Pin_Toggle(&Pin);
-  92:	82 e6       	ldi	r24, 0x62	; 98
-  94:	90 e0       	ldi	r25, 0x00	; 0
-  96:	0e 94 bf 01 	call	0x37e	; 0x37e <Pin_Toggle>
-  9a:	08 95       	ret
-
-0000009c <main>:
-}
+#include "MCAL/Timer/Timer.h"
 
 int main(void) {
-  9c:	cf 93       	push	r28
-  9e:	df 93       	push	r29
-  a0:	cd b7       	in	r28, 0x3d	; 61
-  a2:	de b7       	in	r29, 0x3e	; 62
-  a4:	2a 97       	sbiw	r28, 0x0a	; 10
-  a6:	0f b6       	in	r0, 0x3f	; 63
-  a8:	f8 94       	cli
-  aa:	de bf       	out	0x3e, r29	; 62
-  ac:	0f be       	out	0x3f, r0	; 63
-  ae:	cd bf       	out	0x3d, r28	; 61
-	// Configure the pin
+  92:	cf 93       	push	r28
+  94:	df 93       	push	r29
+  96:	00 d0       	rcall	.+0      	; 0x98 <main+0x6>
+  98:	00 d0       	rcall	.+0      	; 0x9a <main+0x8>
+  9a:	cd b7       	in	r28, 0x3d	; 61
+  9c:	de b7       	in	r29, 0x3e	; 62
+	// Configure the pin for PWM output
+	Pin_config_t Pin;
 	Pin.port = B;
-  b0:	e2 e6       	ldi	r30, 0x62	; 98
-  b2:	f0 e0       	ldi	r31, 0x00	; 0
-  b4:	11 e0       	ldi	r17, 0x01	; 1
-  b6:	10 83       	st	Z, r17
-	Pin.pin = 4;
-  b8:	84 e0       	ldi	r24, 0x04	; 4
-  ba:	81 83       	std	Z+1, r24	; 0x01
+  9e:	81 e0       	ldi	r24, 0x01	; 1
+  a0:	89 83       	std	Y+1, r24	; 0x01
+	Pin.pin = 3;
+  a2:	93 e0       	ldi	r25, 0x03	; 3
+  a4:	9a 83       	std	Y+2, r25	; 0x02
 	Pin.direction = Output;
-  bc:	12 83       	std	Z+2, r17	; 0x02
+  a6:	8b 83       	std	Y+3, r24	; 0x03
 	Pin.logic = Low;
-  be:	13 82       	std	Z+3, r1	; 0x03
+  a8:	1c 82       	std	Y+4, r1	; 0x04
 	Pin_logic_init(&Pin);
-  c0:	cf 01       	movw	r24, r30
-  c2:	0e 94 a3 01 	call	0x346	; 0x346 <Pin_logic_init>
+  aa:	ce 01       	movw	r24, r28
+  ac:	01 96       	adiw	r24, 0x01	; 1
+  ae:	0e 94 89 01 	call	0x312	; 0x312 <Pin_logic_init>
 
-	// Configure the timer
-	Timer0_t timer = {
-  c6:	ce 01       	movw	r24, r28
-  c8:	01 96       	adiw	r24, 0x01	; 1
-  ca:	2a e0       	ldi	r18, 0x0A	; 10
-  cc:	fc 01       	movw	r30, r24
-  ce:	11 92       	st	Z+, r1
-  d0:	2a 95       	dec	r18
-  d2:	e9 f7       	brne	.-6      	; 0xce <main+0x32>
-  d4:	20 e1       	ldi	r18, 0x10	; 16
-  d6:	2a 83       	std	Y+2, r18	; 0x02
-  d8:	25 e0       	ldi	r18, 0x05	; 5
-  da:	2b 83       	std	Y+3, r18	; 0x03
-  dc:	2f ef       	ldi	r18, 0xFF	; 255
-  de:	2c 83       	std	Y+4, r18	; 0x04
-  e0:	1d 83       	std	Y+5, r17	; 0x05
-  e2:	1e 83       	std	Y+6, r17	; 0x06
-  e4:	29 e4       	ldi	r18, 0x49	; 73
-  e6:	30 e0       	ldi	r19, 0x00	; 0
-  e8:	38 87       	std	Y+8, r19	; 0x08
-  ea:	2f 83       	std	Y+7, r18	; 0x07
-		.interrupt_status = OverFlow_Interrupt,
-		.Call_Back_Overflow = my_isr
-	};
+	// Initialize Timer0 for PWM generation with 50% duty cycle
+	Timer0_PWM_Init(220, OC0_Clear, Prescaller_64);
+  b2:	43 e0       	ldi	r20, 0x03	; 3
+  b4:	60 e2       	ldi	r22, 0x20	; 32
+  b6:	8c ed       	ldi	r24, 0xDC	; 220
+  b8:	0e 94 e9 01 	call	0x3d2	; 0x3d2 <Timer0_PWM_Init>
+  bc:	ff cf       	rjmp	.-2      	; 0xbc <main+0x2a>
 
-	// Initialize the timer
-	Timer0_Init(&timer);
-  ec:	0e 94 1e 02 	call	0x43c	; 0x43c <Timer0_Init>
-  f0:	ff cf       	rjmp	.-2      	; 0xf0 <main+0x54>
-
-000000f2 <Pin_Set>:
+000000be <Pin_Set>:
 * @brief Sets the pin logic level to high.
 *
 * @param Pin Pointer to the pin configuration structure.
 * @return Std_return ROK if successful, NOK if the pin configuration is null.
 */
 Std_return Pin_Set(Pin_config_t *Pin) {
-  f2:	fc 01       	movw	r30, r24
+  be:	fc 01       	movw	r30, r24
 	if (!Pin) {
-  f4:	89 2b       	or	r24, r25
-  f6:	09 f4       	brne	.+2      	; 0xfa <Pin_Set+0x8>
-  f8:	45 c0       	rjmp	.+138    	; 0x184 <Pin_Set+0x92>
+  c0:	89 2b       	or	r24, r25
+  c2:	09 f4       	brne	.+2      	; 0xc6 <Pin_Set+0x8>
+  c4:	45 c0       	rjmp	.+138    	; 0x150 <Pin_Set+0x92>
 		return NOK;
 	}
 	switch (Pin->port) {
-  fa:	80 81       	ld	r24, Z
-  fc:	81 30       	cpi	r24, 0x01	; 1
-  fe:	a9 f0       	breq	.+42     	; 0x12a <Pin_Set+0x38>
- 100:	28 f0       	brcs	.+10     	; 0x10c <Pin_Set+0x1a>
- 102:	82 30       	cpi	r24, 0x02	; 2
- 104:	09 f1       	breq	.+66     	; 0x148 <Pin_Set+0x56>
- 106:	83 30       	cpi	r24, 0x03	; 3
- 108:	71 f1       	breq	.+92     	; 0x166 <Pin_Set+0x74>
- 10a:	3e c0       	rjmp	.+124    	; 0x188 <Pin_Set+0x96>
+  c6:	80 81       	ld	r24, Z
+  c8:	81 30       	cpi	r24, 0x01	; 1
+  ca:	a9 f0       	breq	.+42     	; 0xf6 <Pin_Set+0x38>
+  cc:	28 f0       	brcs	.+10     	; 0xd8 <Pin_Set+0x1a>
+  ce:	82 30       	cpi	r24, 0x02	; 2
+  d0:	09 f1       	breq	.+66     	; 0x114 <Pin_Set+0x56>
+  d2:	83 30       	cpi	r24, 0x03	; 3
+  d4:	71 f1       	breq	.+92     	; 0x132 <Pin_Set+0x74>
+  d6:	3e c0       	rjmp	.+124    	; 0x154 <Pin_Set+0x96>
 		case A:
 		SET_BIT(PORTA, Pin->pin);
- 10c:	2b b3       	in	r18, 0x1b	; 27
- 10e:	81 e0       	ldi	r24, 0x01	; 1
- 110:	90 e0       	ldi	r25, 0x00	; 0
- 112:	01 80       	ldd	r0, Z+1	; 0x01
- 114:	02 c0       	rjmp	.+4      	; 0x11a <Pin_Set+0x28>
- 116:	88 0f       	add	r24, r24
- 118:	99 1f       	adc	r25, r25
- 11a:	0a 94       	dec	r0
- 11c:	e2 f7       	brpl	.-8      	; 0x116 <Pin_Set+0x24>
- 11e:	82 2b       	or	r24, r18
- 120:	8b bb       	out	0x1b, r24	; 27
+  d8:	2b b3       	in	r18, 0x1b	; 27
+  da:	81 e0       	ldi	r24, 0x01	; 1
+  dc:	90 e0       	ldi	r25, 0x00	; 0
+  de:	01 80       	ldd	r0, Z+1	; 0x01
+  e0:	02 c0       	rjmp	.+4      	; 0xe6 <Pin_Set+0x28>
+  e2:	88 0f       	add	r24, r24
+  e4:	99 1f       	adc	r25, r25
+  e6:	0a 94       	dec	r0
+  e8:	e2 f7       	brpl	.-8      	; 0xe2 <Pin_Set+0x24>
+  ea:	82 2b       	or	r24, r18
+  ec:	8b bb       	out	0x1b, r24	; 27
 		Pin->logic = High;
- 122:	81 e0       	ldi	r24, 0x01	; 1
- 124:	83 83       	std	Z+3, r24	; 0x03
+  ee:	81 e0       	ldi	r24, 0x01	; 1
+  f0:	83 83       	std	Z+3, r24	; 0x03
 		Pin->logic = High;
 		break;
 		default:
 		return NOK;
 	}
 	return ROK;
- 126:	80 e0       	ldi	r24, 0x00	; 0
+  f2:	80 e0       	ldi	r24, 0x00	; 0
 	}
 	switch (Pin->port) {
 		case A:
 		SET_BIT(PORTA, Pin->pin);
 		Pin->logic = High;
 		break;
- 128:	08 95       	ret
+  f4:	08 95       	ret
 		case B:
 		SET_BIT(PORTB, Pin->pin);
- 12a:	28 b3       	in	r18, 0x18	; 24
- 12c:	81 e0       	ldi	r24, 0x01	; 1
- 12e:	90 e0       	ldi	r25, 0x00	; 0
- 130:	01 80       	ldd	r0, Z+1	; 0x01
- 132:	02 c0       	rjmp	.+4      	; 0x138 <Pin_Set+0x46>
- 134:	88 0f       	add	r24, r24
- 136:	99 1f       	adc	r25, r25
- 138:	0a 94       	dec	r0
- 13a:	e2 f7       	brpl	.-8      	; 0x134 <Pin_Set+0x42>
- 13c:	82 2b       	or	r24, r18
- 13e:	88 bb       	out	0x18, r24	; 24
+  f6:	28 b3       	in	r18, 0x18	; 24
+  f8:	81 e0       	ldi	r24, 0x01	; 1
+  fa:	90 e0       	ldi	r25, 0x00	; 0
+  fc:	01 80       	ldd	r0, Z+1	; 0x01
+  fe:	02 c0       	rjmp	.+4      	; 0x104 <Pin_Set+0x46>
+ 100:	88 0f       	add	r24, r24
+ 102:	99 1f       	adc	r25, r25
+ 104:	0a 94       	dec	r0
+ 106:	e2 f7       	brpl	.-8      	; 0x100 <Pin_Set+0x42>
+ 108:	82 2b       	or	r24, r18
+ 10a:	88 bb       	out	0x18, r24	; 24
 		Pin->logic = High;
- 140:	81 e0       	ldi	r24, 0x01	; 1
- 142:	83 83       	std	Z+3, r24	; 0x03
+ 10c:	81 e0       	ldi	r24, 0x01	; 1
+ 10e:	83 83       	std	Z+3, r24	; 0x03
 		Pin->logic = High;
 		break;
 		default:
 		return NOK;
 	}
 	return ROK;
- 144:	80 e0       	ldi	r24, 0x00	; 0
+ 110:	80 e0       	ldi	r24, 0x00	; 0
 		Pin->logic = High;
 		break;
 		case B:
 		SET_BIT(PORTB, Pin->pin);
 		Pin->logic = High;
 		break;
- 146:	08 95       	ret
+ 112:	08 95       	ret
 		case C:
 		SET_BIT(PORTC, Pin->pin);
- 148:	25 b3       	in	r18, 0x15	; 21
- 14a:	81 e0       	ldi	r24, 0x01	; 1
- 14c:	90 e0       	ldi	r25, 0x00	; 0
- 14e:	01 80       	ldd	r0, Z+1	; 0x01
- 150:	02 c0       	rjmp	.+4      	; 0x156 <Pin_Set+0x64>
- 152:	88 0f       	add	r24, r24
- 154:	99 1f       	adc	r25, r25
- 156:	0a 94       	dec	r0
- 158:	e2 f7       	brpl	.-8      	; 0x152 <Pin_Set+0x60>
- 15a:	82 2b       	or	r24, r18
- 15c:	85 bb       	out	0x15, r24	; 21
+ 114:	25 b3       	in	r18, 0x15	; 21
+ 116:	81 e0       	ldi	r24, 0x01	; 1
+ 118:	90 e0       	ldi	r25, 0x00	; 0
+ 11a:	01 80       	ldd	r0, Z+1	; 0x01
+ 11c:	02 c0       	rjmp	.+4      	; 0x122 <Pin_Set+0x64>
+ 11e:	88 0f       	add	r24, r24
+ 120:	99 1f       	adc	r25, r25
+ 122:	0a 94       	dec	r0
+ 124:	e2 f7       	brpl	.-8      	; 0x11e <Pin_Set+0x60>
+ 126:	82 2b       	or	r24, r18
+ 128:	85 bb       	out	0x15, r24	; 21
 		Pin->logic = High;
- 15e:	81 e0       	ldi	r24, 0x01	; 1
- 160:	83 83       	std	Z+3, r24	; 0x03
+ 12a:	81 e0       	ldi	r24, 0x01	; 1
+ 12c:	83 83       	std	Z+3, r24	; 0x03
 		Pin->logic = High;
 		break;
 		default:
 		return NOK;
 	}
 	return ROK;
- 162:	80 e0       	ldi	r24, 0x00	; 0
+ 12e:	80 e0       	ldi	r24, 0x00	; 0
 		Pin->logic = High;
 		break;
 		case C:
 		SET_BIT(PORTC, Pin->pin);
 		Pin->logic = High;
 		break;
- 164:	08 95       	ret
+ 130:	08 95       	ret
 		case D:
 		SET_BIT(PORTD, Pin->pin);
- 166:	22 b3       	in	r18, 0x12	; 18
- 168:	81 e0       	ldi	r24, 0x01	; 1
- 16a:	90 e0       	ldi	r25, 0x00	; 0
- 16c:	01 80       	ldd	r0, Z+1	; 0x01
- 16e:	02 c0       	rjmp	.+4      	; 0x174 <Pin_Set+0x82>
- 170:	88 0f       	add	r24, r24
- 172:	99 1f       	adc	r25, r25
- 174:	0a 94       	dec	r0
- 176:	e2 f7       	brpl	.-8      	; 0x170 <Pin_Set+0x7e>
- 178:	82 2b       	or	r24, r18
- 17a:	82 bb       	out	0x12, r24	; 18
+ 132:	22 b3       	in	r18, 0x12	; 18
+ 134:	81 e0       	ldi	r24, 0x01	; 1
+ 136:	90 e0       	ldi	r25, 0x00	; 0
+ 138:	01 80       	ldd	r0, Z+1	; 0x01
+ 13a:	02 c0       	rjmp	.+4      	; 0x140 <Pin_Set+0x82>
+ 13c:	88 0f       	add	r24, r24
+ 13e:	99 1f       	adc	r25, r25
+ 140:	0a 94       	dec	r0
+ 142:	e2 f7       	brpl	.-8      	; 0x13c <Pin_Set+0x7e>
+ 144:	82 2b       	or	r24, r18
+ 146:	82 bb       	out	0x12, r24	; 18
 		Pin->logic = High;
- 17c:	81 e0       	ldi	r24, 0x01	; 1
- 17e:	83 83       	std	Z+3, r24	; 0x03
+ 148:	81 e0       	ldi	r24, 0x01	; 1
+ 14a:	83 83       	std	Z+3, r24	; 0x03
 		break;
 		default:
 		return NOK;
 	}
 	return ROK;
- 180:	80 e0       	ldi	r24, 0x00	; 0
+ 14c:	80 e0       	ldi	r24, 0x00	; 0
 		Pin->logic = High;
 		break;
 		case D:
 		SET_BIT(PORTD, Pin->pin);
 		Pin->logic = High;
 		break;
- 182:	08 95       	ret
+ 14e:	08 95       	ret
 * @param Pin Pointer to the pin configuration structure.
 * @return Std_return ROK if successful, NOK if the pin configuration is null.
 */
 Std_return Pin_Set(Pin_config_t *Pin) {
 	if (!Pin) {
 		return NOK;
- 184:	81 e0       	ldi	r24, 0x01	; 1
- 186:	08 95       	ret
+ 150:	81 e0       	ldi	r24, 0x01	; 1
+ 152:	08 95       	ret
 		case D:
 		SET_BIT(PORTD, Pin->pin);
 		Pin->logic = High;
 		break;
 		default:
 		return NOK;
- 188:	81 e0       	ldi	r24, 0x01	; 1
+ 154:	81 e0       	ldi	r24, 0x01	; 1
 	}
 	return ROK;
 }
- 18a:	08 95       	ret
+ 156:	08 95       	ret
 
-0000018c <Pin_Clear>:
+00000158 <Pin_Clear>:
 * @brief Sets the pin logic level to low.
 *
 * @param Pin Pointer to the pin configuration structure.
 * @return Std_return ROK if successful, NOK if the pin configuration is null.
 */
 Std_return Pin_Clear(Pin_config_t *Pin) {
- 18c:	fc 01       	movw	r30, r24
+ 158:	fc 01       	movw	r30, r24
 	if (!Pin) {
- 18e:	89 2b       	or	r24, r25
- 190:	09 f4       	brne	.+2      	; 0x194 <Pin_Clear+0x8>
- 192:	45 c0       	rjmp	.+138    	; 0x21e <Pin_Clear+0x92>
+ 15a:	89 2b       	or	r24, r25
+ 15c:	09 f4       	brne	.+2      	; 0x160 <Pin_Clear+0x8>
+ 15e:	45 c0       	rjmp	.+138    	; 0x1ea <Pin_Clear+0x92>
 		return NOK;
 	}
 	switch (Pin->port) {
- 194:	80 81       	ld	r24, Z
- 196:	81 30       	cpi	r24, 0x01	; 1
- 198:	a9 f0       	breq	.+42     	; 0x1c4 <Pin_Clear+0x38>
- 19a:	28 f0       	brcs	.+10     	; 0x1a6 <Pin_Clear+0x1a>
- 19c:	82 30       	cpi	r24, 0x02	; 2
- 19e:	09 f1       	breq	.+66     	; 0x1e2 <Pin_Clear+0x56>
- 1a0:	83 30       	cpi	r24, 0x03	; 3
- 1a2:	71 f1       	breq	.+92     	; 0x200 <Pin_Clear+0x74>
- 1a4:	3e c0       	rjmp	.+124    	; 0x222 <Pin_Clear+0x96>
+ 160:	80 81       	ld	r24, Z
+ 162:	81 30       	cpi	r24, 0x01	; 1
+ 164:	a9 f0       	breq	.+42     	; 0x190 <Pin_Clear+0x38>
+ 166:	28 f0       	brcs	.+10     	; 0x172 <Pin_Clear+0x1a>
+ 168:	82 30       	cpi	r24, 0x02	; 2
+ 16a:	09 f1       	breq	.+66     	; 0x1ae <Pin_Clear+0x56>
+ 16c:	83 30       	cpi	r24, 0x03	; 3
+ 16e:	71 f1       	breq	.+92     	; 0x1cc <Pin_Clear+0x74>
+ 170:	3e c0       	rjmp	.+124    	; 0x1ee <Pin_Clear+0x96>
 		case A:
 		CLEAR_BIT(PORTA, Pin->pin);
- 1a6:	2b b3       	in	r18, 0x1b	; 27
- 1a8:	81 e0       	ldi	r24, 0x01	; 1
- 1aa:	90 e0       	ldi	r25, 0x00	; 0
- 1ac:	01 80       	ldd	r0, Z+1	; 0x01
- 1ae:	02 c0       	rjmp	.+4      	; 0x1b4 <Pin_Clear+0x28>
- 1b0:	88 0f       	add	r24, r24
- 1b2:	99 1f       	adc	r25, r25
- 1b4:	0a 94       	dec	r0
- 1b6:	e2 f7       	brpl	.-8      	; 0x1b0 <Pin_Clear+0x24>
- 1b8:	80 95       	com	r24
- 1ba:	82 23       	and	r24, r18
- 1bc:	8b bb       	out	0x1b, r24	; 27
+ 172:	2b b3       	in	r18, 0x1b	; 27
+ 174:	81 e0       	ldi	r24, 0x01	; 1
+ 176:	90 e0       	ldi	r25, 0x00	; 0
+ 178:	01 80       	ldd	r0, Z+1	; 0x01
+ 17a:	02 c0       	rjmp	.+4      	; 0x180 <Pin_Clear+0x28>
+ 17c:	88 0f       	add	r24, r24
+ 17e:	99 1f       	adc	r25, r25
+ 180:	0a 94       	dec	r0
+ 182:	e2 f7       	brpl	.-8      	; 0x17c <Pin_Clear+0x24>
+ 184:	80 95       	com	r24
+ 186:	82 23       	and	r24, r18
+ 188:	8b bb       	out	0x1b, r24	; 27
 		Pin->logic = Low;
- 1be:	13 82       	std	Z+3, r1	; 0x03
+ 18a:	13 82       	std	Z+3, r1	; 0x03
 		Pin->logic = Low;
 		break;
 		default:
 		return NOK;
 	}
 	return ROK;
- 1c0:	80 e0       	ldi	r24, 0x00	; 0
+ 18c:	80 e0       	ldi	r24, 0x00	; 0
 	}
 	switch (Pin->port) {
 		case A:
 		CLEAR_BIT(PORTA, Pin->pin);
 		Pin->logic = Low;
 		break;
- 1c2:	08 95       	ret
+ 18e:	08 95       	ret
 		case B:
 		CLEAR_BIT(PORTB, Pin->pin);
- 1c4:	28 b3       	in	r18, 0x18	; 24
- 1c6:	81 e0       	ldi	r24, 0x01	; 1
- 1c8:	90 e0       	ldi	r25, 0x00	; 0
- 1ca:	01 80       	ldd	r0, Z+1	; 0x01
- 1cc:	02 c0       	rjmp	.+4      	; 0x1d2 <Pin_Clear+0x46>
- 1ce:	88 0f       	add	r24, r24
- 1d0:	99 1f       	adc	r25, r25
- 1d2:	0a 94       	dec	r0
- 1d4:	e2 f7       	brpl	.-8      	; 0x1ce <Pin_Clear+0x42>
- 1d6:	80 95       	com	r24
- 1d8:	82 23       	and	r24, r18
- 1da:	88 bb       	out	0x18, r24	; 24
+ 190:	28 b3       	in	r18, 0x18	; 24
+ 192:	81 e0       	ldi	r24, 0x01	; 1
+ 194:	90 e0       	ldi	r25, 0x00	; 0
+ 196:	01 80       	ldd	r0, Z+1	; 0x01
+ 198:	02 c0       	rjmp	.+4      	; 0x19e <Pin_Clear+0x46>
+ 19a:	88 0f       	add	r24, r24
+ 19c:	99 1f       	adc	r25, r25
+ 19e:	0a 94       	dec	r0
+ 1a0:	e2 f7       	brpl	.-8      	; 0x19a <Pin_Clear+0x42>
+ 1a2:	80 95       	com	r24
+ 1a4:	82 23       	and	r24, r18
+ 1a6:	88 bb       	out	0x18, r24	; 24
 		Pin->logic = Low;
- 1dc:	13 82       	std	Z+3, r1	; 0x03
+ 1a8:	13 82       	std	Z+3, r1	; 0x03
 		Pin->logic = Low;
 		break;
 		default:
 		return NOK;
 	}
 	return ROK;
- 1de:	80 e0       	ldi	r24, 0x00	; 0
+ 1aa:	80 e0       	ldi	r24, 0x00	; 0
 		Pin->logic = Low;
 		break;
 		case B:
 		CLEAR_BIT(PORTB, Pin->pin);
 		Pin->logic = Low;
 		break;
- 1e0:	08 95       	ret
+ 1ac:	08 95       	ret
 		case C:
 		CLEAR_BIT(PORTC, Pin->pin);
- 1e2:	25 b3       	in	r18, 0x15	; 21
- 1e4:	81 e0       	ldi	r24, 0x01	; 1
- 1e6:	90 e0       	ldi	r25, 0x00	; 0
- 1e8:	01 80       	ldd	r0, Z+1	; 0x01
- 1ea:	02 c0       	rjmp	.+4      	; 0x1f0 <Pin_Clear+0x64>
- 1ec:	88 0f       	add	r24, r24
- 1ee:	99 1f       	adc	r25, r25
- 1f0:	0a 94       	dec	r0
- 1f2:	e2 f7       	brpl	.-8      	; 0x1ec <Pin_Clear+0x60>
- 1f4:	80 95       	com	r24
- 1f6:	82 23       	and	r24, r18
- 1f8:	85 bb       	out	0x15, r24	; 21
+ 1ae:	25 b3       	in	r18, 0x15	; 21
+ 1b0:	81 e0       	ldi	r24, 0x01	; 1
+ 1b2:	90 e0       	ldi	r25, 0x00	; 0
+ 1b4:	01 80       	ldd	r0, Z+1	; 0x01
+ 1b6:	02 c0       	rjmp	.+4      	; 0x1bc <Pin_Clear+0x64>
+ 1b8:	88 0f       	add	r24, r24
+ 1ba:	99 1f       	adc	r25, r25
+ 1bc:	0a 94       	dec	r0
+ 1be:	e2 f7       	brpl	.-8      	; 0x1b8 <Pin_Clear+0x60>
+ 1c0:	80 95       	com	r24
+ 1c2:	82 23       	and	r24, r18
+ 1c4:	85 bb       	out	0x15, r24	; 21
 		Pin->logic = Low;
- 1fa:	13 82       	std	Z+3, r1	; 0x03
+ 1c6:	13 82       	std	Z+3, r1	; 0x03
 		Pin->logic = Low;
 		break;
 		default:
 		return NOK;
 	}
 	return ROK;
- 1fc:	80 e0       	ldi	r24, 0x00	; 0
+ 1c8:	80 e0       	ldi	r24, 0x00	; 0
 		Pin->logic = Low;
 		break;
 		case C:
 		CLEAR_BIT(PORTC, Pin->pin);
 		Pin->logic = Low;
 		break;
- 1fe:	08 95       	ret
+ 1ca:	08 95       	ret
 		case D:
 		CLEAR_BIT(PORTD, Pin->pin);
- 200:	22 b3       	in	r18, 0x12	; 18
- 202:	81 e0       	ldi	r24, 0x01	; 1
- 204:	90 e0       	ldi	r25, 0x00	; 0
- 206:	01 80       	ldd	r0, Z+1	; 0x01
- 208:	02 c0       	rjmp	.+4      	; 0x20e <Pin_Clear+0x82>
- 20a:	88 0f       	add	r24, r24
- 20c:	99 1f       	adc	r25, r25
- 20e:	0a 94       	dec	r0
- 210:	e2 f7       	brpl	.-8      	; 0x20a <Pin_Clear+0x7e>
- 212:	80 95       	com	r24
- 214:	82 23       	and	r24, r18
- 216:	82 bb       	out	0x12, r24	; 18
+ 1cc:	22 b3       	in	r18, 0x12	; 18
+ 1ce:	81 e0       	ldi	r24, 0x01	; 1
+ 1d0:	90 e0       	ldi	r25, 0x00	; 0
+ 1d2:	01 80       	ldd	r0, Z+1	; 0x01
+ 1d4:	02 c0       	rjmp	.+4      	; 0x1da <Pin_Clear+0x82>
+ 1d6:	88 0f       	add	r24, r24
+ 1d8:	99 1f       	adc	r25, r25
+ 1da:	0a 94       	dec	r0
+ 1dc:	e2 f7       	brpl	.-8      	; 0x1d6 <Pin_Clear+0x7e>
+ 1de:	80 95       	com	r24
+ 1e0:	82 23       	and	r24, r18
+ 1e2:	82 bb       	out	0x12, r24	; 18
 		Pin->logic = Low;
- 218:	13 82       	std	Z+3, r1	; 0x03
+ 1e4:	13 82       	std	Z+3, r1	; 0x03
 		break;
 		default:
 		return NOK;
 	}
 	return ROK;
- 21a:	80 e0       	ldi	r24, 0x00	; 0
+ 1e6:	80 e0       	ldi	r24, 0x00	; 0
 		Pin->logic = Low;
 		break;
 		case D:
 		CLEAR_BIT(PORTD, Pin->pin);
 		Pin->logic = Low;
 		break;
- 21c:	08 95       	ret
+ 1e8:	08 95       	ret
 * @param Pin Pointer to the pin configuration structure.
 * @return Std_return ROK if successful, NOK if the pin configuration is null.
 */
 Std_return Pin_Clear(Pin_config_t *Pin) {
 	if (!Pin) {
 		return NOK;
- 21e:	81 e0       	ldi	r24, 0x01	; 1
- 220:	08 95       	ret
+ 1ea:	81 e0       	ldi	r24, 0x01	; 1
+ 1ec:	08 95       	ret
 		case D:
 		CLEAR_BIT(PORTD, Pin->pin);
 		Pin->logic = Low;
 		break;
 		default:
 		return NOK;
- 222:	81 e0       	ldi	r24, 0x01	; 1
+ 1ee:	81 e0       	ldi	r24, 0x01	; 1
 	}
 	return ROK;
 }
- 224:	08 95       	ret
+ 1f0:	08 95       	ret
 
-00000226 <Pin_Direction>:
+000001f2 <Pin_Direction>:
 * @brief Sets the pin direction to input or output.
 *
 * @param Pin Pointer to the pin configuration structure.
 * @return Std_return ROK if successful, NOK if the pin configuration is null.
 */
 Std_return Pin_Direction(Pin_config_t *Pin) {
- 226:	fc 01       	movw	r30, r24
+ 1f2:	fc 01       	movw	r30, r24
 	if (!Pin) {
- 228:	89 2b       	or	r24, r25
- 22a:	09 f4       	brne	.+2      	; 0x22e <Pin_Direction+0x8>
- 22c:	84 c0       	rjmp	.+264    	; 0x336 <Pin_Direction+0x110>
+ 1f4:	89 2b       	or	r24, r25
+ 1f6:	09 f4       	brne	.+2      	; 0x1fa <Pin_Direction+0x8>
+ 1f8:	84 c0       	rjmp	.+264    	; 0x302 <Pin_Direction+0x110>
 		return NOK;
 	}
 	if (Pin->direction == Input) {
- 22e:	82 81       	ldd	r24, Z+2	; 0x02
- 230:	81 11       	cpse	r24, r1
- 232:	41 c0       	rjmp	.+130    	; 0x2b6 <Pin_Direction+0x90>
+ 1fa:	82 81       	ldd	r24, Z+2	; 0x02
+ 1fc:	81 11       	cpse	r24, r1
+ 1fe:	41 c0       	rjmp	.+130    	; 0x282 <Pin_Direction+0x90>
 		switch (Pin->port) {
- 234:	80 81       	ld	r24, Z
- 236:	81 30       	cpi	r24, 0x01	; 1
- 238:	a1 f0       	breq	.+40     	; 0x262 <Pin_Direction+0x3c>
- 23a:	28 f0       	brcs	.+10     	; 0x246 <Pin_Direction+0x20>
- 23c:	82 30       	cpi	r24, 0x02	; 2
- 23e:	f9 f0       	breq	.+62     	; 0x27e <Pin_Direction+0x58>
- 240:	83 30       	cpi	r24, 0x03	; 3
- 242:	59 f1       	breq	.+86     	; 0x29a <Pin_Direction+0x74>
- 244:	7a c0       	rjmp	.+244    	; 0x33a <Pin_Direction+0x114>
+ 200:	80 81       	ld	r24, Z
+ 202:	81 30       	cpi	r24, 0x01	; 1
+ 204:	a1 f0       	breq	.+40     	; 0x22e <Pin_Direction+0x3c>
+ 206:	28 f0       	brcs	.+10     	; 0x212 <Pin_Direction+0x20>
+ 208:	82 30       	cpi	r24, 0x02	; 2
+ 20a:	f9 f0       	breq	.+62     	; 0x24a <Pin_Direction+0x58>
+ 20c:	83 30       	cpi	r24, 0x03	; 3
+ 20e:	59 f1       	breq	.+86     	; 0x266 <Pin_Direction+0x74>
+ 210:	7a c0       	rjmp	.+244    	; 0x306 <Pin_Direction+0x114>
 			case A:
 			CLEAR_BIT(DDRA, Pin->pin);
- 246:	2a b3       	in	r18, 0x1a	; 26
- 248:	81 e0       	ldi	r24, 0x01	; 1
- 24a:	90 e0       	ldi	r25, 0x00	; 0
- 24c:	01 80       	ldd	r0, Z+1	; 0x01
- 24e:	02 c0       	rjmp	.+4      	; 0x254 <Pin_Direction+0x2e>
- 250:	88 0f       	add	r24, r24
- 252:	99 1f       	adc	r25, r25
- 254:	0a 94       	dec	r0
- 256:	e2 f7       	brpl	.-8      	; 0x250 <Pin_Direction+0x2a>
- 258:	80 95       	com	r24
- 25a:	82 23       	and	r24, r18
- 25c:	8a bb       	out	0x1a, r24	; 26
+ 212:	2a b3       	in	r18, 0x1a	; 26
+ 214:	81 e0       	ldi	r24, 0x01	; 1
+ 216:	90 e0       	ldi	r25, 0x00	; 0
+ 218:	01 80       	ldd	r0, Z+1	; 0x01
+ 21a:	02 c0       	rjmp	.+4      	; 0x220 <Pin_Direction+0x2e>
+ 21c:	88 0f       	add	r24, r24
+ 21e:	99 1f       	adc	r25, r25
+ 220:	0a 94       	dec	r0
+ 222:	e2 f7       	brpl	.-8      	; 0x21c <Pin_Direction+0x2a>
+ 224:	80 95       	com	r24
+ 226:	82 23       	and	r24, r18
+ 228:	8a bb       	out	0x1a, r24	; 26
 			break;
 			default:
 			return NOK;
 		}
 	}
 	return ROK;
- 25e:	80 e0       	ldi	r24, 0x00	; 0
+ 22a:	80 e0       	ldi	r24, 0x00	; 0
 	}
 	if (Pin->direction == Input) {
 		switch (Pin->port) {
 			case A:
 			CLEAR_BIT(DDRA, Pin->pin);
 			break;
- 260:	08 95       	ret
+ 22c:	08 95       	ret
 			case B:
 			CLEAR_BIT(DDRB, Pin->pin);
- 262:	27 b3       	in	r18, 0x17	; 23
- 264:	81 e0       	ldi	r24, 0x01	; 1
- 266:	90 e0       	ldi	r25, 0x00	; 0
- 268:	01 80       	ldd	r0, Z+1	; 0x01
- 26a:	02 c0       	rjmp	.+4      	; 0x270 <Pin_Direction+0x4a>
- 26c:	88 0f       	add	r24, r24
- 26e:	99 1f       	adc	r25, r25
- 270:	0a 94       	dec	r0
- 272:	e2 f7       	brpl	.-8      	; 0x26c <Pin_Direction+0x46>
- 274:	80 95       	com	r24
- 276:	82 23       	and	r24, r18
- 278:	87 bb       	out	0x17, r24	; 23
+ 22e:	27 b3       	in	r18, 0x17	; 23
+ 230:	81 e0       	ldi	r24, 0x01	; 1
+ 232:	90 e0       	ldi	r25, 0x00	; 0
+ 234:	01 80       	ldd	r0, Z+1	; 0x01
+ 236:	02 c0       	rjmp	.+4      	; 0x23c <Pin_Direction+0x4a>
+ 238:	88 0f       	add	r24, r24
+ 23a:	99 1f       	adc	r25, r25
+ 23c:	0a 94       	dec	r0
+ 23e:	e2 f7       	brpl	.-8      	; 0x238 <Pin_Direction+0x46>
+ 240:	80 95       	com	r24
+ 242:	82 23       	and	r24, r18
+ 244:	87 bb       	out	0x17, r24	; 23
 			break;
 			default:
 			return NOK;
 		}
 	}
 	return ROK;
- 27a:	80 e0       	ldi	r24, 0x00	; 0
+ 246:	80 e0       	ldi	r24, 0x00	; 0
 			case A:
 			CLEAR_BIT(DDRA, Pin->pin);
 			break;
 			case B:
 			CLEAR_BIT(DDRB, Pin->pin);
 			break;
- 27c:	08 95       	ret
+ 248:	08 95       	ret
 			case C:
 			CLEAR_BIT(DDRC, Pin->pin);
- 27e:	24 b3       	in	r18, 0x14	; 20
- 280:	81 e0       	ldi	r24, 0x01	; 1
- 282:	90 e0       	ldi	r25, 0x00	; 0
- 284:	01 80       	ldd	r0, Z+1	; 0x01
- 286:	02 c0       	rjmp	.+4      	; 0x28c <Pin_Direction+0x66>
- 288:	88 0f       	add	r24, r24
- 28a:	99 1f       	adc	r25, r25
- 28c:	0a 94       	dec	r0
- 28e:	e2 f7       	brpl	.-8      	; 0x288 <Pin_Direction+0x62>
- 290:	80 95       	com	r24
- 292:	82 23       	and	r24, r18
- 294:	84 bb       	out	0x14, r24	; 20
+ 24a:	24 b3       	in	r18, 0x14	; 20
+ 24c:	81 e0       	ldi	r24, 0x01	; 1
+ 24e:	90 e0       	ldi	r25, 0x00	; 0
+ 250:	01 80       	ldd	r0, Z+1	; 0x01
+ 252:	02 c0       	rjmp	.+4      	; 0x258 <Pin_Direction+0x66>
+ 254:	88 0f       	add	r24, r24
+ 256:	99 1f       	adc	r25, r25
+ 258:	0a 94       	dec	r0
+ 25a:	e2 f7       	brpl	.-8      	; 0x254 <Pin_Direction+0x62>
+ 25c:	80 95       	com	r24
+ 25e:	82 23       	and	r24, r18
+ 260:	84 bb       	out	0x14, r24	; 20
 			break;
 			default:
 			return NOK;
 		}
 	}
 	return ROK;
- 296:	80 e0       	ldi	r24, 0x00	; 0
+ 262:	80 e0       	ldi	r24, 0x00	; 0
 			case B:
 			CLEAR_BIT(DDRB, Pin->pin);
 			break;
 			case C:
 			CLEAR_BIT(DDRC, Pin->pin);
 			break;
- 298:	08 95       	ret
+ 264:	08 95       	ret
 			case D:
 			CLEAR_BIT(DDRD, Pin->pin);
- 29a:	21 b3       	in	r18, 0x11	; 17
- 29c:	81 e0       	ldi	r24, 0x01	; 1
- 29e:	90 e0       	ldi	r25, 0x00	; 0
- 2a0:	01 80       	ldd	r0, Z+1	; 0x01
- 2a2:	02 c0       	rjmp	.+4      	; 0x2a8 <Pin_Direction+0x82>
- 2a4:	88 0f       	add	r24, r24
- 2a6:	99 1f       	adc	r25, r25
- 2a8:	0a 94       	dec	r0
- 2aa:	e2 f7       	brpl	.-8      	; 0x2a4 <Pin_Direction+0x7e>
- 2ac:	80 95       	com	r24
- 2ae:	82 23       	and	r24, r18
- 2b0:	81 bb       	out	0x11, r24	; 17
+ 266:	21 b3       	in	r18, 0x11	; 17
+ 268:	81 e0       	ldi	r24, 0x01	; 1
+ 26a:	90 e0       	ldi	r25, 0x00	; 0
+ 26c:	01 80       	ldd	r0, Z+1	; 0x01
+ 26e:	02 c0       	rjmp	.+4      	; 0x274 <Pin_Direction+0x82>
+ 270:	88 0f       	add	r24, r24
+ 272:	99 1f       	adc	r25, r25
+ 274:	0a 94       	dec	r0
+ 276:	e2 f7       	brpl	.-8      	; 0x270 <Pin_Direction+0x7e>
+ 278:	80 95       	com	r24
+ 27a:	82 23       	and	r24, r18
+ 27c:	81 bb       	out	0x11, r24	; 17
 			break;
 			default:
 			return NOK;
 		}
 	}
 	return ROK;
- 2b2:	80 e0       	ldi	r24, 0x00	; 0
+ 27e:	80 e0       	ldi	r24, 0x00	; 0
 			case C:
 			CLEAR_BIT(DDRC, Pin->pin);
 			break;
 			case D:
 			CLEAR_BIT(DDRD, Pin->pin);
 			break;
- 2b4:	08 95       	ret
+ 280:	08 95       	ret
 			default:
 			return NOK;
 		}
 		} else if (Pin->direction == Output) {
- 2b6:	81 30       	cpi	r24, 0x01	; 1
- 2b8:	09 f0       	breq	.+2      	; 0x2bc <Pin_Direction+0x96>
- 2ba:	41 c0       	rjmp	.+130    	; 0x33e <Pin_Direction+0x118>
+ 282:	81 30       	cpi	r24, 0x01	; 1
+ 284:	09 f0       	breq	.+2      	; 0x288 <Pin_Direction+0x96>
+ 286:	41 c0       	rjmp	.+130    	; 0x30a <Pin_Direction+0x118>
 		switch (Pin->port) {
- 2bc:	80 81       	ld	r24, Z
- 2be:	81 30       	cpi	r24, 0x01	; 1
- 2c0:	99 f0       	breq	.+38     	; 0x2e8 <Pin_Direction+0xc2>
- 2c2:	28 f0       	brcs	.+10     	; 0x2ce <Pin_Direction+0xa8>
- 2c4:	82 30       	cpi	r24, 0x02	; 2
- 2c6:	e9 f0       	breq	.+58     	; 0x302 <Pin_Direction+0xdc>
- 2c8:	83 30       	cpi	r24, 0x03	; 3
- 2ca:	41 f1       	breq	.+80     	; 0x31c <Pin_Direction+0xf6>
- 2cc:	3a c0       	rjmp	.+116    	; 0x342 <Pin_Direction+0x11c>
+ 288:	80 81       	ld	r24, Z
+ 28a:	81 30       	cpi	r24, 0x01	; 1
+ 28c:	99 f0       	breq	.+38     	; 0x2b4 <Pin_Direction+0xc2>
+ 28e:	28 f0       	brcs	.+10     	; 0x29a <Pin_Direction+0xa8>
+ 290:	82 30       	cpi	r24, 0x02	; 2
+ 292:	e9 f0       	breq	.+58     	; 0x2ce <Pin_Direction+0xdc>
+ 294:	83 30       	cpi	r24, 0x03	; 3
+ 296:	41 f1       	breq	.+80     	; 0x2e8 <Pin_Direction+0xf6>
+ 298:	3a c0       	rjmp	.+116    	; 0x30e <Pin_Direction+0x11c>
 			case A:
 			SET_BIT(DDRA, Pin->pin);
- 2ce:	2a b3       	in	r18, 0x1a	; 26
+ 29a:	2a b3       	in	r18, 0x1a	; 26
+ 29c:	81 e0       	ldi	r24, 0x01	; 1
+ 29e:	90 e0       	ldi	r25, 0x00	; 0
+ 2a0:	01 80       	ldd	r0, Z+1	; 0x01
+ 2a2:	02 c0       	rjmp	.+4      	; 0x2a8 <Pin_Direction+0xb6>
+ 2a4:	88 0f       	add	r24, r24
+ 2a6:	99 1f       	adc	r25, r25
+ 2a8:	0a 94       	dec	r0
+ 2aa:	e2 f7       	brpl	.-8      	; 0x2a4 <Pin_Direction+0xb2>
+ 2ac:	82 2b       	or	r24, r18
+ 2ae:	8a bb       	out	0x1a, r24	; 26
+			break;
+			default:
+			return NOK;
+		}
+	}
+	return ROK;
+ 2b0:	80 e0       	ldi	r24, 0x00	; 0
+		}
+		} else if (Pin->direction == Output) {
+		switch (Pin->port) {
+			case A:
+			SET_BIT(DDRA, Pin->pin);
+			break;
+ 2b2:	08 95       	ret
+			case B:
+			SET_BIT(DDRB, Pin->pin);
+ 2b4:	27 b3       	in	r18, 0x17	; 23
+ 2b6:	81 e0       	ldi	r24, 0x01	; 1
+ 2b8:	90 e0       	ldi	r25, 0x00	; 0
+ 2ba:	01 80       	ldd	r0, Z+1	; 0x01
+ 2bc:	02 c0       	rjmp	.+4      	; 0x2c2 <Pin_Direction+0xd0>
+ 2be:	88 0f       	add	r24, r24
+ 2c0:	99 1f       	adc	r25, r25
+ 2c2:	0a 94       	dec	r0
+ 2c4:	e2 f7       	brpl	.-8      	; 0x2be <Pin_Direction+0xcc>
+ 2c6:	82 2b       	or	r24, r18
+ 2c8:	87 bb       	out	0x17, r24	; 23
+			break;
+			default:
+			return NOK;
+		}
+	}
+	return ROK;
+ 2ca:	80 e0       	ldi	r24, 0x00	; 0
+			case A:
+			SET_BIT(DDRA, Pin->pin);
+			break;
+			case B:
+			SET_BIT(DDRB, Pin->pin);
+			break;
+ 2cc:	08 95       	ret
+			case C:
+			SET_BIT(DDRC, Pin->pin);
+ 2ce:	24 b3       	in	r18, 0x14	; 20
  2d0:	81 e0       	ldi	r24, 0x01	; 1
  2d2:	90 e0       	ldi	r25, 0x00	; 0
  2d4:	01 80       	ldd	r0, Z+1	; 0x01
- 2d6:	02 c0       	rjmp	.+4      	; 0x2dc <Pin_Direction+0xb6>
+ 2d6:	02 c0       	rjmp	.+4      	; 0x2dc <Pin_Direction+0xea>
  2d8:	88 0f       	add	r24, r24
  2da:	99 1f       	adc	r25, r25
  2dc:	0a 94       	dec	r0
- 2de:	e2 f7       	brpl	.-8      	; 0x2d8 <Pin_Direction+0xb2>
+ 2de:	e2 f7       	brpl	.-8      	; 0x2d8 <Pin_Direction+0xe6>
  2e0:	82 2b       	or	r24, r18
- 2e2:	8a bb       	out	0x1a, r24	; 26
+ 2e2:	84 bb       	out	0x14, r24	; 20
 			break;
 			default:
 			return NOK;
@@ -671,26 +690,26 @@ Std_return Pin_Direction(Pin_config_t *Pin) {
 	}
 	return ROK;
  2e4:	80 e0       	ldi	r24, 0x00	; 0
-		}
-		} else if (Pin->direction == Output) {
-		switch (Pin->port) {
-			case A:
-			SET_BIT(DDRA, Pin->pin);
-			break;
- 2e6:	08 95       	ret
 			case B:
 			SET_BIT(DDRB, Pin->pin);
- 2e8:	27 b3       	in	r18, 0x17	; 23
+			break;
+			case C:
+			SET_BIT(DDRC, Pin->pin);
+			break;
+ 2e6:	08 95       	ret
+			case D:
+			SET_BIT(DDRD, Pin->pin);
+ 2e8:	21 b3       	in	r18, 0x11	; 17
  2ea:	81 e0       	ldi	r24, 0x01	; 1
  2ec:	90 e0       	ldi	r25, 0x00	; 0
  2ee:	01 80       	ldd	r0, Z+1	; 0x01
- 2f0:	02 c0       	rjmp	.+4      	; 0x2f6 <Pin_Direction+0xd0>
+ 2f0:	02 c0       	rjmp	.+4      	; 0x2f6 <Pin_Direction+0x104>
  2f2:	88 0f       	add	r24, r24
  2f4:	99 1f       	adc	r25, r25
  2f6:	0a 94       	dec	r0
- 2f8:	e2 f7       	brpl	.-8      	; 0x2f2 <Pin_Direction+0xcc>
+ 2f8:	e2 f7       	brpl	.-8      	; 0x2f2 <Pin_Direction+0x100>
  2fa:	82 2b       	or	r24, r18
- 2fc:	87 bb       	out	0x17, r24	; 23
+ 2fc:	81 bb       	out	0x11, r24	; 17
 			break;
 			default:
 			return NOK;
@@ -698,629 +717,407 @@ Std_return Pin_Direction(Pin_config_t *Pin) {
 	}
 	return ROK;
  2fe:	80 e0       	ldi	r24, 0x00	; 0
-			case A:
-			SET_BIT(DDRA, Pin->pin);
+			case C:
+			SET_BIT(DDRC, Pin->pin);
 			break;
-			case B:
-			SET_BIT(DDRB, Pin->pin);
+			case D:
+			SET_BIT(DDRD, Pin->pin);
 			break;
  300:	08 95       	ret
-			case C:
-			SET_BIT(DDRC, Pin->pin);
- 302:	24 b3       	in	r18, 0x14	; 20
- 304:	81 e0       	ldi	r24, 0x01	; 1
- 306:	90 e0       	ldi	r25, 0x00	; 0
- 308:	01 80       	ldd	r0, Z+1	; 0x01
- 30a:	02 c0       	rjmp	.+4      	; 0x310 <Pin_Direction+0xea>
- 30c:	88 0f       	add	r24, r24
- 30e:	99 1f       	adc	r25, r25
- 310:	0a 94       	dec	r0
- 312:	e2 f7       	brpl	.-8      	; 0x30c <Pin_Direction+0xe6>
- 314:	82 2b       	or	r24, r18
- 316:	84 bb       	out	0x14, r24	; 20
-			break;
-			default:
-			return NOK;
-		}
-	}
-	return ROK;
- 318:	80 e0       	ldi	r24, 0x00	; 0
-			case B:
-			SET_BIT(DDRB, Pin->pin);
-			break;
-			case C:
-			SET_BIT(DDRC, Pin->pin);
-			break;
- 31a:	08 95       	ret
-			case D:
-			SET_BIT(DDRD, Pin->pin);
- 31c:	21 b3       	in	r18, 0x11	; 17
- 31e:	81 e0       	ldi	r24, 0x01	; 1
- 320:	90 e0       	ldi	r25, 0x00	; 0
- 322:	01 80       	ldd	r0, Z+1	; 0x01
- 324:	02 c0       	rjmp	.+4      	; 0x32a <Pin_Direction+0x104>
- 326:	88 0f       	add	r24, r24
- 328:	99 1f       	adc	r25, r25
- 32a:	0a 94       	dec	r0
- 32c:	e2 f7       	brpl	.-8      	; 0x326 <Pin_Direction+0x100>
- 32e:	82 2b       	or	r24, r18
- 330:	81 bb       	out	0x11, r24	; 17
-			break;
-			default:
-			return NOK;
-		}
-	}
-	return ROK;
- 332:	80 e0       	ldi	r24, 0x00	; 0
-			case C:
-			SET_BIT(DDRC, Pin->pin);
-			break;
-			case D:
-			SET_BIT(DDRD, Pin->pin);
-			break;
- 334:	08 95       	ret
 * @param Pin Pointer to the pin configuration structure.
 * @return Std_return ROK if successful, NOK if the pin configuration is null.
 */
 Std_return Pin_Direction(Pin_config_t *Pin) {
 	if (!Pin) {
 		return NOK;
- 336:	81 e0       	ldi	r24, 0x01	; 1
- 338:	08 95       	ret
+ 302:	81 e0       	ldi	r24, 0x01	; 1
+ 304:	08 95       	ret
 			break;
 			case D:
 			CLEAR_BIT(DDRD, Pin->pin);
 			break;
 			default:
 			return NOK;
- 33a:	81 e0       	ldi	r24, 0x01	; 1
- 33c:	08 95       	ret
+ 306:	81 e0       	ldi	r24, 0x01	; 1
+ 308:	08 95       	ret
 			break;
 			default:
 			return NOK;
 		}
 	}
 	return ROK;
- 33e:	80 e0       	ldi	r24, 0x00	; 0
- 340:	08 95       	ret
+ 30a:	80 e0       	ldi	r24, 0x00	; 0
+ 30c:	08 95       	ret
 			break;
 			case D:
 			SET_BIT(DDRD, Pin->pin);
 			break;
 			default:
 			return NOK;
- 342:	81 e0       	ldi	r24, 0x01	; 1
+ 30e:	81 e0       	ldi	r24, 0x01	; 1
 		}
 	}
 	return ROK;
 }
- 344:	08 95       	ret
+ 310:	08 95       	ret
 
-00000346 <Pin_logic_init>:
+00000312 <Pin_logic_init>:
 * @brief Initializes the pin direction and sets its logic level.
 *
 * @param Pin Pointer to the pin configuration structure.
 * @return Std_return ROK if successful, NOK if the pin configuration is null.
 */
 Std_return Pin_logic_init(Pin_config_t *Pin) {
- 346:	cf 93       	push	r28
- 348:	df 93       	push	r29
- 34a:	ec 01       	movw	r28, r24
+ 312:	cf 93       	push	r28
+ 314:	df 93       	push	r29
+ 316:	ec 01       	movw	r28, r24
 	Pin_Direction(Pin);
- 34c:	0e 94 13 01 	call	0x226	; 0x226 <Pin_Direction>
+ 318:	0e 94 f9 00 	call	0x1f2	; 0x1f2 <Pin_Direction>
 	if (!Pin) {
- 350:	20 97       	sbiw	r28, 0x00	; 0
- 352:	79 f0       	breq	.+30     	; 0x372 <Pin_logic_init+0x2c>
+ 31c:	20 97       	sbiw	r28, 0x00	; 0
+ 31e:	79 f0       	breq	.+30     	; 0x33e <Pin_logic_init+0x2c>
 		return NOK;
 	}
 	if (Pin->logic == Low) {
- 354:	8b 81       	ldd	r24, Y+3	; 0x03
- 356:	81 11       	cpse	r24, r1
- 358:	05 c0       	rjmp	.+10     	; 0x364 <Pin_logic_init+0x1e>
+ 320:	8b 81       	ldd	r24, Y+3	; 0x03
+ 322:	81 11       	cpse	r24, r1
+ 324:	05 c0       	rjmp	.+10     	; 0x330 <Pin_logic_init+0x1e>
 		Pin_Clear(Pin);
- 35a:	ce 01       	movw	r24, r28
- 35c:	0e 94 c6 00 	call	0x18c	; 0x18c <Pin_Clear>
+ 326:	ce 01       	movw	r24, r28
+ 328:	0e 94 ac 00 	call	0x158	; 0x158 <Pin_Clear>
 		} else if (Pin->logic == High) {
 		Pin_Set(Pin);
 	}
 	return ROK;
- 360:	80 e0       	ldi	r24, 0x00	; 0
- 362:	0a c0       	rjmp	.+20     	; 0x378 <Pin_logic_init+0x32>
+ 32c:	80 e0       	ldi	r24, 0x00	; 0
+ 32e:	0a c0       	rjmp	.+20     	; 0x344 <Pin_logic_init+0x32>
 	if (!Pin) {
 		return NOK;
 	}
 	if (Pin->logic == Low) {
 		Pin_Clear(Pin);
 		} else if (Pin->logic == High) {
- 364:	81 30       	cpi	r24, 0x01	; 1
- 366:	39 f4       	brne	.+14     	; 0x376 <Pin_logic_init+0x30>
+ 330:	81 30       	cpi	r24, 0x01	; 1
+ 332:	39 f4       	brne	.+14     	; 0x342 <Pin_logic_init+0x30>
 		Pin_Set(Pin);
- 368:	ce 01       	movw	r24, r28
- 36a:	0e 94 79 00 	call	0xf2	; 0xf2 <Pin_Set>
+ 334:	ce 01       	movw	r24, r28
+ 336:	0e 94 5f 00 	call	0xbe	; 0xbe <Pin_Set>
 	}
 	return ROK;
- 36e:	80 e0       	ldi	r24, 0x00	; 0
- 370:	03 c0       	rjmp	.+6      	; 0x378 <Pin_logic_init+0x32>
+ 33a:	80 e0       	ldi	r24, 0x00	; 0
+ 33c:	03 c0       	rjmp	.+6      	; 0x344 <Pin_logic_init+0x32>
 * @return Std_return ROK if successful, NOK if the pin configuration is null.
 */
 Std_return Pin_logic_init(Pin_config_t *Pin) {
 	Pin_Direction(Pin);
 	if (!Pin) {
 		return NOK;
- 372:	81 e0       	ldi	r24, 0x01	; 1
- 374:	01 c0       	rjmp	.+2      	; 0x378 <Pin_logic_init+0x32>
+ 33e:	81 e0       	ldi	r24, 0x01	; 1
+ 340:	01 c0       	rjmp	.+2      	; 0x344 <Pin_logic_init+0x32>
 	if (Pin->logic == Low) {
 		Pin_Clear(Pin);
 		} else if (Pin->logic == High) {
 		Pin_Set(Pin);
 	}
 	return ROK;
- 376:	80 e0       	ldi	r24, 0x00	; 0
+ 342:	80 e0       	ldi	r24, 0x00	; 0
 }
- 378:	df 91       	pop	r29
- 37a:	cf 91       	pop	r28
- 37c:	08 95       	ret
+ 344:	df 91       	pop	r29
+ 346:	cf 91       	pop	r28
+ 348:	08 95       	ret
 
-0000037e <Pin_Toggle>:
-* @brief Toggles the pin logic level.
-*
-* @param Pin Pointer to the pin configuration structure.
-* @return Std_return ROK if successful, NOK if the pin configuration is null.
-*/
-Std_return Pin_Toggle(Pin_config_t *Pin) {
- 37e:	fc 01       	movw	r30, r24
-	if (!Pin) {
- 380:	89 2b       	or	r24, r25
- 382:	09 f4       	brne	.+2      	; 0x386 <Pin_Toggle+0x8>
- 384:	55 c0       	rjmp	.+170    	; 0x430 <__EEPROM_REGION_LENGTH__+0x30>
-		return NOK;
-	}
-	switch (Pin->port) {
- 386:	80 81       	ld	r24, Z
- 388:	81 30       	cpi	r24, 0x01	; 1
- 38a:	c9 f0       	breq	.+50     	; 0x3be <Pin_Toggle+0x40>
- 38c:	28 f0       	brcs	.+10     	; 0x398 <Pin_Toggle+0x1a>
- 38e:	82 30       	cpi	r24, 0x02	; 2
- 390:	49 f1       	breq	.+82     	; 0x3e4 <Pin_Toggle+0x66>
- 392:	83 30       	cpi	r24, 0x03	; 3
- 394:	d1 f1       	breq	.+116    	; 0x40a <__EEPROM_REGION_LENGTH__+0xa>
- 396:	4e c0       	rjmp	.+156    	; 0x434 <__EEPROM_REGION_LENGTH__+0x34>
-		case A:
-		TOGGLE_BIT(PORTA, Pin->pin);
- 398:	2b b3       	in	r18, 0x1b	; 27
- 39a:	81 e0       	ldi	r24, 0x01	; 1
- 39c:	90 e0       	ldi	r25, 0x00	; 0
- 39e:	01 80       	ldd	r0, Z+1	; 0x01
- 3a0:	02 c0       	rjmp	.+4      	; 0x3a6 <Pin_Toggle+0x28>
- 3a2:	88 0f       	add	r24, r24
- 3a4:	99 1f       	adc	r25, r25
- 3a6:	0a 94       	dec	r0
- 3a8:	e2 f7       	brpl	.-8      	; 0x3a2 <Pin_Toggle+0x24>
- 3aa:	82 27       	eor	r24, r18
- 3ac:	8b bb       	out	0x1b, r24	; 27
-		Pin->logic = (Pin->logic == High) ? Low : High;
- 3ae:	93 81       	ldd	r25, Z+3	; 0x03
- 3b0:	81 e0       	ldi	r24, 0x01	; 1
- 3b2:	91 30       	cpi	r25, 0x01	; 1
- 3b4:	09 f4       	brne	.+2      	; 0x3b8 <Pin_Toggle+0x3a>
- 3b6:	80 e0       	ldi	r24, 0x00	; 0
- 3b8:	83 83       	std	Z+3, r24	; 0x03
-		Pin->logic = (Pin->logic == High) ? Low : High;
-		break;
-		default:
-		return NOK;
-	}
-	return ROK;
- 3ba:	80 e0       	ldi	r24, 0x00	; 0
-	}
-	switch (Pin->port) {
-		case A:
-		TOGGLE_BIT(PORTA, Pin->pin);
-		Pin->logic = (Pin->logic == High) ? Low : High;
-		break;
- 3bc:	08 95       	ret
-		case B:
-		TOGGLE_BIT(PORTB, Pin->pin);
- 3be:	28 b3       	in	r18, 0x18	; 24
- 3c0:	81 e0       	ldi	r24, 0x01	; 1
- 3c2:	90 e0       	ldi	r25, 0x00	; 0
- 3c4:	01 80       	ldd	r0, Z+1	; 0x01
- 3c6:	02 c0       	rjmp	.+4      	; 0x3cc <Pin_Toggle+0x4e>
- 3c8:	88 0f       	add	r24, r24
- 3ca:	99 1f       	adc	r25, r25
- 3cc:	0a 94       	dec	r0
- 3ce:	e2 f7       	brpl	.-8      	; 0x3c8 <Pin_Toggle+0x4a>
- 3d0:	82 27       	eor	r24, r18
- 3d2:	88 bb       	out	0x18, r24	; 24
-		Pin->logic = (Pin->logic == High) ? Low : High;
- 3d4:	93 81       	ldd	r25, Z+3	; 0x03
- 3d6:	81 e0       	ldi	r24, 0x01	; 1
- 3d8:	91 30       	cpi	r25, 0x01	; 1
- 3da:	09 f4       	brne	.+2      	; 0x3de <Pin_Toggle+0x60>
- 3dc:	80 e0       	ldi	r24, 0x00	; 0
- 3de:	83 83       	std	Z+3, r24	; 0x03
-		Pin->logic = (Pin->logic == High) ? Low : High;
-		break;
-		default:
-		return NOK;
-	}
-	return ROK;
- 3e0:	80 e0       	ldi	r24, 0x00	; 0
-		Pin->logic = (Pin->logic == High) ? Low : High;
-		break;
-		case B:
-		TOGGLE_BIT(PORTB, Pin->pin);
-		Pin->logic = (Pin->logic == High) ? Low : High;
-		break;
- 3e2:	08 95       	ret
-		case C:
-		TOGGLE_BIT(PORTC, Pin->pin);
- 3e4:	25 b3       	in	r18, 0x15	; 21
- 3e6:	81 e0       	ldi	r24, 0x01	; 1
- 3e8:	90 e0       	ldi	r25, 0x00	; 0
- 3ea:	01 80       	ldd	r0, Z+1	; 0x01
- 3ec:	02 c0       	rjmp	.+4      	; 0x3f2 <Pin_Toggle+0x74>
- 3ee:	88 0f       	add	r24, r24
- 3f0:	99 1f       	adc	r25, r25
- 3f2:	0a 94       	dec	r0
- 3f4:	e2 f7       	brpl	.-8      	; 0x3ee <Pin_Toggle+0x70>
- 3f6:	82 27       	eor	r24, r18
- 3f8:	85 bb       	out	0x15, r24	; 21
-		Pin->logic = (Pin->logic == High) ? Low : High;
- 3fa:	93 81       	ldd	r25, Z+3	; 0x03
- 3fc:	81 e0       	ldi	r24, 0x01	; 1
- 3fe:	91 30       	cpi	r25, 0x01	; 1
- 400:	09 f4       	brne	.+2      	; 0x404 <__EEPROM_REGION_LENGTH__+0x4>
- 402:	80 e0       	ldi	r24, 0x00	; 0
- 404:	83 83       	std	Z+3, r24	; 0x03
-		Pin->logic = (Pin->logic == High) ? Low : High;
-		break;
-		default:
-		return NOK;
-	}
-	return ROK;
- 406:	80 e0       	ldi	r24, 0x00	; 0
-		Pin->logic = (Pin->logic == High) ? Low : High;
-		break;
-		case C:
-		TOGGLE_BIT(PORTC, Pin->pin);
-		Pin->logic = (Pin->logic == High) ? Low : High;
-		break;
- 408:	08 95       	ret
-		case D:
-		TOGGLE_BIT(PORTD, Pin->pin);
- 40a:	22 b3       	in	r18, 0x12	; 18
- 40c:	81 e0       	ldi	r24, 0x01	; 1
- 40e:	90 e0       	ldi	r25, 0x00	; 0
- 410:	01 80       	ldd	r0, Z+1	; 0x01
- 412:	02 c0       	rjmp	.+4      	; 0x418 <__EEPROM_REGION_LENGTH__+0x18>
- 414:	88 0f       	add	r24, r24
- 416:	99 1f       	adc	r25, r25
- 418:	0a 94       	dec	r0
- 41a:	e2 f7       	brpl	.-8      	; 0x414 <__EEPROM_REGION_LENGTH__+0x14>
- 41c:	82 27       	eor	r24, r18
- 41e:	82 bb       	out	0x12, r24	; 18
-		Pin->logic = (Pin->logic == High) ? Low : High;
- 420:	93 81       	ldd	r25, Z+3	; 0x03
- 422:	81 e0       	ldi	r24, 0x01	; 1
- 424:	91 30       	cpi	r25, 0x01	; 1
- 426:	09 f4       	brne	.+2      	; 0x42a <__EEPROM_REGION_LENGTH__+0x2a>
- 428:	80 e0       	ldi	r24, 0x00	; 0
- 42a:	83 83       	std	Z+3, r24	; 0x03
-		break;
-		default:
-		return NOK;
-	}
-	return ROK;
- 42c:	80 e0       	ldi	r24, 0x00	; 0
-		Pin->logic = (Pin->logic == High) ? Low : High;
-		break;
-		case D:
-		TOGGLE_BIT(PORTD, Pin->pin);
-		Pin->logic = (Pin->logic == High) ? Low : High;
-		break;
- 42e:	08 95       	ret
-* @param Pin Pointer to the pin configuration structure.
-* @return Std_return ROK if successful, NOK if the pin configuration is null.
-*/
-Std_return Pin_Toggle(Pin_config_t *Pin) {
-	if (!Pin) {
-		return NOK;
- 430:	81 e0       	ldi	r24, 0x01	; 1
- 432:	08 95       	ret
-		case D:
-		TOGGLE_BIT(PORTD, Pin->pin);
-		Pin->logic = (Pin->logic == High) ? Low : High;
-		break;
-		default:
-		return NOK;
- 434:	81 e0       	ldi	r24, 0x01	; 1
-	}
-	return ROK;
-}
- 436:	08 95       	ret
-
-00000438 <Timer_OCR0_Set_Compare_Value>:
+0000034a <Timer_OCR0_Set_Compare_Value>:
 * a compare match interrupt or to set the output pin behavior.
 *
 * @param value The compare value to be set in the OCR0 register.
 */
 void Timer_OCR0_Set_Compare_Value(uint8_t value) {
 	OCR0 = value;
- 438:	8c bf       	out	0x3c, r24	; 60
- 43a:	08 95       	ret
+ 34a:	8c bf       	out	0x3c, r24	; 60
+ 34c:	08 95       	ret
 
-0000043c <Timer0_Init>:
+0000034e <Timer0_Init>:
 * prescaler, and compare value.
 *
 * @param timer Pointer to the Timer0_t structure containing the configuration.
 * @return true if initialization is successful, false otherwise.
 */
 bool Timer0_Init(Timer0_t *timer) {
- 43c:	0f 93       	push	r16
- 43e:	1f 93       	push	r17
- 440:	cf 93       	push	r28
- 442:	df 93       	push	r29
- 444:	00 d0       	rcall	.+0      	; 0x446 <Timer0_Init+0xa>
- 446:	00 d0       	rcall	.+0      	; 0x448 <Timer0_Init+0xc>
- 448:	cd b7       	in	r28, 0x3d	; 61
- 44a:	de b7       	in	r29, 0x3e	; 62
+ 34e:	cf 93       	push	r28
+ 350:	df 93       	push	r29
 	if (!timer) {
- 44c:	00 97       	sbiw	r24, 0x00	; 0
- 44e:	09 f4       	brne	.+2      	; 0x452 <Timer0_Init+0x16>
- 450:	4a c0       	rjmp	.+148    	; 0x4e6 <Timer0_Init+0xaa>
- 452:	8c 01       	movw	r16, r24
+ 352:	00 97       	sbiw	r24, 0x00	; 0
+ 354:	d1 f1       	breq	.+116    	; 0x3ca <Timer0_Init+0x7c>
 		return false;
 	}
 
 	global_timer = timer;
- 454:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__data_end+0x1>
- 458:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__data_end>
+ 356:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 35a:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
 
 	// Reset TCCR0 register
 	TCCR0 = 0x00;
- 45c:	13 be       	out	0x33, r1	; 51
+ 35e:	13 be       	out	0x33, r1	; 51
 
 	// Set Timer mode
 	TCCR0 |= timer->Timer_Mode;
- 45e:	93 b7       	in	r25, 0x33	; 51
- 460:	f8 01       	movw	r30, r16
- 462:	80 81       	ld	r24, Z
- 464:	89 2b       	or	r24, r25
- 466:	83 bf       	out	0x33, r24	; 51
+ 360:	33 b7       	in	r19, 0x33	; 51
+ 362:	fc 01       	movw	r30, r24
+ 364:	20 81       	ld	r18, Z
+ 366:	23 2b       	or	r18, r19
+ 368:	23 bf       	out	0x33, r18	; 51
 
 	// Configure Output Pin Functionality
 	if (timer->Output_Pin_Functionality == OC0_Off) {
- 468:	81 81       	ldd	r24, Z+1	; 0x01
- 46a:	81 11       	cpse	r24, r1
- 46c:	04 c0       	rjmp	.+8      	; 0x476 <Timer0_Init+0x3a>
+ 36a:	21 81       	ldd	r18, Z+1	; 0x01
+ 36c:	21 11       	cpse	r18, r1
+ 36e:	04 c0       	rjmp	.+8      	; 0x378 <Timer0_Init+0x2a>
 		// Clear bits 4 and 5 for OC0 Off
 		TCCR0 &= ~(3 << 4);
- 46e:	83 b7       	in	r24, 0x33	; 51
- 470:	8f 7c       	andi	r24, 0xCF	; 207
- 472:	83 bf       	out	0x33, r24	; 51
- 474:	0f c0       	rjmp	.+30     	; 0x494 <Timer0_Init+0x58>
+ 370:	23 b7       	in	r18, 0x33	; 51
+ 372:	2f 7c       	andi	r18, 0xCF	; 207
+ 374:	23 bf       	out	0x33, r18	; 51
+ 376:	03 c0       	rjmp	.+6      	; 0x37e <Timer0_Init+0x30>
 		} else {
-		// Initialize clock pin configuration
-		Pin_config_t Clk_Pin;
-		Clk_Pin.port = B;
- 476:	81 e0       	ldi	r24, 0x01	; 1
- 478:	89 83       	std	Y+1, r24	; 0x01
-		Clk_Pin.pin = 3;
- 47a:	93 e0       	ldi	r25, 0x03	; 3
- 47c:	9a 83       	std	Y+2, r25	; 0x02
-		Clk_Pin.direction = Output;
- 47e:	8b 83       	std	Y+3, r24	; 0x03
-		Clk_Pin.logic = Low;
- 480:	1c 82       	std	Y+4, r1	; 0x04
-
 		// Set Output Pin Functionality
 		TCCR0 |= timer->Output_Pin_Functionality;
- 482:	93 b7       	in	r25, 0x33	; 51
- 484:	f8 01       	movw	r30, r16
- 486:	81 81       	ldd	r24, Z+1	; 0x01
- 488:	89 2b       	or	r24, r25
- 48a:	83 bf       	out	0x33, r24	; 51
-
-		// Initialize the clock pin logic
-		Pin_logic_init(&Clk_Pin);
- 48c:	ce 01       	movw	r24, r28
- 48e:	01 96       	adiw	r24, 0x01	; 1
- 490:	0e 94 a3 01 	call	0x346	; 0x346 <Pin_logic_init>
+ 378:	33 b7       	in	r19, 0x33	; 51
+ 37a:	23 2b       	or	r18, r19
+ 37c:	23 bf       	out	0x33, r18	; 51
+ 37e:	ec 01       	movw	r28, r24
 	}
 
 	// Set Compare Value
 	Timer_OCR0_Set_Compare_Value(timer->Compare_Value);
- 494:	f8 01       	movw	r30, r16
- 496:	83 81       	ldd	r24, Z+3	; 0x03
- 498:	0e 94 1c 02 	call	0x438	; 0x438 <Timer_OCR0_Set_Compare_Value>
+ 380:	8b 81       	ldd	r24, Y+3	; 0x03
+ 382:	0e 94 a5 01 	call	0x34a	; 0x34a <Timer_OCR0_Set_Compare_Value>
 
 	// Force Output Compare Pin
 	if (timer->Force_Output_Pin) {
- 49c:	f8 01       	movw	r30, r16
- 49e:	84 81       	ldd	r24, Z+4	; 0x04
- 4a0:	88 23       	and	r24, r24
- 4a2:	19 f0       	breq	.+6      	; 0x4aa <Timer0_Init+0x6e>
+ 386:	8c 81       	ldd	r24, Y+4	; 0x04
+ 388:	88 23       	and	r24, r24
+ 38a:	19 f0       	breq	.+6      	; 0x392 <Timer0_Init+0x44>
 		TCCR0 |= (1 << FOC0);
- 4a4:	83 b7       	in	r24, 0x33	; 51
- 4a6:	80 68       	ori	r24, 0x80	; 128
- 4a8:	83 bf       	out	0x33, r24	; 51
+ 38c:	83 b7       	in	r24, 0x33	; 51
+ 38e:	80 68       	ori	r24, 0x80	; 128
+ 390:	83 bf       	out	0x33, r24	; 51
 	}
 
 	// Enable interrupts in TIMSK
 	TIMSK &= ~(1 << TOIE0) & ~(1 << OCIE0); // Disable both interrupts initially
- 4aa:	89 b7       	in	r24, 0x39	; 57
- 4ac:	8c 7f       	andi	r24, 0xFC	; 252
- 4ae:	89 bf       	out	0x39, r24	; 57
+ 392:	89 b7       	in	r24, 0x39	; 57
+ 394:	8c 7f       	andi	r24, 0xFC	; 252
+ 396:	89 bf       	out	0x39, r24	; 57
 	if (timer->interrupt_status == OverFlow_Interrupt) {
- 4b0:	f8 01       	movw	r30, r16
- 4b2:	85 81       	ldd	r24, Z+5	; 0x05
- 4b4:	81 30       	cpi	r24, 0x01	; 1
- 4b6:	21 f4       	brne	.+8      	; 0x4c0 <Timer0_Init+0x84>
+ 398:	8d 81       	ldd	r24, Y+5	; 0x05
+ 39a:	81 30       	cpi	r24, 0x01	; 1
+ 39c:	21 f4       	brne	.+8      	; 0x3a6 <Timer0_Init+0x58>
 		TIMSK |= (1 << TOIE0); // Enable Overflow Interrupt
- 4b8:	89 b7       	in	r24, 0x39	; 57
- 4ba:	81 60       	ori	r24, 0x01	; 1
- 4bc:	89 bf       	out	0x39, r24	; 57
- 4be:	0b c0       	rjmp	.+22     	; 0x4d6 <Timer0_Init+0x9a>
+ 39e:	89 b7       	in	r24, 0x39	; 57
+ 3a0:	81 60       	ori	r24, 0x01	; 1
+ 3a2:	89 bf       	out	0x39, r24	; 57
+ 3a4:	0b c0       	rjmp	.+22     	; 0x3bc <Timer0_Init+0x6e>
 		} else if (timer->interrupt_status == Compare_Interrupt) {
- 4c0:	82 30       	cpi	r24, 0x02	; 2
- 4c2:	21 f4       	brne	.+8      	; 0x4cc <Timer0_Init+0x90>
+ 3a6:	82 30       	cpi	r24, 0x02	; 2
+ 3a8:	21 f4       	brne	.+8      	; 0x3b2 <Timer0_Init+0x64>
 		TIMSK |= (1 << OCIE0); // Enable Compare Match Interrupt
- 4c4:	89 b7       	in	r24, 0x39	; 57
- 4c6:	82 60       	ori	r24, 0x02	; 2
- 4c8:	89 bf       	out	0x39, r24	; 57
- 4ca:	05 c0       	rjmp	.+10     	; 0x4d6 <Timer0_Init+0x9a>
+ 3aa:	89 b7       	in	r24, 0x39	; 57
+ 3ac:	82 60       	ori	r24, 0x02	; 2
+ 3ae:	89 bf       	out	0x39, r24	; 57
+ 3b0:	05 c0       	rjmp	.+10     	; 0x3bc <Timer0_Init+0x6e>
 		} else if (timer->interrupt_status == OverCompare_Interrupt) {
- 4cc:	83 30       	cpi	r24, 0x03	; 3
- 4ce:	19 f4       	brne	.+6      	; 0x4d6 <Timer0_Init+0x9a>
+ 3b2:	83 30       	cpi	r24, 0x03	; 3
+ 3b4:	19 f4       	brne	.+6      	; 0x3bc <Timer0_Init+0x6e>
 		TIMSK |= (1 << TOIE0) | (1 << OCIE0); // Enable both interrupts
- 4d0:	89 b7       	in	r24, 0x39	; 57
- 4d2:	83 60       	ori	r24, 0x03	; 3
- 4d4:	89 bf       	out	0x39, r24	; 57
+ 3b6:	89 b7       	in	r24, 0x39	; 57
+ 3b8:	83 60       	ori	r24, 0x03	; 3
+ 3ba:	89 bf       	out	0x39, r24	; 57
 	}
 
 	// Set Prescaler
 	TCCR0 |= timer->Precaller;
- 4d6:	93 b7       	in	r25, 0x33	; 51
- 4d8:	f8 01       	movw	r30, r16
- 4da:	82 81       	ldd	r24, Z+2	; 0x02
- 4dc:	89 2b       	or	r24, r25
- 4de:	83 bf       	out	0x33, r24	; 51
+ 3bc:	93 b7       	in	r25, 0x33	; 51
+ 3be:	8a 81       	ldd	r24, Y+2	; 0x02
+ 3c0:	89 2b       	or	r24, r25
+ 3c2:	83 bf       	out	0x33, r24	; 51
 
 	// Enable global interrupts
 	sei();
- 4e0:	78 94       	sei
+ 3c4:	78 94       	sei
 
 	return true;
- 4e2:	81 e0       	ldi	r24, 0x01	; 1
- 4e4:	01 c0       	rjmp	.+2      	; 0x4e8 <Timer0_Init+0xac>
+ 3c6:	81 e0       	ldi	r24, 0x01	; 1
+ 3c8:	01 c0       	rjmp	.+2      	; 0x3cc <Timer0_Init+0x7e>
 * @param timer Pointer to the Timer0_t structure containing the configuration.
 * @return true if initialization is successful, false otherwise.
 */
 bool Timer0_Init(Timer0_t *timer) {
 	if (!timer) {
 		return false;
- 4e6:	80 e0       	ldi	r24, 0x00	; 0
+ 3ca:	80 e0       	ldi	r24, 0x00	; 0
 
 	// Enable global interrupts
 	sei();
 
 	return true;
 }
- 4e8:	0f 90       	pop	r0
- 4ea:	0f 90       	pop	r0
- 4ec:	0f 90       	pop	r0
- 4ee:	0f 90       	pop	r0
- 4f0:	df 91       	pop	r29
- 4f2:	cf 91       	pop	r28
- 4f4:	1f 91       	pop	r17
- 4f6:	0f 91       	pop	r16
- 4f8:	08 95       	ret
+ 3cc:	df 91       	pop	r29
+ 3ce:	cf 91       	pop	r28
+ 3d0:	08 95       	ret
 
-000004fa <__vector_11>:
+000003d2 <Timer0_PWM_Init>:
+*
+* @param duty_cycle The duty cycle of the PWM signal (0-255).
+* @param output_mode The output mode for the PWM signal (OC0_Clear or OC0_Set).
+* @param prescaler The prescaler value for the timer.
+*/
+void Timer0_PWM_Init(uint8_t duty_cycle, T_OC0Pin_t output_mode, T_clk_t prescaler) {
+ 3d2:	cf 93       	push	r28
+ 3d4:	df 93       	push	r29
+ 3d6:	cd b7       	in	r28, 0x3d	; 61
+ 3d8:	de b7       	in	r29, 0x3e	; 62
+ 3da:	2a 97       	sbiw	r28, 0x0a	; 10
+ 3dc:	0f b6       	in	r0, 0x3f	; 63
+ 3de:	f8 94       	cli
+ 3e0:	de bf       	out	0x3e, r29	; 62
+ 3e2:	0f be       	out	0x3f, r0	; 63
+ 3e4:	cd bf       	out	0x3d, r28	; 61
+	Timer0_t timer = {
+ 3e6:	98 e4       	ldi	r25, 0x48	; 72
+ 3e8:	99 83       	std	Y+1, r25	; 0x01
+ 3ea:	6a 83       	std	Y+2, r22	; 0x02
+ 3ec:	4b 83       	std	Y+3, r20	; 0x03
+ 3ee:	8c 83       	std	Y+4, r24	; 0x04
+ 3f0:	1d 82       	std	Y+5, r1	; 0x05
+ 3f2:	1e 82       	std	Y+6, r1	; 0x06
+ 3f4:	18 86       	std	Y+8, r1	; 0x08
+ 3f6:	1f 82       	std	Y+7, r1	; 0x07
+ 3f8:	1a 86       	std	Y+10, r1	; 0x0a
+ 3fa:	19 86       	std	Y+9, r1	; 0x09
+		.interrupt_status = interrupt_Disable,
+		.Call_Back_Overflow = NULL,
+		.Call_Back_Compare = NULL
+	};
+
+	Timer0_Init(&timer);
+ 3fc:	ce 01       	movw	r24, r28
+ 3fe:	01 96       	adiw	r24, 0x01	; 1
+ 400:	0e 94 a7 01 	call	0x34e	; 0x34e <Timer0_Init>
+}
+ 404:	2a 96       	adiw	r28, 0x0a	; 10
+ 406:	0f b6       	in	r0, 0x3f	; 63
+ 408:	f8 94       	cli
+ 40a:	de bf       	out	0x3e, r29	; 62
+ 40c:	0f be       	out	0x3f, r0	; 63
+ 40e:	cd bf       	out	0x3d, r28	; 61
+ 410:	df 91       	pop	r29
+ 412:	cf 91       	pop	r28
+ 414:	08 95       	ret
+
+00000416 <__vector_11>:
 
 // ISR for Timer0 Overflow
 ISR(TIMER0_OVF_vect) {
- 4fa:	1f 92       	push	r1
- 4fc:	0f 92       	push	r0
- 4fe:	0f b6       	in	r0, 0x3f	; 63
- 500:	0f 92       	push	r0
- 502:	11 24       	eor	r1, r1
- 504:	2f 93       	push	r18
- 506:	3f 93       	push	r19
- 508:	4f 93       	push	r20
- 50a:	5f 93       	push	r21
- 50c:	6f 93       	push	r22
- 50e:	7f 93       	push	r23
- 510:	8f 93       	push	r24
- 512:	9f 93       	push	r25
- 514:	af 93       	push	r26
- 516:	bf 93       	push	r27
- 518:	ef 93       	push	r30
- 51a:	ff 93       	push	r31
+ 416:	1f 92       	push	r1
+ 418:	0f 92       	push	r0
+ 41a:	0f b6       	in	r0, 0x3f	; 63
+ 41c:	0f 92       	push	r0
+ 41e:	11 24       	eor	r1, r1
+ 420:	2f 93       	push	r18
+ 422:	3f 93       	push	r19
+ 424:	4f 93       	push	r20
+ 426:	5f 93       	push	r21
+ 428:	6f 93       	push	r22
+ 42a:	7f 93       	push	r23
+ 42c:	8f 93       	push	r24
+ 42e:	9f 93       	push	r25
+ 430:	af 93       	push	r26
+ 432:	bf 93       	push	r27
+ 434:	ef 93       	push	r30
+ 436:	ff 93       	push	r31
 	if (global_timer->Call_Back_Overflow != NULL) {
- 51c:	e0 91 60 00 	lds	r30, 0x0060	; 0x800060 <__data_end>
- 520:	f0 91 61 00 	lds	r31, 0x0061	; 0x800061 <__data_end+0x1>
- 524:	06 80       	ldd	r0, Z+6	; 0x06
- 526:	f7 81       	ldd	r31, Z+7	; 0x07
- 528:	e0 2d       	mov	r30, r0
- 52a:	30 97       	sbiw	r30, 0x00	; 0
- 52c:	09 f0       	breq	.+2      	; 0x530 <__vector_11+0x36>
+ 438:	e0 91 60 00 	lds	r30, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 43c:	f0 91 61 00 	lds	r31, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 440:	06 80       	ldd	r0, Z+6	; 0x06
+ 442:	f7 81       	ldd	r31, Z+7	; 0x07
+ 444:	e0 2d       	mov	r30, r0
+ 446:	30 97       	sbiw	r30, 0x00	; 0
+ 448:	09 f0       	breq	.+2      	; 0x44c <__vector_11+0x36>
 		global_timer->Call_Back_Overflow();
- 52e:	09 95       	icall
+ 44a:	09 95       	icall
 	}
 }
- 530:	ff 91       	pop	r31
- 532:	ef 91       	pop	r30
- 534:	bf 91       	pop	r27
- 536:	af 91       	pop	r26
- 538:	9f 91       	pop	r25
- 53a:	8f 91       	pop	r24
- 53c:	7f 91       	pop	r23
- 53e:	6f 91       	pop	r22
- 540:	5f 91       	pop	r21
- 542:	4f 91       	pop	r20
- 544:	3f 91       	pop	r19
- 546:	2f 91       	pop	r18
- 548:	0f 90       	pop	r0
- 54a:	0f be       	out	0x3f, r0	; 63
- 54c:	0f 90       	pop	r0
- 54e:	1f 90       	pop	r1
- 550:	18 95       	reti
+ 44c:	ff 91       	pop	r31
+ 44e:	ef 91       	pop	r30
+ 450:	bf 91       	pop	r27
+ 452:	af 91       	pop	r26
+ 454:	9f 91       	pop	r25
+ 456:	8f 91       	pop	r24
+ 458:	7f 91       	pop	r23
+ 45a:	6f 91       	pop	r22
+ 45c:	5f 91       	pop	r21
+ 45e:	4f 91       	pop	r20
+ 460:	3f 91       	pop	r19
+ 462:	2f 91       	pop	r18
+ 464:	0f 90       	pop	r0
+ 466:	0f be       	out	0x3f, r0	; 63
+ 468:	0f 90       	pop	r0
+ 46a:	1f 90       	pop	r1
+ 46c:	18 95       	reti
 
-00000552 <__vector_10>:
+0000046e <__vector_10>:
 
 // ISR for Timer0 Compare Match
 ISR(TIMER0_COMP_vect) {
- 552:	1f 92       	push	r1
- 554:	0f 92       	push	r0
- 556:	0f b6       	in	r0, 0x3f	; 63
- 558:	0f 92       	push	r0
- 55a:	11 24       	eor	r1, r1
- 55c:	2f 93       	push	r18
- 55e:	3f 93       	push	r19
- 560:	4f 93       	push	r20
- 562:	5f 93       	push	r21
- 564:	6f 93       	push	r22
- 566:	7f 93       	push	r23
- 568:	8f 93       	push	r24
- 56a:	9f 93       	push	r25
- 56c:	af 93       	push	r26
- 56e:	bf 93       	push	r27
- 570:	ef 93       	push	r30
- 572:	ff 93       	push	r31
+ 46e:	1f 92       	push	r1
+ 470:	0f 92       	push	r0
+ 472:	0f b6       	in	r0, 0x3f	; 63
+ 474:	0f 92       	push	r0
+ 476:	11 24       	eor	r1, r1
+ 478:	2f 93       	push	r18
+ 47a:	3f 93       	push	r19
+ 47c:	4f 93       	push	r20
+ 47e:	5f 93       	push	r21
+ 480:	6f 93       	push	r22
+ 482:	7f 93       	push	r23
+ 484:	8f 93       	push	r24
+ 486:	9f 93       	push	r25
+ 488:	af 93       	push	r26
+ 48a:	bf 93       	push	r27
+ 48c:	ef 93       	push	r30
+ 48e:	ff 93       	push	r31
 	if (global_timer->Call_Back_Compare != NULL) {
- 574:	e0 91 60 00 	lds	r30, 0x0060	; 0x800060 <__data_end>
- 578:	f0 91 61 00 	lds	r31, 0x0061	; 0x800061 <__data_end+0x1>
- 57c:	00 84       	ldd	r0, Z+8	; 0x08
- 57e:	f1 85       	ldd	r31, Z+9	; 0x09
- 580:	e0 2d       	mov	r30, r0
- 582:	30 97       	sbiw	r30, 0x00	; 0
- 584:	09 f0       	breq	.+2      	; 0x588 <__vector_10+0x36>
+ 490:	e0 91 60 00 	lds	r30, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 494:	f0 91 61 00 	lds	r31, 0x0061	; 0x800061 <__DATA_REGION_ORIGIN__+0x1>
+ 498:	00 84       	ldd	r0, Z+8	; 0x08
+ 49a:	f1 85       	ldd	r31, Z+9	; 0x09
+ 49c:	e0 2d       	mov	r30, r0
+ 49e:	30 97       	sbiw	r30, 0x00	; 0
+ 4a0:	09 f0       	breq	.+2      	; 0x4a4 <__vector_10+0x36>
 		global_timer->Call_Back_Compare();
- 586:	09 95       	icall
+ 4a2:	09 95       	icall
 	}
 }
- 588:	ff 91       	pop	r31
- 58a:	ef 91       	pop	r30
- 58c:	bf 91       	pop	r27
- 58e:	af 91       	pop	r26
- 590:	9f 91       	pop	r25
- 592:	8f 91       	pop	r24
- 594:	7f 91       	pop	r23
- 596:	6f 91       	pop	r22
- 598:	5f 91       	pop	r21
- 59a:	4f 91       	pop	r20
- 59c:	3f 91       	pop	r19
- 59e:	2f 91       	pop	r18
- 5a0:	0f 90       	pop	r0
- 5a2:	0f be       	out	0x3f, r0	; 63
- 5a4:	0f 90       	pop	r0
- 5a6:	1f 90       	pop	r1
- 5a8:	18 95       	reti
+ 4a4:	ff 91       	pop	r31
+ 4a6:	ef 91       	pop	r30
+ 4a8:	bf 91       	pop	r27
+ 4aa:	af 91       	pop	r26
+ 4ac:	9f 91       	pop	r25
+ 4ae:	8f 91       	pop	r24
+ 4b0:	7f 91       	pop	r23
+ 4b2:	6f 91       	pop	r22
+ 4b4:	5f 91       	pop	r21
+ 4b6:	4f 91       	pop	r20
+ 4b8:	3f 91       	pop	r19
+ 4ba:	2f 91       	pop	r18
+ 4bc:	0f 90       	pop	r0
+ 4be:	0f be       	out	0x3f, r0	; 63
+ 4c0:	0f 90       	pop	r0
+ 4c2:	1f 90       	pop	r1
+ 4c4:	18 95       	reti
 
-000005aa <_exit>:
- 5aa:	f8 94       	cli
+000004c6 <_exit>:
+ 4c6:	f8 94       	cli
 
-000005ac <__stop_program>:
- 5ac:	ff cf       	rjmp	.-2      	; 0x5ac <__stop_program>
+000004c8 <__stop_program>:
+ 4c8:	ff cf       	rjmp	.-2      	; 0x4c8 <__stop_program>

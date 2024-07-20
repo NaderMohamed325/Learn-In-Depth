@@ -34,10 +34,12 @@ typedef enum {
 	EX_Rising,
 } T_clk_t;
 
-#define interrupt_Disable     0
-#define OverFlow_Interrupt    1
-#define Compare_Interrupt     2
-#define OverCompare_Interrupt 3
+typedef enum {
+	interrupt_Disable     = 0,
+	OverFlow_Interrupt    = 1,
+	Compare_Interrupt     = 2,
+	OverCompare_Interrupt = 3,
+} T_interrupt_status_t;
 
 typedef struct {
 	uint8_t Timer_Mode;
@@ -45,7 +47,7 @@ typedef struct {
 	uint8_t Precaller;
 	uint8_t Compare_Value;
 	uint8_t Force_Output_Pin;
-	uint8_t interrupt_status;
+	T_interrupt_status_t interrupt_status;
 	void (*Call_Back_Overflow)(void);
 	void (*Call_Back_Compare)(void);
 } Timer0_t;
@@ -53,5 +55,6 @@ typedef struct {
 bool Timer0_Init(Timer0_t *timer);
 uint8_t Timer_TCNT0_Get_value(void);
 void Timer_OCR0_Set_Compare_Value(uint8_t value);
+void Timer0_PWM_Init(uint8_t duty_cycle, T_OC0Pin_t output_mode, T_clk_t prescaler);
 
 #endif /* TIMER_H_ */
