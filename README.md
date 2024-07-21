@@ -27,7 +27,7 @@
 - Progress: ![Progress](https://progress-bar.dev/100)
 
 ### Unit 9: MCU Timers/ADC
-- Progress: ![Progress](https://progress-bar.dev/0)
+- Progress: ![Progress](https://progress-bar.dev/100)
 
 ### Unit 10: SW Testing/Validation
 - Progress: ![Progress](https://progress-bar.dev/0)
