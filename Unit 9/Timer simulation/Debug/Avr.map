@@ -110,16 +110,6 @@ Discarded input sections
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
- .text          0x00000000        0x0 MCAL/ADC/ADC.o
- .data          0x00000000        0x0 MCAL/ADC/ADC.o
- .bss           0x00000000        0x0 MCAL/ADC/ADC.o
- .debug_info    0x00000000       0x5d MCAL/ADC/ADC.o
- .debug_abbrev  0x00000000       0x26 MCAL/ADC/ADC.o
- .debug_aranges
-                0x00000000       0x18 MCAL/ADC/ADC.o
- .debug_line    0x00000000       0x1a MCAL/ADC/ADC.o
- .debug_str     0x00000000      0x170 MCAL/ADC/ADC.o
- .comment       0x00000000       0x31 MCAL/ADC/ADC.o
  .text          0x00000000        0x0 MCAL/gpio/gpio.o
  .data          0x00000000        0x0 MCAL/gpio/gpio.o
  .bss           0x00000000        0x0 MCAL/gpio/gpio.o
@@ -347,7 +337,6 @@ LOAD C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.7.374/gcc/
 LOAD ECU/Keypad/keypad.o
 LOAD ECU/Lcd/lcd.o
 LOAD main.o
-LOAD MCAL/ADC/ADC.o
 LOAD MCAL/gpio/gpio.o
 LOAD MCAL/I2C/I2C.o
 LOAD MCAL/SPI/SPI.o

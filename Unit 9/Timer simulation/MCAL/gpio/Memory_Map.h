@@ -210,36 +210,4 @@
 #define CS21   1  // Clock Select
 #define CS20   0  // Clock Select
 
-// ADC Registers
-#define ADMUX   *((volatile unsigned char *)0x27)  // ADC Multiplexer Selection Register
-#define ADCSRA  *((volatile unsigned char *)0x26)  // ADC Control and Status Register A
-#define ADCH    *((volatile unsigned char *)0x25)  // ADC Data Register High Byte
-#define ADCL    *((volatile unsigned char *)0x24)  // ADC Data Register Low Byte
-#define ADC     *((volatile unsigned short *)0x24) // ADC Data Register (16-bit)
-
-// Bit definitions for ADMUX
-#define REFS1   7  // Reference Selection Bit 1
-#define REFS0   6  // Reference Selection Bit 0
-#define ADLAR   5  // ADC Left Adjust Result
-#define MUX4    4  // Analog Channel Selection Bit 4
-#define MUX3    3  // Analog Channel Selection Bit 3
-#define MUX2    2  // Analog Channel Selection Bit 2
-#define MUX1    1  // Analog Channel Selection Bit 1
-#define MUX0    0  // Analog Channel Selection Bit 0
-
-// Bit definitions for ADCSRA
-#define ADEN    7  // ADC Enable
-#define ADSC    6  // ADC Start Conversion
-#define ADATE   5  // ADC Auto Trigger Enable
-#define ADIF    4  // ADC Interrupt Flag
-#define ADIE    3  // ADC Interrupt Enable
-#define ADPS2   2  // ADC Prescaler Select Bits
-#define ADPS1   1  // ADC Prescaler Select Bits
-#define ADPS0   0  // ADC Prescaler Select Bits
-
-
-// ADC Reference Voltage Selections
-#define ADC_REF_AREF       0x00
-#define ADC_REF_AVCC       0x01
-#define ADC_REF_INTERNAL   0x03
 #endif /* MEMORY_MAP_H_ */

@@ -126,10 +126,10 @@ int main(void) {
   ae:	0e 94 89 01 	call	0x312	; 0x312 <Pin_logic_init>
 
 	// Initialize Timer0 for PWM generation with 50% duty cycle
-	Timer0_PWM_Init(128, OC0_Clear, Prescaller_64);
+	Timer0_PWM_Init(220, OC0_Clear, Prescaller_64);
   b2:	43 e0       	ldi	r20, 0x03	; 3
   b4:	60 e2       	ldi	r22, 0x20	; 32
-  b6:	80 e8       	ldi	r24, 0x80	; 128
+  b6:	8c ed       	ldi	r24, 0xDC	; 220
   b8:	0e 94 e9 01 	call	0x3d2	; 0x3d2 <Timer0_PWM_Init>
   bc:	ff cf       	rjmp	.-2      	; 0xbc <main+0x2a>
 

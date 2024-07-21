@@ -156,6 +156,12 @@
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\ADC\ADC.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\ADC\ADC.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\gpio\gpio.c">
       <SubType>compile</SubType>
     </Compile>
@@ -200,6 +206,7 @@
     <Folder Include="MCAL" />
     <Folder Include="MCAL\gpio" />
     <Folder Include="MCAL\I2C" />
+    <Folder Include="MCAL\ADC" />
     <Folder Include="MCAL\Timer" />
     <Folder Include="MCAL\SPI" />
     <Folder Include="MCAL\UART" />

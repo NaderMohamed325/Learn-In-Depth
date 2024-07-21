@@ -8,8 +8,6 @@ ECU\Lcd\lcd.c
 
 main.c
 
-MCAL\ADC\ADC.c
-
 MCAL\gpio\gpio.c
 
 MCAL\I2C\I2C.c
