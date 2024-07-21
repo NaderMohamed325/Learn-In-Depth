@@ -9,6 +9,7 @@
 #define ADC_H_
 
 #include "../gpio/gpio.h"
+#include <avr/interrupt.h>
 
 // Voltage Reference Selections
 typedef enum {
@@ -75,5 +76,7 @@ typedef struct {
 
 void ADC_Init(ADC_t *adc);
 uint16_t Adc_Read_Result(ADC_t *adc);
+
+extern volatile uint16_t adc_result;
 
 #endif /* ADC_H_ */

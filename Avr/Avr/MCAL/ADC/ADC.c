@@ -6,6 +6,8 @@
  */
 #include "ADC.h"
 
+volatile uint16_t adc_result;
+
 /**
  * @brief Initializes the ADC with the given parameters.
  *
@@ -58,4 +60,12 @@ uint16_t Adc_Read_Result(ADC_t *adc) {
     
     // Read and return the ADC result
     return ADC;
+}
+
+/**
+ * @brief ADC Conversion Complete Interrupt Service Routine.
+ * This function is called when an ADC conversion is complete.
+ */
+ISR(ADC_vect) {
+    adc_result = ADC;
 }
