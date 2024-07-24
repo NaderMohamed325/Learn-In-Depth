@@ -1,0 +1,29 @@
+        -:    0:Source:main.c
+        -:    0:Graph:main.gcno
+        -:    0:Data:main.gcda
+        -:    0:Runs:2
+        -:    1:#include <stdio.h>
+function fun called 2 returned 100% blocks executed 100%
+        2:    2:void fun(){
+        -:    3:
+        2:    4:	printf("Yes");
+        2:    4-block  0
+call    0 returned 2
+        2:    5:}
+function main called 2 returned 100% blocks executed 80%
+        2:    6:int main(){
+        -:    7:
+        2:    8:	int i=3; 
+        2:    9:	if(i>2)
+        2:    9-block  0
+branch  0 taken 2 (fallthrough)
+branch  1 taken 0
+        2:   10:		fun();
+        2:   10-block  0
+call    0 returned 2
+        -:   11:	else
+    #####:   12:		printf("No");
+    %%%%%:   12-block  0
+call    0 never executed
+        -:   13:
+        -:   14:}
