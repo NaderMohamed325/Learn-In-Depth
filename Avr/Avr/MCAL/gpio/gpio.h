@@ -7,19 +7,20 @@
 
 #ifndef GPIO_H_
 #define GPIO_H_
-
+#define F_CPU 8000000UL
 #include "Memory_Map.h"
 #include "Utils.h"
 #include <avr/interrupt.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <util/delay.h>
+
 #define A 0
 #define B 1
 #define C 2
 #define D 3
 
-#define F_CPU 8000000UL
-#include <util/delay.h>
+
 void delay_ms(unsigned int ms);
 /**
  * @brief Standard return type for functions.

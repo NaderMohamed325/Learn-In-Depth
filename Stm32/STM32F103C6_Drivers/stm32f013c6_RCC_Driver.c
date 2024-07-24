@@ -80,6 +80,7 @@ uint32_t MCAL_RCC_GetSYS_CLCKFreq(void)
 	break;
 
 	}
+    return HSI_RC_Clk;
 
     }
 

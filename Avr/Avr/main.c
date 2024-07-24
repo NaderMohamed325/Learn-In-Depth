@@ -5,21 +5,38 @@
 * Author : Nader
 */
 
+#include "MCAL/Interrupt/Interrupt.h"
+#include "MCAL/UART/Uart.h"
 #include "MCAL/Timer/Timer.h"
 
+Pin_config_t P;
+Pin_config_t A1;
+void Fun(void);
 int main(void) {
-	// Configure the pin for PWM output
-	Pin_config_t Pin;
-	Pin.port = B;
-	Pin.pin = 3;
-	Pin.direction = Output;
-	Pin.logic = Low;
-	Pin_logic_init(&Pin);
 
-	// Initialize Timer0 for PWM generation with 50% duty cycle
-	Timer0_PWM_Init(128, OC0_Clear, Prescaller_64);
+	ExtInterrupt_Init(EXT_INT0,RISING_EDGE);
+	ExtInterrupt_Enable(EXT_INT0);
 
+	P.direction=Input;
+	P.logic=Low;
+	P.pin=2;
+	P.port=D;
+	
+	
+	A1.direction=Output;
+	A1.logic=High;
+	A1.pin=2;
+	A1.port=C;
+	Pin_logic_init(&A1);
+	ExtInterrupt_SetCallback(EXT_INT0,Fun);
+	// Main loop
 	while (1) {
-		// Main loop
+		
 	}
+
+	return 0;
+}
+
+void Fun(void){
+	Pin_Toggle(&A1);
 }

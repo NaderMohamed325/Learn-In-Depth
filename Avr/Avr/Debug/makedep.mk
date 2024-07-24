@@ -14,6 +14,8 @@ MCAL\gpio\gpio.c
 
 MCAL\I2C\I2C.c
 
+MCAL\Interrupt\Interrupt.c
+
 MCAL\SPI\SPI.c
 
 MCAL\Timer\Timer.c

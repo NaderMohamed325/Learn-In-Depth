@@ -47,6 +47,7 @@
 #define EXTI_BASE                            (Peripherals_BASE + 0x00010400UL)
 #define USART1_BASE                          (Peripherals_BASE + 0x00013800UL)
 #define SPI1_BASE 			     (Peripherals_BASE + 0x00013000UL)
+#define ADC1_BASE			     (Peripherals_BASE + 0x00012400UL)
 ///-------------------------------------------------------------------------///
 // Base addresses for APB1 Peripherals
 #define I2C1_BASE			     (Peripherals_BASE + 0x00005400UL)
@@ -135,6 +136,29 @@ typedef struct {
     volatile uint32_t I2C_TRISE;
 
 }I2C_TypeDef;
+
+typedef struct {
+    volatile uint32_t SR;
+    volatile uint32_t CR1;
+    volatile uint32_t CR2;
+    volatile uint32_t SMPR1;
+    volatile uint32_t SMPR2;
+    volatile uint32_t JOFR1;
+    volatile uint32_t JOFR2;
+    volatile uint32_t JOFR3;
+    volatile uint32_t JOFR4;
+    volatile uint32_t HTR;
+    volatile uint32_t LTR;
+    volatile uint32_t SQR1;
+    volatile uint32_t SQR2;
+    volatile uint32_t SQR3;
+    volatile uint32_t JSQR;
+    volatile uint32_t JDR1;
+    volatile uint32_t JDR2;
+    volatile uint32_t JDR3;
+    volatile uint32_t JDR4;
+    volatile uint32_t DR;
+}ADC_TypeDef;
 ///---------------------------------------------------------------///
 // Peripheral instances
 #define GPIOA                         ((GPIO_TypeDef *)GPIOA_BASE)
@@ -156,6 +180,8 @@ typedef struct {
 ///---------------------------------------------------------------///
 #define I2C1			      ((I2C_TypeDef*)I2C1_BASE)
 #define I2C2			      ((I2C_TypeDef*)I2C2_BASE)
+///---------------------------------------------------------------///
+#define ADC1 			      ((ADC_TypeDef*)(ADC1_BASE)
 ///---------------------------------------------------------------///
 // Enable clock GPIO
 #define RCC_GPIOA_CLK_EN()            (RCC->APB2ENR |= (1 << 2))
@@ -183,11 +209,19 @@ typedef struct {
 #define RCC_SPI1_Reset()              (RCC->APB2RSTR |= (1 << 12))
 #define RCC_SPI2_Reset()              (RCC->APB1RSTR |= (1 << 14))
 ///---------------------------------------------------------------///
+/// // Enable I2C Clock
 #define RCC_I2C1_CLK_EN()           (RCC->APB1ENR |= (1 << 21))
 #define RCC_I2C2_CLK_EN()           (RCC->APB1ENR |= (1 << 22))
 ///---------------------------------------------------------------///
+/// // Reset I2C
 #define RCC_I2C1_Reset()            (RCC->APB2RSTR |= (1 << 21))
 #define RCC_I2C2_Reset()            (RCC->APB1RSTR |= (1 << 20))
+///---------------------------------------------------------------///
+/// // Enable ADC Clock
+#define RCC_ADC1_CLK_EN()           (RCC->APB2ENR |= (1 << 9))
+///---------------------------------------------------------------///
+/// // Reset ADC
+#define RCC_ADC1_Reset()            (RCC->APB2RSTR |= (1 << 9))
 ///---------------------------------------------------------------///
 // EXTI IRQ numbers
 #define EXTI0_IRQ                     6
@@ -218,8 +252,8 @@ typedef struct {
 #define I2C1_ER_IRQ                  32
 #define I2C2_EV_IRQ                  33
 #define I2C2_ER_IRQ                  34
-
-
+///-----------------------------------------///
+#define ADC12_IRQ		     18
 
 
 
@@ -267,9 +301,9 @@ typedef struct {
 #define NVIC_IRQ32_I2C1_EV_Disable()    (NVIC_ICER1 |=  (1<<0))
 #define NVIC_IRQ33_I2C2_EV_Disable()    (NVIC_ICER1 |=  (1<<1))
 #define NVIC_IRQ34_I2C2_EV_Disable()    (NVIC_ICER1 |=  (1<<2))
-
-
-
+///-------------------------------------------------------------------------///
+#define NVIC_IRQ18_ADC_Enable()     (NVIC_ISER0 |=  (1<<18))
+#define NVIC_IRQ18_ADC_Disable()    (NVIC_ICER0 |=  (1<<18))
 
 
 /********************************************************/

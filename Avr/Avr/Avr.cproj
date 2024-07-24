@@ -180,6 +180,12 @@
     <Compile Include="MCAL\I2C\I2C.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="MCAL\Interrupt\Interrupt.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="MCAL\Interrupt\Interrupt.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="MCAL\SPI\SPI.c">
       <SubType>compile</SubType>
     </Compile>
@@ -207,6 +213,7 @@
     <Folder Include="MCAL\gpio" />
     <Folder Include="MCAL\I2C" />
     <Folder Include="MCAL\ADC" />
+    <Folder Include="MCAL\Interrupt" />
     <Folder Include="MCAL\Timer" />
     <Folder Include="MCAL\SPI" />
     <Folder Include="MCAL\UART" />
