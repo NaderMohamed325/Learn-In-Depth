@@ -30,7 +30,7 @@
 - Progress: ![Progress](https://progress-bar.dev/100)
 
 ### Unit 10: SW Testing/Validation
-- Progress: ![Progress](https://progress-bar.dev/0)
+- Progress: ![Progress](https://progress-bar.dev/100)
 
 ## Third Term
 ### Unit 12: Advanced Topics
