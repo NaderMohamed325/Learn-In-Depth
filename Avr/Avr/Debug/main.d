@@ -1,7 +1,5 @@
-main.d main.o: .././main.c .././MCAL/Interrupt/Interrupt.h \
- .././MCAL/Interrupt/../gpio/gpio.h \
- .././MCAL/Interrupt/../gpio/Memory_Map.h \
- .././MCAL/Interrupt/../gpio/Utils.h \
+main.d main.o: .././main.c .././MCAL/gpio/gpio.h \
+ .././MCAL/gpio/Memory_Map.h .././MCAL/gpio/Utils.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
@@ -20,19 +18,13 @@ main.d main.o: .././main.c .././MCAL/Interrupt/Interrupt.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdarg.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././MCAL/UART/Uart.h .././MCAL/UART/../gpio/gpio.h \
- .././MCAL/Timer/Timer.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h \
- .././MCAL/Timer/../gpio/gpio.h
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
 
-.././MCAL/Interrupt/Interrupt.h:
+.././MCAL/gpio/gpio.h:
 
-.././MCAL/Interrupt/../gpio/gpio.h:
+.././MCAL/gpio/Memory_Map.h:
 
-.././MCAL/Interrupt/../gpio/Memory_Map.h:
-
-.././MCAL/Interrupt/../gpio/Utils.h:
+.././MCAL/gpio/Utils.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h:
 
@@ -71,13 +63,3 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
-
-.././MCAL/UART/Uart.h:
-
-.././MCAL/UART/../gpio/gpio.h:
-
-.././MCAL/Timer/Timer.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdbool.h:
-
-.././MCAL/Timer/../gpio/gpio.h:

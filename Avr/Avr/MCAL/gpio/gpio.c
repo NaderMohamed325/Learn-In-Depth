@@ -217,6 +217,124 @@ Std_return Pin_write(Pin_config_t *pin,Logic_t volt){
 	return ROK;
 }
 
+/**
+ * @brief Sets the entire port to a specific value.
+ */
+Std_return Port_Set(char port, uint8_t value) {
+    switch (port) {
+        case A:
+            PORTA = value;
+            break;
+        case B:
+            PORTB = value;
+            break;
+        case C:
+            PORTC = value;
+            break;
+        case D:
+            PORTD = value;
+            break;
+        default:
+            return NOK;
+    }
+    return ROK;
+}
+
+/**
+ * @brief Clears the entire port (sets all pins to low).
+ */
+Std_return Port_Clear(char port) {
+    switch (port) {
+        case A:
+            PORTA = 0x00;
+            break;
+        case B:
+            PORTB = 0x00;
+            break;
+        case C:
+            PORTC = 0x00;
+            break;
+        case D:
+            PORTD = 0x00;
+            break;
+        default:
+            return NOK;
+    }
+    return ROK;
+}
+
+/**
+ * @brief Toggles the entire port (inverts all pin values).
+ */
+Std_return Port_Toggle(char port) {
+    switch (port) {
+        case A:
+            PORTA ^= 0xFF;
+            break;
+        case B:
+            PORTB ^= 0xFF;
+            break;
+        case C:
+            PORTC ^= 0xFF;
+            break;
+        case D:
+            PORTD ^= 0xFF;
+            break;
+        default:
+            return NOK;
+    }
+    return ROK;
+}
+
+/**
+ * @brief Reads the current value of the port.
+ */
+Std_return Port_Read(char port, uint8_t *value) {
+    if (value == NULL) {
+        return NOK;
+    }
+    
+    switch (port) {
+        case A:
+            *value = PINA;
+            break;
+        case B:
+            *value = PINB;
+            break;
+        case C:
+            *value = PINC;
+            break;
+        case D:
+            *value = PIND;
+            break;
+        default:
+            return NOK;
+    }
+    return ROK;
+}
+
+/**
+ * @brief Sets the direction of the entire port (input or output).
+ */
+Std_return Port_Direction(char port, Direction_t direction) {
+    switch (port) {
+        case A:
+            DDRA = (direction == Output) ? 0xFF : 0x00;
+            break;
+        case B:
+            DDRB = (direction == Output) ? 0xFF : 0x00;
+            break;
+        case C:
+            DDRC = (direction == Output) ? 0xFF : 0x00;
+            break;
+        case D:
+            DDRD = (direction == Output) ? 0xFF : 0x00;
+            break;
+        default:
+            return NOK;
+    }
+    return ROK;
+}
 //void delay_ms(unsigned int ms) {
 //	while (ms--) {
 		//__builtin_avr_delay_cycles(F_CPU / 1000);
