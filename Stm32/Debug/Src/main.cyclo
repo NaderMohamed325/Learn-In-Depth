@@ -1,1 +1,7 @@
-../Src/main.c:22:5:main	1
+../Src/main.c:60:6:EXTI9_CALLBACK	2
+../Src/main.c:38:6:Switch_CPU_Access_level	3
+../Src/main.c:74:5:TaskA	1
+../Src/main.c:79:5:TaskB	1
+../Src/main.c:83:6:SVC_Handler	1
+../Src/main.c:87:6:MainOs	3
+../Src/main.c:123:5:main	0
