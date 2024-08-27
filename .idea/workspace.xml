@@ -3,49 +3,16 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="CMakeProjectFlavorService">
+    <option name="flavorId" value="CMakePlainProjectFlavor" />
+  </component>
   <component name="CMakeSettings">
     <configurations>
       <configuration PROFILE_NAME="Debug" ENABLED="true" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee18ea86-edda-4dc8-98a0-ddf808497e9e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Arm Master/ARM_Course/Debug/Stm32_F103C6_Drivers/GPIO/stm32f103x8_gpio_driver.su" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Avr/.vs/Avr/v14/.atsuo" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/.vs/Avr/v14/.atsuo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.elf" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.elf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.hex" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.hex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.lss" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.lss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.map" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.srec" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.srec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Avr/Avr/Debug/main.d" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/Avr/Debug/main.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Avr/Avr/Debug/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/Avr/Debug/main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Avr/Avr/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/Avr/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CAN Protocol/Case_Study_One_Polling/.cproject" beforeDir="false" afterPath="$PROJECT_DIR$/CAN Protocol/Case_Study_One_Polling/.cproject" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CAN Protocol/Case_Study_One_Polling/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CAN Protocol/Case_Study_One_Polling/.settings/language.settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CAN Protocol/Case_Study_One_Polling/Core/Src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/CAN Protocol/Case_Study_One_Polling/Core/Src/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Keil/DebugConfig/Target_1_STM32F103C6_1.0.0.dbgconf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Keil/EventRecorderStub.scvd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Keil/SPI_!.uvguix.xcite" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Keil/SPI_!.uvoptx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Keil/SPI_!.uvprojx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stm32/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/.settings/language.settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stm32/Debug/STM32F103C6_Drivers/subdir.mk" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/STM32F103C6_Drivers/subdir.mk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stm32/Debug/Src/main.cyclo" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/Src/main.cyclo" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stm32/Debug/Src/main.d" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/Src/main.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stm32/Debug/Src/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/Src/main.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stm32/Debug/Src/main.su" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/Src/main.su" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stm32/Debug/Stm32.elf" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/Stm32.elf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stm32/Debug/Stm32.list" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/Stm32.list" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stm32/Debug/Stm32.map" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/Stm32.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stm32/Debug/objects.list" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/objects.list" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Stm32/Stm32.launch" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Stm32.launch" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unit 6/lesson 3/lap_1/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 6/lesson 3/lap_1/.settings/language.settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unit 6/lesson 3/lap_2/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 6/lesson 3/lap_2/.settings/language.settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unit 6/lesson 4/lap_1/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 6/lesson 4/lap_1/.settings/language.settings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Unit 7/Lec_1/lap_1/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 7/Lec_1/lap_1/.settings/language.settings.xml" afterDir="false" />
-    </list>
+    <list default="true" id="ee18ea86-edda-4dc8-98a0-ddf808497e9e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -136,6 +103,7 @@
       <workItem from="1714854388693" duration="1000" />
       <workItem from="1724441601629" duration="3444000" />
       <workItem from="1724499273753" duration="1451000" />
+      <workItem from="1724509880662" duration="33000" />
     </task>
     <servers />
   </component>
