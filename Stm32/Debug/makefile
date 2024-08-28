@@ -43,9 +43,7 @@ BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ART
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-    Stm32.elf \
-
-
+Stm32.elf \
 
 MAP_FILES += \
 Stm32.map \
@@ -58,8 +56,6 @@ Stm32.list \
 
 OBJCOPY_HEX += \
 Stm32.hex \
-Stm32.axf \
-Stm32.s \
 
 
 # All Target
@@ -88,17 +84,6 @@ Stm32.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	arm-none-eabi-objcopy  -O ihex $(EXECUTABLES) "Stm32.hex"
 	@echo 'Finished building: $@'
 	@echo ' '
-	
-Stm32.axf: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objcopy   $(EXECUTABLES) "Stm32.axf"
-	@echo 'Finished building: $@'
-	@echo ' '	
-
-Stm32.s: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump  -D Stm32.elf > Stm32.s
-	@echo 'Finished building: $@'
-	@echo 	
-	
 
 # Other Targets
 clean:

@@ -15,8 +15,9 @@
  *
  ******************************************************************************
  */
+#include "ARMCM3.h"
 #include "../STM32F103C6_Drivers/inc/stm32f103c6_EXTI_Driver.h"
-
+#include "core_cm3.h"
 #define TaskA_Stack_Size 100
 #define TaskB_Stack_Size 100
 extern unsigned int _estack;
@@ -80,10 +81,7 @@ int TaskB(int a, int b, int c)
     {
     return a + b + c;
     }
-void SVC_Handler()
-    {
-    Switch_CPU_Access_level(privilged);
-    }
+
 void MainOs(void)
     {
     _E_MSP = _S_MSP - 512;
@@ -120,25 +118,59 @@ void MainOs(void)
 	}
     }
 
+int OS_SVC_Set(int a, int b, int SVC_ID)
+    {
+    int result;
+    switch (SVC_ID)
+	{
+    case 1:
+	__asm("svc #0x01");
+	break;
+    case 2:
+	__asm("svc #0x02");
+	break;
+    case 3:
+	__asm("svc #0x03");
+	break;
+    default:
+	break;
+	}
+    }
+void OS_SVC_services(int *Stack_Frame){
+
+}
+__attribute((naked)) void SVC_Handler()
+    {
+
+    __asm("tst lr ,#4\n\t"
+	    "ITE EQ \n\t"
+	    "mrseq r0,MSP\n\t"
+	    "mrsne r0,PSP\n\t"
+	    "B OS_SVC_services");
+
+    }
 int main(void)
     {
     RCC_GPIOB_CLK_EN();
     RCC_AFIO_CLK_EN();
 
     // Set EXTI Configuration
-    EXTI_PinConfig_t EXTIConfig;
-    EXTIConfig.EXI_Pin = EXTI9PB9
-    ;
-    EXTIConfig.Trigger_Case = EXTI_Trigger_RISING;
-    EXTIConfig.P_IRQ_CallBack = EXTI9_CALLBACK;
-    EXTIConfig.IRQ_EN = EXTI_IRQ_Enable;
-    MCAL_EXTI_GPIO_Init(&EXTIConfig);
+//    EXTI_PinConfig_t EXTIConfig;
+//    EXTIConfig.EXI_Pin = EXTI9PB9
+//    ;
+//    EXTIConfig.Trigger_Case = EXTI_Trigger_RISING;
+//    EXTIConfig.P_IRQ_CallBack = EXTI9_CALLBACK;
+//    EXTIConfig.IRQ_EN = EXTI_IRQ_Enable;
+//    MCAL_EXTI_GPIO_Init(&EXTIConfig);
 
-    // Initialize IRQ_Flag
+// Initialize IRQ_Flag
     IRQ_Flag = 1;
 
-    // Start the OS
-    MainOs();
+//    // Start the OS
+//    MainOs();
+    IRQ_Flag = OS_SVC_Set(3, 3, 1);
+    IRQ_Flag = OS_SVC_Set(3, 3, 2);
+    IRQ_Flag = OS_SVC_Set(3, 3, 3);
 
     while (1)
 	{
