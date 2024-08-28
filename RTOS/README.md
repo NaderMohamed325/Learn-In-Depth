@@ -33,10 +33,3 @@ This project demonstrates the implementation of a Real-Time Operating System (RT
    - **ISR (Interrupt Service Routines):** Implement ISRs for handling asynchronous events.
    - **Deferred Interrupt Handling:** Defer complex processing from an ISR to a task to keep the ISR short.
 
-## Project Structure
-- **/src**: Contains the source code for the RTOS kernel and example tasks.
-- **/include**: Header files defining the RTOS APIs, data structures, and constants.
-- **/docs**: Documentation for the RTOS, including usage examples and API reference.
-- **/tests**: Unit tests and integration tests for validating the RTOS functionality.
-- **/examples**: Sample applications demonstrating the use of the RTOS in various scenarios.
-
