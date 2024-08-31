@@ -24,6 +24,7 @@ C_DEPS :=
 # Every subdirectory with source files must be described here
 SUBDIRS := \
 HAL \
+RTOS \
 STM32F103C6_Drivers/GPIO \
 STM32F103C6_Drivers \
 Src \

@@ -23,13 +23,13 @@
 #define Cortex_M3_Internal_Peripherals_BASE  0xE0000000UL
 ///-------------------------------------------------------------------------///
 // NVIC base addresses and registers
-#define NVIC_BASE                            0xE000E100UL
-#define NVIC_ISER0                           *(volatile uint32_t *)(NVIC_BASE + 0x0)
-#define NVIC_ISER1                           *(volatile uint32_t *)(NVIC_BASE + 0x4)
-#define NVIC_ISER2                           *(volatile uint32_t *)(NVIC_BASE + 0x8)
-#define NVIC_ICER0                           *(volatile uint32_t *)(NVIC_BASE + 0x80)
-#define NVIC_ICER1                           *(volatile uint32_t *)(NVIC_BASE + 0x84)
-#define NVIC_ICER2                           *(volatile uint32_t *)(NVIC_BASE + 0x88)
+#define NVIC_BASE_                            0xE000E100UL
+#define NVIC_ISER0                           *(volatile uint32_t *)(NVIC_BASE_ + 0x0)
+#define NVIC_ISER1                           *(volatile uint32_t *)(NVIC_BASE_ + 0x4)
+#define NVIC_ISER2                           *(volatile uint32_t *)(NVIC_BASE_ + 0x8)
+#define NVIC_ICER0                           *(volatile uint32_t *)(NVIC_BASE_ + 0x80)
+#define NVIC_ICER1                           *(volatile uint32_t *)(NVIC_BASE_ + 0x84)
+#define NVIC_ICER2                           *(volatile uint32_t *)(NVIC_BASE_ + 0x88)
 ///-------------------------------------------------------------------------///
 // Base addresses for AHB Peripherals
 #define RCC_BASE                             (Peripherals_BASE + 0x00021000UL)

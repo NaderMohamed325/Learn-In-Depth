@@ -12,7 +12,44 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee18ea86-edda-4dc8-98a0-ddf808497e9e" name="Changes" comment="" />
+    <list default="true" id="ee18ea86-edda-4dc8-98a0-ddf808497e9e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Avr/.vs/Avr/v14/.atsuo" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/.vs/Avr/v14/.atsuo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.elf" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.elf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.hex" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.hex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.lss" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.lss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.map" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.srec" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/Avr/Debug/Avr.srec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Avr/Avr/Debug/main.d" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/Avr/Debug/main.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Avr/Avr/Debug/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/Avr/Debug/main.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Avr/Avr/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/Avr/Avr/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CAN Protocol/Case_Study_One_Polling/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/CAN Protocol/Case_Study_One_Polling/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/.cproject" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/.cproject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Debug/HAL/keypad.o" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/HAL/keypad.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Debug/HAL/lcd.o" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/HAL/lcd.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Debug/HAL/subdir.mk" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/HAL/subdir.mk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Debug/STM32F103C6_Drivers/GPIO/subdir.mk" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/STM32F103C6_Drivers/GPIO/subdir.mk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Debug/STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.o" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/STM32F103C6_Drivers/stm32f103c6_EXTI_Driver.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Debug/STM32F103C6_Drivers/subdir.mk" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/STM32F103C6_Drivers/subdir.mk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Debug/Src/main.cyclo" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/Src/main.cyclo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Debug/Src/main.d" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/Src/main.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Debug/Src/main.o" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/Src/main.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Debug/Src/main.su" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/Src/main.su" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Debug/Src/subdir.mk" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/Src/subdir.mk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Debug/Stm32.elf" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/Stm32.elf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Debug/Stm32.list" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/Stm32.list" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Debug/Stm32.map" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/Stm32.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Debug/makefile" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Debug/objects.list" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/objects.list" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Debug/sources.mk" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Debug/sources.mk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/STM32F103C6_Drivers/inc/stm32f103x6.h" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/STM32F103C6_Drivers/inc/stm32f103x6.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Stm32/Src/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/Stm32/Src/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unit 6/lesson 3/lap_1/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 6/lesson 3/lap_1/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unit 6/lesson 3/lap_2/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 6/lesson 3/lap_2/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unit 6/lesson 4/lap_1/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 6/lesson 4/lap_1/.settings/language.settings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Unit 7/Lec_1/lap_1/.settings/language.settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Unit 7/Lec_1/lap_1/.settings/language.settings.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,12 +67,12 @@
     &quot;assignee&quot;: &quot;NaderMohamed325&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/NaderMohamed325/Learn-In-Depth.git&quot;,
-    &quot;accountId&quot;: &quot;74d80940-85e7-412e-970c-ac0ec93ca9cc&quot;
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/NaderMohamed325/Learn-In-Depth.git",
+    "accountId": "d1676d4b-a726-4a36-a721-ec1dff6eb4f4"
   }
-}</component>
+}]]></component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -51,31 +88,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;C/C++ File.Ex3.c.executor&quot;: &quot;Run&quot;,
-    &quot;C/C++ File.Ex4.c.executor&quot;: &quot;Run&quot;,
-    &quot;C/C++ File.Ex5.c.executor&quot;: &quot;Run&quot;,
-    &quot;Makefile Target.Makefile.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
-    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;deletionFromPopupRequiresConfirmation&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/xcite/OneDrive/Desktop/Learn in depth/Arm Master/ARM_Course/Debug/makefile&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "C/C++ File.Ex3.c.executor": "Run",
+    "C/C++ File.Ex4.c.executor": "Run",
+    "C/C++ File.Ex5.c.executor": "Run",
+    "Makefile Target.Makefile.executor": "Run",
+    "Python.snake.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "cf.first.check.clang-format": "false",
+    "cidr.known.project.marker": "true",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/xcite/OneDrive/Desktop/Learn in depth/Arm Master/ARM_Course/Debug/makefile",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="Makefile" type="MAKEFILE_TARGET_RUN_CONFIGURATION" factoryName="Makefile">
       <makefile filename="C:\Users\xcite\OneDrive\Desktop\Learn in depth\Arm Master\ARM_Course\Debug\makefile" target="" workingDirectory="" arguments="">
@@ -83,6 +121,14 @@
       </makefile>
       <method v="2" />
     </configuration>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-410509235cf1-JavaScript-PY-242.20224.347" />
+        <option value="bundled-python-sdk-c2d6afa66fbe-39cff9de6eef-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-242.20224.347" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -104,6 +150,7 @@
       <workItem from="1724441601629" duration="3444000" />
       <workItem from="1724499273753" duration="1451000" />
       <workItem from="1724509880662" duration="33000" />
+      <workItem from="1725107943525" duration="663000" />
     </task>
     <servers />
   </component>
@@ -112,5 +159,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/snake_py$snake.coverage" NAME="snake Coverage Results" MODIFIED="1725108343075" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Stm32/Debug" />
   </component>
 </project>
