@@ -1,0 +1,5 @@
+../RTOS/RTOS_FIFO.c:12:15:FIFO_init	0	static
+../RTOS/RTOS_FIFO.c:29:15:FIFO_enqueue	0	static
+../RTOS/RTOS_FIFO.c:59:15:FIFO_dequeue	0	static
+../RTOS/RTOS_FIFO.c:87:15:FIFO_is_full	0	static
+../RTOS/RTOS_FIFO.c:99:6:FIFO_print	0	static

@@ -38,13 +38,13 @@ $(wildcard ../makefile.targets) \
 
 
 BUILD_ARTIFACT_NAME := Stm32
-BUILD_ARTIFACT_EXTENSION := elf
+BUILD_ARTIFACT_EXTENSION := axf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-Stm32.elf \
+Stm32.axf \
 
 MAP_FILES += \
 Stm32.map \
@@ -63,11 +63,11 @@ Stm32.hex \
 all: main-build
 
 # Main-build Target
-main-build: Stm32.elf secondary-outputs
+main-build: Stm32.axf secondary-outputs
 
 # Tool invocations
-Stm32.elf Stm32.map: $(OBJS) $(USER_OBJS) C:\Users\xcite\OneDrive\Desktop\Learn\ in\ depth\Stm32\STM32F103C6TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -gdwarf-2 -o "Stm32.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\xcite\OneDrive\Desktop\Learn in depth\Stm32\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+Stm32.axf Stm32.map: $(OBJS) $(USER_OBJS) C:\Users\xcite\OneDrive\Desktop\Learn\ in\ depth\Stm32\STM32F103C6TX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -gdwarf-2 -o "Stm32.axf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"C:\Users\xcite\OneDrive\Desktop\Learn in depth\Stm32\STM32F103C6TX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Stm32.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -88,7 +88,7 @@ Stm32.hex: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 
 # Other Targets
 clean:
-	-$(RM) Stm32.elf Stm32.hex Stm32.list Stm32.map default.size.stdout
+	-$(RM) Stm32.axf Stm32.hex Stm32.list Stm32.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_HEX)

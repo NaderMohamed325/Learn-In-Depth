@@ -1,0 +1,5 @@
+../RTOS/RTOS_FIFO.c:12:15:FIFO_init	2
+../RTOS/RTOS_FIFO.c:29:15:FIFO_enqueue	6
+../RTOS/RTOS_FIFO.c:59:15:FIFO_dequeue	5
+../RTOS/RTOS_FIFO.c:87:15:FIFO_is_full	4
+../RTOS/RTOS_FIFO.c:99:6:FIFO_print	1

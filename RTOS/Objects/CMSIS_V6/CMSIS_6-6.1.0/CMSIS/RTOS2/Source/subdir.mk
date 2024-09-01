@@ -1,0 +1,33 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+# Toolchain: GNU Tools for STM32 (12.3.rel1)
+################################################################################
+
+# Add inputs and outputs from these tool invocations to the build variables 
+C_SRCS += \
+../CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_systick.c \
+../CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_tick_gtim.c \
+../CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_tick_ptim.c 
+
+OBJS += \
+./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_systick.o \
+./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_tick_gtim.o \
+./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_tick_ptim.o 
+
+C_DEPS += \
+./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_systick.d \
+./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_tick_gtim.d \
+./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_tick_ptim.d 
+
+
+# Each subdirectory must supply rules for building sources it contributes
+CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/%.o CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/%.su CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/%.cyclo: ../CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/%.c CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/subdir.mk
+	arm-none-eabi-gcc -gdwarf-2 "$<" -mcpu=cortex-m3 -std=gnu11 -g3 -DDEBUG -DSTM32 -DSTM32F1 -DSTM32F103C6Tx -c -I../Inc -I"C:/Users/xcite/OneDrive/Desktop/Learn in depth/Stm32/CMSIS_V6/CMSIS_6-6.1.0/CMSIS/Core/Include" -I"C:/Users/xcite/OneDrive/Desktop/Learn in depth/Stm32/STM32F103C6_Drivers/inc" -Og -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"$(@:%.o=%.d)" -MT"$@" --specs=nano.specs -mfloat-abi=soft -mthumb -o "$@"
+
+clean: clean-CMSIS_V6-2f-CMSIS_6-2d-6-2e-1-2e-0-2f-CMSIS-2f-RTOS2-2f-Source
+
+clean-CMSIS_V6-2f-CMSIS_6-2d-6-2e-1-2e-0-2f-CMSIS-2f-RTOS2-2f-Source:
+	-$(RM) ./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_systick.cyclo ./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_systick.d ./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_systick.o ./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_systick.su ./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_tick_gtim.cyclo ./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_tick_gtim.d ./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_tick_gtim.o ./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_tick_gtim.su ./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_tick_ptim.cyclo ./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_tick_ptim.d ./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_tick_ptim.o ./CMSIS_V6/CMSIS_6-6.1.0/CMSIS/RTOS2/Source/os_tick_ptim.su
+
+.PHONY: clean-CMSIS_V6-2f-CMSIS_6-2d-6-2e-1-2e-0-2f-CMSIS-2f-RTOS2-2f-Source
+

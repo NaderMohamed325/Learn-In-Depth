@@ -1,0 +1,6 @@
+../RTOS/CortexMX_Os_Porting.c:10:6:HardFault_Handler	0	static
+../RTOS/CortexMX_Os_Porting.c:15:6:MemManage_Handler	0	static
+../RTOS/CortexMX_Os_Porting.c:20:6:BusFault_Handler	0	static
+../RTOS/CortexMX_Os_Porting.c:25:6:UsageFault_Handlerr	0	static
+../RTOS/CortexMX_Os_Porting.c:31:28:SVC_Handler	0	static,ignoring_inline_asm
+../RTOS/CortexMX_Os_Porting.c:45:6:Hw_Init	0	static

@@ -17,7 +17,9 @@
 #define OS_Switch_to_privilged()   __asm("mrs r3, CONTROL \n\t lsr r3, r3, #0x01 \n\t lsr r3, r3, #0x01 \n\t msr CONTROL , r3")
 #define OS_Switch_to_unprivilged() __asm("mrs r3, CONTROL \n\t orr r3, r3, #0x01 \n\t msr CONTROL , r3")
 
-
+extern  unsigned int _estack ;
+extern  unsigned int _eheap  ;
+#define Main_Stack_Size 3072
 
 
 

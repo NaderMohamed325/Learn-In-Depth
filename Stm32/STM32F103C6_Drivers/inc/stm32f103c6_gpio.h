@@ -7,7 +7,7 @@
 
 #ifndef STM32F103C6_GPIO_H_
 #define STM32F103C6_GPIO_H_
-
+#include <stdbool.h>
 // Includes
 #include "stm32f103x6.h"
 
